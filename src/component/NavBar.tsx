@@ -3,7 +3,7 @@ import FilledButton from "./FilledButton";
 
 const NavBar = () => {
     return(
-<div className="flex flex-row justify-between items-center py-2 px-3 text-[15px] bg-[#E8E8E833] border border-[#E5E7F7] w-full max-w-250  rounded-lg my-10 mx-auto">
+<div className="flex flex-row justify-between items-center py-2 px-3 text-[15px] bg-[#E8E8E833] border border-[#E5E7F7] w-full max-w-250  rounded-lg my-8 mx-auto">
             <div>
                 {Icons.logo}
             </div>
