@@ -4,7 +4,7 @@ const Footer = () => {
     return(
         <div 
             className="bg-cover bg-center bg-no-repeat min-h-130 w-full mt-55"
-            style={{ backgroundImage: `url('/src/assets/Footer/bg (2).png')` }}
+            style={{ backgroundImage: `url('/bg (2).png')` }}
         >
             <div className="max-w-7xl mx-auto px-20 pt-20">
 
