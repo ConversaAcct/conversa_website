@@ -8,7 +8,7 @@ interface GhostButtonProps {
 const FilledButton = (ghostButtonProps : GhostButtonProps) => {
   return(
     <button type="submit" style={{color : ghostButtonProps.textColor, backgroundColor : ghostButtonProps.bgColor}} 
-    className="w-30 h-10 rounded-lg text-[12px] cursor-pointer">
+    className="w-30 h-10 rounded-lg text-[13px] cursor-pointer">
          {ghostButtonProps.text}
     </button>
   )
