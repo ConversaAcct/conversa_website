@@ -72,7 +72,7 @@ const Footer = () => {
     Sernio AI 2026
   </div>
 
-  <div className="flex flex-row items-center gap-20 text-[#ADA6BB] text-[14px] mr-100">
+  <div className="flex flex-row items-center gap-20 font-light text-[#ADA6BB] text-[14px] mr-100">
     <span>Terms of Service</span>
     <span>Privacy Policy</span>
   </div>

@@ -1,15 +1,11 @@
-interface GhostButtonProps {
-  textColor : string
-  text : string
-  bgColor : string
-  
-}
+import type { ButtonProps } from "../interface/props";
 
-const FilledButton = (ghostButtonProps : GhostButtonProps) => {
+
+const FilledButton = (filledButtonProps : ButtonProps) => {
   return(
-    <button type="submit" style={{color : ghostButtonProps.textColor, backgroundColor : ghostButtonProps.bgColor}} 
+    <button type="submit" style={{color : filledButtonProps.textColor, backgroundColor : filledButtonProps.bgColor}} 
     className="w-30 h-10 rounded-lg text-[13px] cursor-pointer">
-         {ghostButtonProps.text}
+         {filledButtonProps.text}
     </button>
   )
 
