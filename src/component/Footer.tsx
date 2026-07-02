@@ -3,18 +3,17 @@ import Icons from "../assets/Icons";
 const Footer = () => {
     return(
         <div 
-            className="bg-cover bg-center bg-no-repeat min-h-130 w-full mt-55"
+            className="bg-cover bg-center bg-no-repeat min-h-120 w-full"
             style={{ backgroundImage: `url('/bg (2).png')` }}
         >
-            <div className="max-w-7xl mx-auto px-20 pt-20">
-
+        <div className="max-w-7xl mx-auto max-[1290px]:px-10 pt-20 ">
             <div className="flex flex-row items-start gap-12">
-                    <div className="flex-1 min-w-90">
+                    <div className="flex-1 min-w-85">
                         <div className="-ml-3">
                             {Icons.logo}
                         </div>
 
-                        <p className="text-[#ADA6BB] mt-5">AI that answers, triages, and books patient calls; so your front desk never has to choose between the phone and the patient in front of them.</p>
+                        <p className="text-[#ADA6BB] mt-5 text-[15px] font-light">AI that answers, triages, and books patient calls; so your front desk never has to choose between the phone and the patient in front of them.</p>
                         <div className="flex flex-row items-center gap-5 mt-8">
                             {Icons.linkedinIcon}
                             {Icons.xIcon}
@@ -23,7 +22,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1 ">
+                    <div className="flex-1 text-[15px] ">
                         <span className="text-[#9C73F3]">Product</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light ">
@@ -35,7 +34,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 text-[15px]">
                         <span className="text-[#9C73F3]">Specialties</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light">
@@ -47,7 +46,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 text-[15px]">
                         <span className="text-[#9C73F3]">Company</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light">
@@ -57,7 +56,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 text-[15px]">
                         <span className="text-[#9C73F3]">Get in Touch</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light">

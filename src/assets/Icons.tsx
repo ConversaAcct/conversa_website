@@ -62,7 +62,7 @@ copyIcon : (
 
 ),
 arrowDownIcon : (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.062 12.0234L10.0036 17.0818L4.94531 12.0234" stroke="#9C73F3" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M10 2.91797V16.943" stroke="#9C73F3" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
