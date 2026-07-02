@@ -5,13 +5,13 @@ import OutlinedButton from "./OutlinedButton";
 
 const Heropage = () => {
     return(
-                <div 
-                data-navbar-theme="white"
-                className="bg-cover bg-center bg-no-repeat w-full h-screen flex flex-col items-center overflow-hidden"
-                style={{ backgroundImage: `url('/bg (3).png')` }}
-            >
-            <div className="w-full max-w-7xl mx-auto px-6 max-[1290px]:px-10 mt-30 flex flex-row items-center justify-between gap-30 max-[1290px]:gap-10">
-                
+        <div 
+        data-navbar-theme="white"
+        className="bg-cover bg-center bg-no-repeat w-full h-screen flex flex-col justify-center items-center overflow-hidden mt-14"
+        style={{ backgroundImage: `url('/bg (3).png')` }}
+    >
+        <div className="w-full max-w-7xl mx-auto px-6 max-[1290px]:px-10 flex flex-row items-center justify-between gap-30 max-[1290px]:gap-10">
+         
                 {/* LEFT: text content */}
                 <div className="flex flex-col items-start max-w-md shrink-0">
                     <div className="gap-2 text-black font-medium text-[12px] bg-[#F5E8E3] px-4 py-1.5 rounded-full flex justify-center items-center mb-2">
