@@ -1,3 +1,4 @@
+import Icons from "../assets/Icons";
 import Heropage from "../component/Heropage";
 import SecondSection from "../component/SecondSection";
 import ThirdSection from "../component/ThirdSection";
@@ -7,6 +8,13 @@ const Homepage = () => {
         <div>
 
             <Heropage/>
+            <div className="mt-5 items-center flex flex-col">
+                <div>
+                    <p className="text-center font-manrope text-[16px] font-medium text-[#6B7280]">Benefits of using Sernio</p>
+                </div>
+
+              <div className="mt-8">  {Icons.belowIcon}</div>
+            </div>
             <SecondSection/>
             <ThirdSection/>
 

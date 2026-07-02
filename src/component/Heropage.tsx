@@ -5,11 +5,11 @@ import OutlinedButton from "./OutlinedButton";
 
 const Heropage = () => {
     return(
-        <div 
-            data-navbar-theme="white"
-            className="bg-cover bg-center bg-no-repeat w-full h-full min-h-screen flex flex-col mb-20  items-center overflow-hidden"
-            style={{ backgroundImage: `url('/bg (3).png')` }}
-        >
+                <div 
+                data-navbar-theme="white"
+                className="bg-cover bg-center bg-no-repeat w-full h-screen flex flex-col items-center overflow-hidden"
+                style={{ backgroundImage: `url('/bg (3).png')` }}
+            >
             <div className="w-full max-w-7xl mx-auto px-6 max-[1290px]:px-10 mt-30 flex flex-row items-center justify-between gap-30 max-[1290px]:gap-10">
                 
                 {/* LEFT: text content */}
@@ -43,13 +43,7 @@ const Heropage = () => {
 
             </div>
 
-            <div className="mt-5">
-                <div>
-                    <p className="text-center font-manrope text-[16px] font-medium text-[#6B7280]">Benefits of using Sernio</p>
-                </div>
-
-              <div className="mt-8">  {Icons.belowIcon}</div>
-            </div>
+            
         </div>
     )
 }
