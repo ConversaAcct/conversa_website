@@ -8,7 +8,7 @@ const Homepage = () => {
         <div>
 
             <Heropage/>
-            <div className="mt-5 items-center flex flex-col">
+            <div className="items-center flex flex-col">
                 <div>
                     <p className="text-center font-manrope text-[16px] font-medium text-[#6B7280]">Benefits of using Sernio</p>
                 </div>
