@@ -1,11 +1,14 @@
 import Icons from "../assets/Icons";
 import FilledButton from "./FilledButton";
+import MobileNavBar from "./MobileNav";
 import { useNavbarTheme } from "./useNavbarTheme";
 
 const NavBar = () => {
     const isDark = useNavbarTheme();
 
     return (
+        <>
+        <div className="hidden lg:block">
         <div
             className={`relative flex flex-row justify-between items-center py-2 px-2 text-[14px]
                 w-full max-w-250 rounded-[10px] my-8 mx-auto overflow-hidden font-manrope
@@ -54,7 +57,13 @@ const NavBar = () => {
                 />
             </div>
         </div>
+        </div>
+        <div className="block md:hidden">
+                <MobileNavBar />
+            </div>
+       </>
     );
 };
 
 export default NavBar;
+

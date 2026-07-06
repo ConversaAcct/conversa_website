@@ -10,7 +10,7 @@ const Heropage = () => {
         className="bg-cover bg-center bg-no-repeat w-full h-screen flex flex-col justify-center items-center overflow-hidden mt-14"
         style={{ backgroundImage: `url('/bg (3).png')` }}
     >
-        <div className="w-full max-w-7xl mx-auto px-6 max-[1290px]:px-10 flex flex-row items-center justify-between gap-30 max-[1290px]:gap-10">
+        <div className="w-full max-w-7xl mx-auto px-6 max-[1290px]:px-10 flex lg:flex-row flex-col items-center justify-between gap-30 max-[1290px]:gap-10">
          
                 {/* LEFT: text content */}
                 <div className="flex flex-col items-start max-w-md shrink-0">
