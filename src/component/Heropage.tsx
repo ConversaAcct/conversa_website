@@ -10,7 +10,7 @@ const Heropage = () => {
         className="bg-cover bg-center bg-no-repeat w-full min-h-screen lg:h-screen flex flex-col justify-center items-center overflow-hidden pt-28 pb-10 lg:mt-14 lg:pt-0 lg:pb-0"
         style={{ backgroundImage: `url('/bg (3).png')` }}
     >
-        <div className="w-full lg:max-w-7xl mx-auto px-5 lg:max-[1290px]:px-10 flex lg:flex-row flex-col items-center justify-between gap-10 lg:gap-30 lg:max-[1290px]:gap-10">
+        <div className="w-full lg:max-w-7xl mx-auto px-5 lg:max-[1290px]:px-10 flex md:flex-row flex-col items-center justify-between sm:gap-10 lg:gap-30 lg:max-[1290px]:gap-10">
 
                 {/* LEFT: text content */}
                 <div className="flex flex-col items-start max-w-md shrink-0">
@@ -34,10 +34,10 @@ const Heropage = () => {
                 </div>
 
                 {/* RIGHT: image with floating cards */}
-                <div className="relative w-full -mx-5 sm:-mx-8  lg:mx-0 lg:w-auto lg:mt-10 lg:min-w-162.5 lg:-mr-13 lg:max-[1290px]:-mr-2 max-[1130px]:min-w-125 lg:shrink-0 lg:basis-125">
+                <div className="relative w-full -mx-5 sm:-mx-8  lg:mx-0 md:w-auto lg:mt-10 lg:min-w-162.5  md:-mr-13 md:max-[1290px]:-mr-2 max-[1130px]:min-w-125 md:shrink-0 md:basis-125">
                     <img 
                         src={womanPix} 
-                        className="w-full h-auto object-cover lg:w-full lg:h-auto lg:object-cover" 
+                        className="w-full h-auto object-cover md:w-full lg:h-auto md:object-cover" 
                     />
                 </div>
 

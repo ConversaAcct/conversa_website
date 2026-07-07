@@ -7,9 +7,9 @@ const SecondSection = () => {
     return(
         <div
          data-navbar-theme="white"
-         className="flex lg:flex-row flex-col lg:justify-center gap-3 px-5 lg:px-20 lg:mt-30 font-manrope mb-30 ">
+         className="flex md:flex-row flex-col md:justify-center gap-3 px-5 md:px-20 lg:mt-30 font-manrope mb-30 ">
          <div className="flex flex-col gap-3 ">
-            <div className="bg-[#FCFAFF] lg:w-75.5 lg:h-72.5 rounded-[20px] py-5 ">
+            <div className="bg-[#FCFAFF] md:w-75.5 md:h-72.5 rounded-[20px] py-5 ">
        
                 <div className="flex flex-row justify-between leading-5 px-5 ">
                     <div>
@@ -50,7 +50,7 @@ const SecondSection = () => {
 
             </div>
 
-            <div className="relative lg:w-74.5 lg:h-39">
+            <div className="relative md:w-74.5 md:h-39">
                 <img src={bgImage} className="w-full h-full object-cover rounded-[20px]" />
                 <div className="absolute inset-0 flex items-center justify-center px-4 ">
                     <p className="text-[#171F2A] text-sm max-md:text-[16px] font-medium ">

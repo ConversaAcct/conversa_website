@@ -8,10 +8,10 @@ const NavBar = () => {
 
     return (
         <>
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
         <div
             className={`relative flex flex-row justify-between items-center py-2 px-2 text-[14px]
-                w-full max-w-250 rounded-[10px] my-8 mx-auto overflow-hidden font-manrope
+                w-full lg:max-w-250 max-w-190 rounded-[10px] my-8 mx-auto overflow-hidden font-manrope
                 backdrop-blur-[20px] backdrop-saturate-150 bg-[#E8E8E833] transition-colors duration-300  border border-[#E5E7F7]
                 ${isDark
                     ? " text-white"
