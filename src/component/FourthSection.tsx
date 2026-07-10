@@ -9,10 +9,10 @@ const FourthSection = () => {
                     <p>How it works</p>
                 </div>
 
-                <h1 className="md:text-center font-normal text-[#171F2A] text-[45px] font-cal-sans">
+                <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] md:max-w-130 font-cal-sans">
                   Answer. Understand. Act. 
                  
-                    <br />
+                   
                     In that order, every time.
                 </h1> 
                 

@@ -10,16 +10,16 @@ const ThirdSection = () => {
     return(
         <div
         data-navbar-theme="dark"
-         className="w-full bg-[#0E0D18]  mb-20 flex flex-col max-md:px-5 md:justify-center">
+         className="w-full bg-[#0E0D18]  mb-10 md:mb-20 flex flex-col max-md:px-5 md:justify-center">
 
             <div className="flex flex-col md:items-center md:mt-20 mt-10">
                 <div className="bg-[#0E0D18] border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1  flex justify-center items-center w-30 rounded-full text-[13px] ">
                     <p>The problem</p>
                 </div>
 
-                <h1 className="md:text-center font-normal text-white text-[45px] font-cal-sans">
-                    A ringing phone is <span className="text-[#D3C1F9]">a patient you haven't lost yet;</span>
-                    <br />
+                <h1 className="md:text-center font-normal text-white md:text-[45px] text-[30px] md:max-w-240 font-cal-sans">
+                    A ringing phone is <span className="text-[#D3C1F9]">a patient you haven't lost yet; </span>
+                  
                     for about thirty more seconds.
                 </h1>
 
