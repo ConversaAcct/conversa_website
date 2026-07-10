@@ -7,3 +7,17 @@ export interface ButtonProps {
     icon?: ReactNode
     
   }
+
+  export interface ResultsPanelProps {
+    missedCalls: number;
+    visitValue: number;
+}
+
+
+export  interface NumberFieldProps {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  step?: number;
+  min?: number;
+}
