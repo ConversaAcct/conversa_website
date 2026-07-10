@@ -23,7 +23,7 @@ const FifthSection = () => {
 
                 <p className="text-[#F3EDFF] text-[14px] md:text-center max-w-190 leading-7 md:mt-5 mt-2" data-navbar-theme="dark">Most voice AI platforms hand you a blank canvas and expect you to wire up prompts, intents, and conversation flows yourself. Sernio doesn't. Pick the template built for your specialty, and the intake questions, escalation rules, and conversation logic are already there.</p>
 
-                <div className="flex flex-col md:flex-row md:items-center justify-center md:gap-16 md:mt-20 mt-10">
+                <div className="flex flex-col md:flex-row md:items-center justify-center md:gap-16 md:mt-20 mt-10" data-navbar-theme="dark">
                     <div className="flex flex-row gap-2 items-center">
                         {Icons.dotIcon}
                         <p className="text-[#FFE91F]">Choose your specialty template</p>
