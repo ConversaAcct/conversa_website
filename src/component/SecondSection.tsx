@@ -53,7 +53,7 @@ const SecondSection = () => {
     return(
         <div
          data-navbar-theme="white"
-         className="second-section-grid gap-3 md:gap-5 px-5 md:px-12 lg:px-20 lg:mt-30 font-manrope mb-30 ">
+         className="second-section-grid gap-3 md:gap-5 px-5 md:px-12 lg:px-20 lg:mt-30 font-manrope lg:mb-30 mb-16 ">
 
             {/* CARD 1 — Maria Santos */}
             <div className="[grid-area:card1] w-full max-w-95 mx-auto md:max-w-none md:mx-0 bg-[#FCFAFF] rounded-[20px] py-5 h-full">
