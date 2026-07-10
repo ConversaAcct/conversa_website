@@ -1,4 +1,5 @@
 import Icons from "../assets/Icons";
+import FifthSection from "../component/FifthSection";
 import FourthSection from "../component/FourthSection";
 import Heropage from "../component/Heropage";
 import SecondSection from "../component/SecondSection";
@@ -19,6 +20,7 @@ const Homepage = () => {
             <SecondSection/>
             <ThirdSection/>
             <FourthSection/>
+            <FifthSection/>
 
             
 
