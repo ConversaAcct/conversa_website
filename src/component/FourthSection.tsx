@@ -18,12 +18,12 @@ const FourthSection = () => {
                 </h1> 
 
 
-                <div className="grid md:grid-cols-3 md:px-10 max-sm:gap-10 md:justify-evenly md:items-center mt-10 md:mx-auto">
-                        <div className="hidden md:block">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 md:px-10 max-sm:gap-10 lg:gap-0 md:gap-10 lg:justify-evenly lg:items-center mt-10 md:mx-auto">
+                        <div className="hidden lg:block">
                             <img src={card1} />
                         </div>
 
-                        <div className="md:w-100 md:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4 font-manrope md:hidden block">
+                        <div className="lg:w-100 lg:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4 font-manrope lg:hidden block">
 
                             <img src={robot}/>
                             <h5 className="text-[#171F2A] text-[20px] font-semibold ">Understand</h5>
@@ -31,14 +31,14 @@ const FourthSection = () => {
                             </div>
 
 
-                        <div className="md:w-100 md:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4 font-manrope">
+                        <div className="lg:w-100 lg:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4 font-manrope">
 
                             <img src={robot}/>
                             <h5 className="text-[#171F2A] text-[20px] font-semibold ">Understand</h5>
                             <p className="text-[#171F2A] text-[14px] mt-1">Sernio listens for what the caller actually needs: booking, billing, a refill, or something urgent, using your practice's own knowledge base, not a generic script.</p>
                         </div>
 
-                        <div className="md:w-100 md:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4">
+                        <div className="lg:w-100 lg:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4">
                         <img src={robot}/>
                         <h5 className="text-[#171F2A] text-[20px] font-semibold ">Act</h5>
                         <p className="text-[#171F2A] text-[14px] mt-1">It books the visit, updates the patient record, verifies insurance, or routes urgent calls straight to your on-call line, no transcript left for a human to re-type later.</p>
