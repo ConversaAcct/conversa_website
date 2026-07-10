@@ -28,7 +28,7 @@ const ThirdSection = () => {
 
             <div className="flex justify-center max-sm:px-0 px-4 lg:px-0 items-center max-md:mt-10 mt-15">
 
-            <div className="w-full md:w-253 h-auto md:h-116.75 border border-[#5B0AFF] rounded-tl-3xl rounded-tr-3xl border-b md:border-b-0 flex flex-col md:flex-row">
+            <div className="w-full md:w-223 h-auto md:h-116.75 border border-[#5B0AFF] rounded-tl-3xl rounded-tr-3xl border-b md:border-b-0 flex flex-col md:flex-row">
                       <MissedCallsCalculator
                         onValuesChange={({ missedCalls, visitValue }) => {
                             setMissedCalls(missedCalls);
