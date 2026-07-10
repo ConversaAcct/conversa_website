@@ -1,5 +1,6 @@
 import card1 from "../assets/FourthSection/1.svg"
 import robot from "../assets/FourthSection/Mask group (5).svg"
+import phone from "../assets/FourthSection/Mask group (7).svg"
 
 const FourthSection = () => {
     return(
@@ -25,9 +26,9 @@ const FourthSection = () => {
 
                         <div className="lg:w-100 lg:h-55 border border-[#9C73F3] rounded-[15px] px-8 py-4 font-manrope lg:hidden block">
 
-                            <img src={robot}/>
-                            <h5 className="text-[#171F2A] text-[20px] font-semibold ">Understand</h5>
-                            <p className="text-[#171F2A] text-[14px] mt-1">Sernio listens for what the caller actually needs: booking, billing, a refill, or something urgent, using your practice's own knowledge base, not a generic script.</p>
+                            <img src={phone}/>
+                            <h5 className="text-[#171F2A] text-[20px] font-semibold ">Answer</h5>
+                            <p className="text-[#171F2A] text-[14px] mt-1">Every call is picked up in under a second, day or night, weekends and holidays included — no hold music, no menu tree.</p>
                             </div>
 
 
