@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex md:flex-row flex-col  items-start gap-12">
                     <div className="flex-1 md:min-w-85">
                         <div className="-ml-3">
-                            {Icons.logo}
+                            {Icons.logoWhite}
                         </div>
 
                         <p className="text-[#ADA6BB] mt-5 text-[15px] font-light max-[460px]:text-[13px]">AI that answers, triages, and books patient calls; so your front desk never has to choose between the phone and the patient in front of them.</p>

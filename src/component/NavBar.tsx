@@ -37,7 +37,10 @@ const NavBar = () => {
                 }}
             />
 
-            <div className="relative z-10">{Icons.logo}</div>
+            <div className="relative z-10">
+
+                {isDark ? Icons.logoWhite : Icons.logo}
+            </div>
 
             <div className="relative z-10 gap-10 flex flex-row font-medium">
                 <span className="cursor-pointer">Product</span>
