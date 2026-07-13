@@ -22,28 +22,15 @@ const LastSection = () => {
 
                 <p className="text-[#6B7280] text-[18px] md:text-center   mt-2 md:mb-10 mb-5">Most practices are live with Sernio in under a day.</p>
 
+                <div className="flex items-center justify-center">
                 <button type="submit" style={{color : "#F5F3FF", backgroundColor : "#000000"}} 
-                    className="px-10 h-9 rounded-lg text-[13px] cursor-pointer hidden md:block">
+                    className="px-12 h-11 max-sm:w-50 rounded-lg text-[13px] cursor-pointer ">
                     Join the Waitlist
                 </button>
-
-                <div className="md:hidden flex flex-row gap-6 ">
-
-                <button type="submit" style={{color : "#F5F3FF", backgroundColor : "#000000"}} 
-                    className="px-10 h-10 rounded-lg text-[13px] cursor-pointer ">
-                    Book a Demo
-                </button>
-
-
-    
-
-
-                <button type="submit" style={{color : "#000000" , borderColor : "#000000"}} 
-                    className="rounded-lg text-[13px] cursor-pointer border border-[#000000] text-[#000000] px-10 py-2.5  flex items-center gap-2 ">
-                            See Pricing
-                    </button>
-
                 </div>
+              
+
+               
               
             </div>
 
