@@ -4,6 +4,7 @@ import FourthSection from "../component/FourthSection";
 import Heropage from "../component/Heropage";
 import LastSection from "../component/LastSection";
 import SecondSection from "../component/SecondSection";
+import SixthSection from "../component/SixthSection";
 import ThirdSection from "../component/ThirdSection";
 
 const Homepage = () => {
@@ -22,6 +23,7 @@ const Homepage = () => {
             <ThirdSection/>
             <FourthSection/>
             <FifthSection/>
+            <SixthSection/>
             <LastSection/>
 
             

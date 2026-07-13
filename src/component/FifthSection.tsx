@@ -7,7 +7,7 @@ const FifthSection = () => {
         <div>
    <div
         data-navbar-theme="dark"
-         className="w-full bg-[#0E0D18]  mb-10 md:mb-20 flex flex-col max-md:px-5 md:justify-center">
+         className="w-full bg-[#0E0D18]   flex flex-col max-md:px-5 md:justify-center">
 
             <div className="flex flex-col md:items-center md:mt-20 mt-10 ">
                 <div className="bg-[#0E0D18] border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1  flex justify-center items-center px-7 max-w-80 rounded-full text-[13px] ">
