@@ -10,7 +10,7 @@ const LastSection = () => {
 
         <div
        
-         className="w-full max-sm:py-15  flex flex-col max-md:px-5 md:justify-center ">
+         className="w-full max-sm:py-15  flex flex-col max-md:px-5 md:justify-center max-sm:items-center ">
 
             <div className="flex flex-col md:items-center md:mt-30 ">
                
