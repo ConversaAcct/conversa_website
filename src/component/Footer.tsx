@@ -5,6 +5,7 @@ const Footer = () => {
         <div 
             className="bg-cover bg-center bg-no-repeat min-h-120 w-full"
             style={{ backgroundImage: `url('/bg (2).png')` }}
+              data-navbar-theme="dark"
         >
     <div className="max-w-7xl lg:mx-auto px-5 lg:max-[1290px]:px-10 md:pt-20 max-md:py-20 md:py-10 ">
             <div className="flex md:flex-row flex-col  items-start gap-12">
