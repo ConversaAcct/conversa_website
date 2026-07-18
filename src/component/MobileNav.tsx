@@ -46,7 +46,7 @@ const MobileNavBar = () => {
 
             {/* top row: logo + hamburger/close toggle */}
             <div className="relative z-10 flex flex-row justify-between items-center py-2 px-4 text-[14px]">
-                <div>{Icons.logo}</div>
+                <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
 
                 <button
                     type="button"
