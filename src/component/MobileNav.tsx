@@ -83,8 +83,8 @@ const resourceItems: MenuItem[] = [
 ];
 
 const MobileMenuSection = ({ heading, items }: { heading: string; items: MenuItem[] }) => (
-    <div className="flex flex-col gap-4">
-        <span className="text-[#8A8FA3] text-[13px] font-medium">{heading}</span>
+    <div className="flex flex-col gap-4 ">
+        <span className="text-[#8A8FA3] text-[13px]  font-medium">{heading}</span>
         <div className="flex flex-col gap-4">
             {items.map((item) => (
                 <div key={item.title} className="flex flex-row items-start gap-3">
@@ -212,7 +212,7 @@ const MobileNavBar = () => {
                                     ${productOpen ? "grid-rows-[1fr] opacity-100 mt-5" : "grid-rows-[0fr] opacity-0 mt-0"}`}
                             >
                                 <div className="overflow-hidden">
-                                    <div className="flex flex-row gap-4 pl-4 border-l-2 border-[#7B3FFF]">
+                                    <div className="flex flex-row gap-4 pl-4 bg-[#0E0D18] py-2 rounded-[10px]">
                                         <div className="flex flex-col gap-7 flex-1">
                                             <MobileMenuSection heading="Features" items={featureItems} />
                                             <MobileMenuSection heading="Resources" items={resourceItems} />
