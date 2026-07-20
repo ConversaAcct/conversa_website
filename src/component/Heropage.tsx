@@ -1,7 +1,7 @@
 import Icons from "../assets/Icons";
 import FilledButton from "./FilledButton";
 import womanPix from "../assets/homepage/hero/img (4).png";
-import OutlinedButton from "./OutlinedButton";
+// import OutlinedButton from "./OutlinedButton";
 
 const Heropage = () => {
     return(
@@ -28,8 +28,8 @@ const Heropage = () => {
                     </p>
 
                     <div className="flex flex-row items-center gap-4">
-                        <FilledButton textColor={"#F5F3FF"} text={"Book a Demo"} bgColor={"#5B0AFF"} />
-                        <OutlinedButton textColor={"#5B0AFF"} text={`Hear it answer a call `} bgColor={"#5B0AFF"} icon={Icons.purpleArrowDownIcon}/>
+                        <FilledButton textColor={"#F5F3FF"} text={"Join the Waitlist"} bgColor={"#5B0AFF"} />
+                        {/* <OutlinedButton textColor={"#5B0AFF"} text={`Hear it answer a call `} bgColor={"#5B0AFF"} icon={Icons.purpleArrowDownIcon}/> */}
                     </div>
                 </div>
 

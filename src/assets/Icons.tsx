@@ -136,6 +136,85 @@ dotIcon : (
 </svg>
 
 ),
+CallAnalyticsIcon : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="45" height="45" rx="5" fill="#F5E8E3"/>
+    <path d="M13 33H33" stroke="#C6785A" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20.75 15V33H25.25V15C25.25 13.9 24.8 13 23.45 13H22.55C21.2 13 20.75 13.9 20.75 15Z" stroke="#C6785A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 21V33H18V21C18 19.9 17.6 19 16.4 19H15.6C14.4 19 14 19.9 14 21Z" stroke="#C6785A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 26V33H32V26C32 24.9 31.6 24 30.4 24H29.6C28.4 24 28 24.9 28 26Z" stroke="#C6785A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    
+),
+AssistantSetupIcon : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="45" height="45" rx="5" fill="#D0BDFA"/>
+<path d="M23.92 13.26L30.43 16.77C31.19 17.18 31.19 18.35 30.43 18.76L23.92 22.27C23.34 22.58 22.66 22.58 22.08 22.27L15.57 18.76C14.81 18.35 14.81 17.18 15.57 16.77L22.08 13.26C22.66 12.95 23.34 12.95 23.92 13.26Z" stroke="#745EA3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.61 21.13L20.66 24.16C21.41 24.54 21.89 25.31 21.89 26.15V31.8701C21.89 32.7001 21.02 33.2301 20.28 32.8601L14.23 29.83C13.48 29.45 13 28.68 13 27.84V22.12C13 21.29 13.87 20.76 14.61 21.13Z" stroke="#745EA3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31.3894 21.13L25.3394 24.16C24.5894 24.54 24.1094 25.31 24.1094 26.15V31.8701C24.1094 32.7001 24.9794 33.2301 25.7194 32.8601L31.7694 29.83C32.5194 29.45 32.9994 28.68 32.9994 27.84V22.12C32.9994 21.29 32.1294 20.76 31.3894 21.13Z" stroke="#745EA3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+),
+ CallHandlingIcon : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="45" height="45" rx="5" fill="#FFE91F"/>
+    <path d="M24.0095 13.9199L29.9095 16.5399C31.6095 17.2899 31.6095 18.5299 29.9095 19.2799L24.0095 21.8999C23.3395 22.1999 22.2395 22.1999 21.5695 21.8999L15.6695 19.2799C13.9695 18.5299 13.9695 17.2899 15.6695 16.5399L21.5695 13.9199C22.2395 13.6199 23.3395 13.6199 24.0095 13.9199Z" stroke="#8F852C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 22C14 22.84 14.63 23.81 15.4 24.15L22.19 27.17C22.71 27.4 23.3 27.4 23.81 27.17L30.6 24.15C31.37 23.81 32 22.84 32 22" stroke="#8F852C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 27C14 27.93 14.55 28.77 15.4 29.15L22.19 32.17C22.71 32.4 23.3 32.4 23.81 32.17L30.6 29.15C31.45 28.77 32 27.93 32 27" stroke="#8F852C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    
+    ),
+
+AppointmentWorkflowsIcon :(
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="45" height="45" rx="5" fill="#9C73F3"/>
+<path d="M31 25C32.1046 25 33 24.1046 33 23C33 21.8954 32.1046 21 31 21C29.8954 21 29 21.8954 29 23C29 24.1046 29.8954 25 31 25Z" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31 17C32.1046 17 33 16.1046 33 15C33 13.8954 32.1046 13 31 13C29.8954 13 29 13.8954 29 15C29 16.1046 29.8954 17 31 17Z" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31 33C32.1046 33 33 32.1046 33 31C33 29.8954 32.1046 29 31 29C29.8954 29 29 29.8954 29 31C29 32.1046 29.8954 33 31 33Z" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 25C16.1046 25 17 24.1046 17 23C17 21.8954 16.1046 21 15 21C13.8954 21 13 21.8954 13 23C13 24.1046 13.8954 25 15 25Z" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 23H29" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 15H25C23 15 22 16 22 18V28C22 30 23 31 25 31H29" stroke="#503784" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+),
+HowItWorksIcon : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="45" height="45" rx="5" fill="#A5EDFF"/>
+    <path d="M28 21H30C32 21 33 20 33 18V16C33 14 32 13 30 13H28C26 13 25 14 25 16V18C25 20 26 21 28 21Z" stroke="#3B6873" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 33H18C20 33 21 32 21 30V28C21 26 20 25 18 25H16C14 25 13 26 13 28V30C13 32 14 33 16 33Z" stroke="#3B6873" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17 21C19.2091 21 21 19.2091 21 17C21 14.7909 19.2091 13 17 13C14.7909 13 13 14.7909 13 17C13 19.2091 14.7909 21 17 21Z" stroke="#3B6873" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M29 33C31.2091 33 33 31.2091 33 29C33 26.7909 31.2091 25 29 25C26.7909 25 25 26.7909 25 29C25 31.2091 26.7909 33 29 33Z" stroke="#3B6873" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    
+),
+
+RoiCalculatorIcon : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="45" height="45" rx="5" fill="#E3F5EB"/>
+    <rect x="13.5" y="8.5" width="19" height="29" rx="1.5" stroke="#628270"/>
+    <circle cx="28.7217" cy="33.3589" r="1.94432" fill="#628270"/>
+    <circle cx="22.833" cy="33.3589" r="1.94432" fill="#628270"/>
+    <circle cx="16.9443" cy="33.3587" r="1.94432" fill="#628270"/>
+    <circle cx="28.7217" cy="26.8226" r="1.94432" fill="#628270"/>
+    <circle cx="22.833" cy="26.8226" r="1.94432" fill="#628270"/>
+    <circle cx="16.9443" cy="26.8226" r="1.94432" fill="#628270"/>
+    <circle cx="28.7217" cy="20.2865" r="1.94432" fill="#628270"/>
+    <circle cx="22.833" cy="20.2865" r="1.94432" fill="#628270"/>
+    <circle cx="16.9443" cy="20.2865" r="1.94432" fill="#628270"/>
+    <rect x="15" y="10" width="16" height="6" rx="1" fill="#628270"/>
+    </svg>
+    
+),
+
+SecurityComplianceIcon  : (
+    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="45" height="45" rx="5" fill="#FFCBB7"/>
+    <path d="M17 21V19C17 15.69 18 13 23 13C28 13 29 15.69 29 19V21" stroke="#875947" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M23 29.5C24.3807 29.5 25.5 28.3807 25.5 27C25.5 25.6193 24.3807 24.5 23 24.5C21.6193 24.5 20.5 25.6193 20.5 27C20.5 28.3807 21.6193 29.5 23 29.5Z" stroke="#875947" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 33H18C14 33 13 32 13 28V26C13 22 14 21 18 21H28C32 21 33 22 33 26V28C33 32 32 33 28 33Z" stroke="#875947" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    
+),
 belowIcon : (
     <svg width="1110" height="50" viewBox="0 0 1181 65" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1017.39 53.001V44.0532H1020.77C1021.36 44.0532 1021.81 44.0817 1022.13 44.1387C1022.57 44.2119 1022.93 44.3523 1023.23 44.5598C1023.53 44.7633 1023.77 45.0501 1023.95 45.4204C1024.13 45.7907 1024.22 46.1976 1024.22 46.6411C1024.22 47.402 1023.98 48.047 1023.49 48.5759C1023.01 49.1008 1022.14 49.3633 1020.87 49.3633H1018.57V53.001H1017.39ZM1018.57 48.3074H1020.89C1021.65 48.3074 1022.2 48.165 1022.52 47.8801C1022.84 47.5953 1023 47.1945 1023 46.6777C1023 46.3034 1022.9 45.984 1022.71 45.7195C1022.53 45.4509 1022.28 45.2739 1021.97 45.1885C1021.77 45.1356 1021.4 45.1091 1020.86 45.1091H1018.57V48.3074Z" fill="#515155"/>
