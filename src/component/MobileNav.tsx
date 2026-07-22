@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Icons from "../assets/Icons";
-import FilledButton from "./FilledButton";
 import { useNavbarTheme } from "./useNavbarTheme";
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
@@ -228,11 +227,12 @@ const MobileNavBar = () => {
 
                         <div className="flex flex-col items-start gap-4 pt-2">
                             {/* <span className="cursor-pointer font-bold">Sign Up</span> */}
-                            <FilledButton
-                                textColor={"#F5F3FF"}
-                                text={"Join the Waitlist"}
-                                bgColor={isDark ? "#7B3FFF" : "#5B0AFF"}
-                            />
+                           
+
+                                <button type="submit" 
+                                    className="w-full h-10 rounded-lg text-[13px] text-[#F5F3FF] cursor-pointer "  style={{ backgroundColor :  isDark ? "#7B3FFF" : "#5B0AFF"}}  >
+                                        Join the Waitlist
+                                    </button>
                         </div>
                     </div>
                 </div>

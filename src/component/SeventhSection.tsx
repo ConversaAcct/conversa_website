@@ -127,7 +127,7 @@ const SeventhSection = () => {
 
 
 
-                        <div className=" md:justify-center md:items-center   md:mx-auto">
+                        <div className=" justify-center items-center   mx-auto">
 
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-5 gap-x-0  md:gap-y-15 lg:mt-20 mt-5">
@@ -184,7 +184,7 @@ const SeventhSection = () => {
   
 
 
-                <div className="py-4 pb-20 lg:hidden md:px-20 ">
+                <div className="py-4 pb-20 lg:hidden md:px-20 px-2 mt-2 ">
 
                     <h2  className="text-[#FFFFFF] font-normal text-[25px] md:text-[40px]  font-cal-sans ">If it sounds like an emergency,<span className="flex flex-row gap-2"><img src={mobIcon}/>Sernio transfers to your</span></h2>
                     <h2 className="text-[#FFFFFF] font-normal text-[25px] md:text-[40px]  font-cal-sans "> 

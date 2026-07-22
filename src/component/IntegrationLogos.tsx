@@ -171,7 +171,7 @@ const IntegrationLogos = () => {
       ) : (
         <div
           ref={trackRef}
-          className="relative flex flex-row gap-4 overflow-x-auto overflow-y-hidden snap-x snap-proximity scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="relative flex flex-row gap-4 overflow-x-auto overflow-y-hidden snap-x snap-proximity scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
           style={{ paddingLeft: MOBILE_EDGE_GAP, paddingRight: MOBILE_EDGE_GAP }}
         >
           {cards.map((card, i) => {
