@@ -204,7 +204,7 @@ const NavBar = () => {
                                 : "opacity-0 -translate-y-2 scale-y-95 pointer-events-none"
                             }`}
                     >
-                        <div className="relative rounded-[14px] border border-[#232331] bg-[#0E0D18] shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden px-8 py-7">
+                        <div className="relative rounded-[14px] border border-[#232331] bg-[#0E0D18]  overflow-hidden px-8 py-7">
                             <div
                                 className="pointer-events-none absolute inset-x-0 top-0 h-1/2 rounded-t-[14px]"
                                 style={{

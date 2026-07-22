@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import card1 from "../assets/seventhsection/1 (3).svg"
 import card2 from "../assets/seventhsection/2 (1).svg"
 import card3 from "../assets/seventhsection/3 (2).svg"
@@ -28,6 +30,16 @@ const carouselImages = [
 const trackImages = [...carouselImages, ...carouselImages];
 
 const SeventhSection = () => {
+    const [isTouchPaused, setIsTouchPaused] = useState(false);
+
+    // Mobile browsers simulate :hover on tap and only clear it when the
+    // user taps elsewhere ("tap out"). To keep the existing hover-to-pause
+    // behavior intact for lg/desktop, the :hover rule below is scoped to
+    // pointer:fine + hover:hover devices only. Touch devices get a separate
+    // press/release-driven pause via the .is-touch-paused class instead.
+    const pauseTouch = () => setIsTouchPaused(true);
+    const resumeTouch = () => setIsTouchPaused(false);
+
     return(
         <div
         data-navbar-theme="dark"
@@ -42,12 +54,17 @@ const SeventhSection = () => {
                 .seventh-carousel-track {
                     animation: seventh-marquee 22s linear infinite;
                 }
-                .seventh-carousel-track:hover {
+                @media (hover: hover) and (pointer: fine) {
+                    .seventh-carousel-track:hover {
+                        animation-play-state: paused;
+                    }
+                }
+                .seventh-carousel-track.is-touch-paused {
                     animation-play-state: paused;
                 }
                 @media (max-width: 767px) {
                     .seventh-carousel-track {
-                        animation-duration: 16s;
+                        animation-duration: 28s;
                     }
                 }
             `}</style>
@@ -68,7 +85,12 @@ const SeventhSection = () => {
                 <div className="relative overflow-hidden md:mt-10 mt-5 w-full md:w-315 max-w-full mx-auto">
 
                     {/* sliding track */}
-                    <div className="seventh-carousel-track flex flex-row w-max gap-2 md:gap-5 px-2 md:px-0">
+                    <div
+                        className={`seventh-carousel-track flex flex-row w-max gap-2 md:gap-5 px-2 md:px-0 ${isTouchPaused ? "is-touch-paused" : ""}`}
+                        onTouchStart={pauseTouch}
+                        onTouchEnd={resumeTouch}
+                        onTouchCancel={resumeTouch}
+                    >
                         {trackImages.map((img, i) => (
                             <img
                                 key={i}
@@ -81,19 +103,7 @@ const SeventhSection = () => {
                     </div>
 
                     {/* fixed blur/opacity zone sitting on top — mobile: reveals only 1 clear image */}
-                    <div
-                        className="pointer-events-none absolute inset-y-0 right-0
-                                   hidden md:block md:w-32.5
-                                   backdrop-blur-md bg-black/45
-                                   mask-[linear-gradient(to_right,transparent,black_35%)]
-                                   [-webkit-mask-image:linear-gradient(to_right,transparent,black_35%)]"
-                    />
-
-                    {/* subtle edge fade on the left too, so it feels like a continuous strip */}
-                    <div
-                        className="pointer-events-none absolute inset-y-0 left-0 w-6 md:w-10
-                                   bg-linear-to-r from-[#0E0D18] to-transparent hidden md:block"
-                    />
+                  
                 </div>
             </div>
 
@@ -111,9 +121,18 @@ const SeventhSection = () => {
                 <p className="text-[#F3EDFF] md:w-130 md:text-center font-medium text-[15px] font-manrope mt-5">Every call, transcript, and patient record is handled the way a covered entity needs it to be — by default, not as an add-on.</p>
 
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 md:px-10 gap-5 md:gap-15 lg:gap-5 lg:px-50 lg:mt-20   md:justify-evenly md:items-center mt-5 md:mx-auto">
+
+
+            </div>
+
+
+
+                        <div className=" md:justify-center md:items-center   md:mx-auto">
+
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-5 gap-x-0  md:gap-y-15 lg:mt-20 mt-5">
                         <div >
-                            <img src={card1} />
+                            <img src={card1}  />
                         </div>
 
                     
@@ -140,19 +159,29 @@ const SeventhSection = () => {
                         <img src={card5}/>
 
                         </div>
-                </div>
+                           </div>
 
-            </div>
+                            <div className=" py-24 hidden lg:block">
+                                <h1 className="text-[#FFFFFF] font-normal  md:text-[40px]   font-cal-sans "> <span className="flex flex-row gap-5">If it sounds like an emergency, <img src={greenIcon}/>  Sernio transfers </span>
+                                
+                                to your on-call line instantly. No menus, no delays,
+
+                                <span className="flex flex-row gap-5"> <img src={manImage}/> no AI guessing.</span>
+                                </h1>
+                            </div>
 
 
-            <div className="ml-50 md:px-0 px-5 py-24 hidden lg:block">
-                    <h1 className="text-[#FFFFFF] font-normal  md:text-[40px]   font-cal-sans "> <span className="flex flex-row gap-5">If it sounds like an emergency, <img src={greenIcon}/>  Sernio transfers </span>
-                    
-                    to your on-call line instantly. No menus, no delays,
+                        </div>
 
-                    <span className="flex flex-row gap-5"> <img src={manImage}/> no AI guessing.</span>
-                    </h1>
-                </div>
+
+          
+
+         
+
+                
+
+
+  
 
 
                 <div className="py-4 pb-20 lg:hidden md:px-20 ">
