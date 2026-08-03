@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import WomanPicture from "../assets/ninthsection/Image (15).svg"
+import WomanPicture from "../assets/ninthsection/image (15).svg"
 
 const NinthSection = () => {
     return(
