@@ -22,19 +22,19 @@ const SixthSection = () => {
 
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 md:px-10 gap-5 md:gap-15 lg:gap-5   md:justify-evenly md:items-center mt-5 md:mx-auto">
-                        <div className="lg:w-100 lg:h-53">
+                        <div className="lg:w-82 xl:w-100 lg:h-53">
                             <img src={card1} />
                         </div>
 
                     
 
-                        <div className="lg:w-100 lg:h-70 lg:mt-16">
+                        <div className="lg:w-82 xl:w-100 lg:h-70 lg:mt-16">
 
                             <img src={robot}/>
                            
                         </div>
 
-                        <div className="lg:w-100 lg:h-53">
+                        <div className="lg:w-82 xl:w-100  lg:h-53">
                         <img src={phone}/>
 
                         </div>

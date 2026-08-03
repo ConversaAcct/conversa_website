@@ -5,6 +5,7 @@ export interface ButtonProps {
     text : string
     bgColor : string
     icon?: ReactNode
+    href? : string
     
   }
 

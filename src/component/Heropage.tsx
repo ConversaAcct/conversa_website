@@ -28,7 +28,7 @@ const Heropage = () => {
                     </p>
 
                     <div className="flex flex-row items-center gap-4">
-                        <FilledButton textColor={"#F5F3FF"} text={"Join the Waitlist"} bgColor={"#5B0AFF"} />
+                        <FilledButton textColor={"#F5F3FF"} text={"Join the Waitlist"} bgColor={"#5B0AFF"}  href="/waitlist"/>
                         {/* <OutlinedButton textColor={"#5B0AFF"} text={`Hear it answer a call `} bgColor={"#5B0AFF"} icon={Icons.purpleArrowDownIcon}/> */}
                     </div>
                 </div>

@@ -4,9 +4,11 @@ import FifthSection from "../component/FifthSection";
 import FourthSection from "../component/FourthSection";
 import Heropage from "../component/Heropage";
 import LastSection from "../component/LastSection";
+import NinthSection from "../component/NinthSection";
 import SecondSection from "../component/SecondSection";
 import SeventhSection from "../component/SeventhSection";
 import SixthSection from "../component/SixthSection";
+import TenthSection from "../component/TenthSection";
 import ThirdSection from "../component/ThirdSection";
 
 const Homepage = () => {
@@ -28,6 +30,8 @@ const Homepage = () => {
             <SixthSection/>
             <SeventhSection/>
             <EightSection/>
+            <NinthSection/>
+            <TenthSection/>
             <LastSection/>
 
             

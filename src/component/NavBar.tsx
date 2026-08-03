@@ -192,6 +192,7 @@ const NavBar = () => {
                                 textColor={"#F5F3FF"}
                                 text={"Join the Waitlist"}
                                 bgColor={isDark ? "#7B3FFF" : "#5B0AFF"}
+                                href= {"/waitlist"}
                             />
                         </div>
                     </div>

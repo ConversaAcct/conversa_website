@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const LastSection = () => {
@@ -23,10 +24,15 @@ const LastSection = () => {
                 <p className="text-[#6B7280] text-[18px] md:text-center   mt-2 md:mb-10 mb-5">Most practices are live with Sernio in under a day.</p>
 
                 <div className="flex items-center justify-center">
+
+                    <Link to={"/waitlist"}>
+                    
                 <button type="submit" style={{color : "#F5F3FF", backgroundColor : "#000000"}} 
                     className="px-12 h-11 max-sm:w-50 rounded-lg text-[13px] cursor-pointer ">
                     Join the Waitlist
                 </button>
+
+                </Link>
                 </div>
               
 

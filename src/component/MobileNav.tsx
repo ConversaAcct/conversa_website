@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Icons from "../assets/Icons";
 import { useNavbarTheme } from "./useNavbarTheme";
+import { Link } from "react-router-dom";
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
     <svg
@@ -228,11 +229,14 @@ const MobileNavBar = () => {
                         <div className="flex flex-col items-start gap-4 pt-2">
                             {/* <span className="cursor-pointer font-bold">Sign Up</span> */}
                            
-
+                            <Link to={"/waitlist"} className="w-full h-10 rounded-lg text-[13px] text-[#F5F3FF] cursor-pointer justify-center items-center flex"  style={{ backgroundColor :  isDark ? "#7B3FFF" : "#5B0AFF"}} >
                                 <button type="submit" 
-                                    className="w-full h-10 rounded-lg text-[13px] text-[#F5F3FF] cursor-pointer "  style={{ backgroundColor :  isDark ? "#7B3FFF" : "#5B0AFF"}}  >
-                                        Join the Waitlist
+                                     >
+                                       
+                                       Join the Waitlist
+                                    
                                     </button>
+                                    </Link> 
                         </div>
                     </div>
                 </div>
