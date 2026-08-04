@@ -15,7 +15,9 @@ type Challenge =
   | "Appointment no-shows"
   | "Insurance verification calls"
   | "Patient follow-up calls"
-  | "Slow handling of urgent calls";
+  | "Slow handling of urgent calls"
+  | "Prescription refill requests"
+  | "Too many calls to book";
 
 const CHALLENGES: Challenge[] = [
   "Missed calls after hours",
@@ -24,6 +26,8 @@ const CHALLENGES: Challenge[] = [
   "Insurance verification calls",
   "Patient follow-up calls",
   "Slow handling of urgent calls",
+  "Prescription refill requests",
+  "Too many calls to book"
 ];
 
 const AVATARS = [
