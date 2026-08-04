@@ -1,4 +1,5 @@
 import Layout from "../component/Layout";
+import AssistanceSetup from "../feature/AssistanceSetup";
 import Homepage from "../feature/Homepage";
 import Waitlist from "../feature/Waitlist";
 
@@ -9,6 +10,10 @@ export const Route = [
             {
                 path : "/",
                 element : <Homepage/>
+            },
+            {
+                path : "/assistance-setup",
+                element : <AssistanceSetup/>
             }
         ]},
 

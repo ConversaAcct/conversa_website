@@ -8,6 +8,9 @@ import FilledButton from "./FilledButton";
 import MobileNavBar from "./MobileNav";
 import { useNavbarTheme } from "./useNavbarTheme";
 
+import { Link } from "react-router-dom";
+import type { MenuItem } from "../interface/props";
+
 const ChevronIcon = ({ open }: { open: boolean }) => (
     <svg
         width="10"
@@ -28,12 +31,6 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 );
 
 
-type MenuItem = {
-    icon: React.ReactNode;
-    iconBg: string;
-    title: string;
-    description: string;
-};
 
 const featureItems: MenuItem[] = [
     {
@@ -41,24 +38,28 @@ const featureItems: MenuItem[] = [
         iconBg: "",
         title: "Call Analytics",
         description: "Every call, outcome, and booking in real time",
+        link : "#"
     },
     {
         icon: Icons.AssistantSetupIcon,
         iconBg: "",
         title: "Assistant Setup",
         description: "Pick a template, go live the same day",
+        link : "/assistance-setup"
     },
     {
         icon: Icons.CallHandlingIcon,
         iconBg: "",
         title: "Call Handling Rules",
         description: "Emergency routing, spam blocking, VIP logic",
+        link : "#"
     },
     {
         icon: Icons.AppointmentWorkflowsIcon,
         iconBg: "",
         title: "Appointment Workflows",
         description: "Automated booking, reminders, and follow-ups",
+        link : "#"
     },
 ];
 
@@ -68,48 +69,65 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "How it works",
         description: "The full call lifecycle, from ring to result",
+        link : "#"
     },
     {
         icon: Icons.RoiCalculatorIcon,
         iconBg: "",
         title: "ROI Calculator",
         description: "See what missed calls are costing your practice",
+        link : "#"
     },
     {
         icon: Icons.SecurityComplianceIcon,
         iconBg: "",
         title: "Security & Compliance",
         description: "HIPAA, BAA at onboarding, AES-256 encryption",
+        link : "#"
     },
 ];
 
-const MenuColumn = ({ heading, items }: { heading: string; items: MenuItem[] }) => (
-    <div className="flex-1 flex flex-col gap-5">
-        <span className="text-white text-[15px] font-semibold">{heading}</span>
-        <div className="flex flex-col gap-5">
-            {items.map((item) => (
-                <div
-                    key={item.title}
-                    className="flex flex-row items-start gap-3.5 cursor-pointer group"
-                >
-                    <div
-                        className="flex items-center justify-center w-9 h-9 rounded-[9px] shrink-0 transition-transform duration-200 group-hover:scale-105"
-                        style={{ backgroundColor: item.iconBg }}
-                    >
-                        {item.icon}
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <span className="text-white text-[14px] font-medium leading-tight">
-                            {item.title}
-                        </span>
-                        <span className="text-[#8A8FA3] text-[12.5px] leading-snug">
-                            {item.description}
-                        </span>
-                    </div>
-                </div>
-            ))}
-        </div>
+
+const MenuColumn = ({
+  heading,
+  items,
+  onItemClick,
+}: {
+  heading: string;
+  items: MenuItem[];
+  onItemClick: () => void;
+}) => (
+  <div className="flex-1 flex flex-col gap-5">
+    <span className="text-white text-[15px] font-semibold">{heading}</span>
+
+    <div className="flex flex-col gap-5">
+      {items.map((item) => (
+        <Link
+          key={item.title}
+          to={item.link}
+          onClick={onItemClick}
+          className="flex flex-row items-start gap-3.5 rounded-lg p-2 -m-2 transition-colors duration-200 hover:bg-white/5 group"
+        >
+          <div
+            className="flex items-center justify-center w-9 h-9 rounded-[9px] shrink-0 transition-transform duration-200 group-hover:scale-105"
+            style={{ backgroundColor: item.iconBg }}
+          >
+            {item.icon}
+          </div>
+
+          <div className="flex flex-col gap-0.5">
+            <span className="text-white text-[14px] font-medium leading-tight">
+              {item.title}
+            </span>
+
+            <span className="text-[#8A8FA3] text-[12.5px] leading-snug">
+              {item.description}
+            </span>
+          </div>
+        </Link>
+      ))}
     </div>
+  </div>
 );
 
 const NavBar = () => {
@@ -169,7 +187,10 @@ const NavBar = () => {
                         />
 
                         <div className="relative z-10">
-                            {isDark ? Icons.logoWhite : Icons.logo}
+                       
+                            <Link to={"/"}>  
+                            <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
+                            </Link>
                         </div>
 
                         <div className="relative z-10 gap-10 flex flex-row font-medium items-center">
@@ -214,9 +235,17 @@ const NavBar = () => {
                                 }}
                             />
                             <div className="relative z-10 flex flex-row gap-14">
-                                <MenuColumn heading="Features" items={featureItems} />
+                                 <MenuColumn
+                                    heading="Features"
+                                    items={featureItems}
+                                    onItemClick={() => setProductOpen(false)}
+                                    />
                                 <div className="w-px bg-[#232331] self-stretch" />
-                                <MenuColumn heading="Resources" items={resourceItems} />
+                                   <MenuColumn
+                                    heading="Resources"
+                                    items={resourceItems}
+                                    onItemClick={() => setProductOpen(false)}
+                                    />
                             </div>
                         </div>
                     </div>

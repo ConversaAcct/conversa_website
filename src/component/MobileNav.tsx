@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Icons from "../assets/Icons";
 import { useNavbarTheme } from "./useNavbarTheme";
 import { Link } from "react-router-dom";
+import type { MenuItem } from "../interface/props";
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
     <svg
@@ -27,12 +28,7 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 
 
 
-type MenuItem = {
-    icon: React.ReactNode;
-    iconBg: string;
-    title: string;
-    description: string;
-};
+
 
 const featureItems: MenuItem[] = [
     {
@@ -40,24 +36,28 @@ const featureItems: MenuItem[] = [
         iconBg: "",
         title: "Call Analytics",
         description: "Every call, outcome, and booking in real time",
+        link : "#"
     },
     {
         icon: Icons.AssistantSetupIcon,
         iconBg: "",
         title: "Assistant Setup",
         description: "Pick a template, go live the same day",
+        link : "/assistance-setup"
     },
     {
         icon: Icons.CallHandlingIcon,
         iconBg: "",
         title: "Call Handling Rules",
         description: "Emergency routing, spam blocking, VIP logic",
+        link : "#"
     },
     {
         icon: Icons.AppointmentWorkflowsIcon,
         iconBg: "",
         title: "Appointment Workflows",
         description: "Automated booking, reminders, and follow-ups",
+        link : "#"
     },
 ];
 
@@ -67,47 +67,70 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "How it works",
         description: "The full call lifecycle, from ring to result",
+        link : "#"
     },
     {
         icon: Icons.RoiCalculatorIcon,
         iconBg: "",
         title: "ROI Calculator",
         description: "See what missed calls are costing your practice",
+        link : "#"
     },
     {
         icon: Icons.SecurityComplianceIcon,
         iconBg: "",
         title: "Security & Compliance",
         description: "HIPAA, BAA at onboarding, AES-256 encryption",
+        link : "#"
     },
 ];
 
-const MobileMenuSection = ({ heading, items }: { heading: string; items: MenuItem[] }) => (
-    <div className="flex flex-col gap-4 ">
-        <span className="text-[#8A8FA3] text-[13px]  font-medium">{heading}</span>
-        <div className="flex flex-col gap-4">
-            {items.map((item) => (
-                <div key={item.title} className="flex flex-row items-start gap-3">
-                    <div
-                        className="flex items-center justify-center w-9 h-9 rounded-[9px] shrink-0"
-                        style={{ backgroundColor: item.iconBg }}
-                    >
-                        {item.icon}
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <span className="text-white text-[14px] font-medium leading-tight">
-                            {item.title}
-                        </span>
-                        <span className="text-[#8A8FA3] text-[12.5px] leading-snug">
-                            {item.description}
-                        </span>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
-);
 
+
+
+const MobileMenuSection = ({
+  heading,
+  items,
+  onItemClick,
+}: {
+  heading: string;
+  items: MenuItem[];
+  onItemClick: () => void;
+}) => (
+  <div className="flex flex-col gap-4">
+    <span className="text-[#8A8FA3] text-[13px] font-medium">
+      {heading}
+    </span>
+
+    <div className="flex flex-col gap-4">
+      {items.map((item) => (
+        <Link
+          key={item.title}
+          to={item.link}
+          onClick={onItemClick}
+          className="flex flex-row items-start gap-3 rounded-lg p-2 -m-2 transition-colors hover:bg-white/5 group"
+        >
+          <div
+            className="flex items-center justify-center w-9 h-9 rounded-[9px] shrink-0"
+            style={{ backgroundColor: item.iconBg }}
+          >
+            {item.icon}
+          </div>
+
+          <div className="flex flex-col gap-0.5">
+            <span className="text-white text-[14px] font-medium leading-tight">
+              {item.title}
+            </span>
+
+            <span className="text-[#8A8FA3] text-[12.5px] leading-snug">
+              {item.description}
+            </span>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+);
 const MobileNavBar = () => {
     const isDark = useNavbarTheme();
     const [isOpen, setIsOpen] = useState(false);
@@ -161,7 +184,8 @@ const MobileNavBar = () => {
 
             {/* top row: logo + hamburger/close toggle */}
             <div className="relative z-10 flex flex-row justify-between items-center py-2 px-4 text-[14px]">
-                <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
+               <Link to={"/"}>  <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
+               </Link>
 
                 <button
                     type="button"
@@ -214,8 +238,17 @@ const MobileNavBar = () => {
                                 <div className="overflow-hidden">
                                     <div className="flex flex-row gap-4 pl-4 bg-[#0E0D18] py-2 rounded-[10px]">
                                         <div className="flex flex-col gap-7 flex-1">
-                                            <MobileMenuSection heading="Features" items={featureItems} />
-                                            <MobileMenuSection heading="Resources" items={resourceItems} />
+                                        <MobileMenuSection
+                                            heading="Features"
+                                            items={featureItems}
+                                            onItemClick={() => setIsOpen(false)}
+                                            />
+
+                                            <MobileMenuSection
+                                            heading="Resources"
+                                            items={resourceItems}
+                                            onItemClick={() => setIsOpen(false)}
+                                            />
                                         </div>
                                     </div>
                                 </div>

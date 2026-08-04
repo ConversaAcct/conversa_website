@@ -18,10 +18,10 @@ const LastSection = () => {
 
                 <h1 className="md:text-center font-normal text-[#171F2A] md:text-[40px] text-[29px]  font-cal-sans">
 
-                    Stop losing patients to hold music.
+                Set up in minutes. Not weeks.
                 </h1>
 
-                <p className="text-[#6B7280] text-[16px] md:text-center   mt-2 md:mb-10 mb-5">Most practices are live with Sernio in under a day.</p>
+                <p className="text-[#6B7280] text-[16px] md:text-center md:w-100  mt-2 md:mb-10 mb-5">Join the waitlist. First cohort of practices goes live this quarter.</p>
 
                 <div className="flex items-center justify-center">
 

@@ -22,3 +22,11 @@ export  interface NumberFieldProps {
   step?: number;
   min?: number;
 }
+
+export type MenuItem = {
+  icon: React.ReactNode;
+  iconBg: string;
+  title: string;
+  description: string;
+  link : string;
+};
