@@ -160,8 +160,8 @@ const TenthSection = () => {
                 data-faq-card
                 className={`group relative font-manrope w-full md:w-70 md:shrink-0 cursor-pointer md:h-85 rounded-[20px] p-6 md:p-7 flex flex-col justify-start md:justify-end  transition-colors duration-300 ease-out ${
                   isFirst
-                    ? "bg-[#9C73F3] md:bg-[#F7F7F7] md:hover:bg-[#9C73F3]"
-                    : "bg-[#F7F7F7] md:hover:bg-[#9C73F3]"
+                    ? "bg-[#9C73F3] md:bg-[#F7F7F7] md:hover:bg-[#9C73F3] md:hover:w-84"
+                    : "bg-[#F7F7F7] md:hover:bg-[#9C73F3] md:hover:w-84"
                 }`}
               >
                 <h3

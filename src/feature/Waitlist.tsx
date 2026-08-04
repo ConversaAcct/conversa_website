@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronRight, ChevronDown, ChevronUp, Check, Menu, X } from "lucide-react";
 import Icons from "../assets/Icons";
+import avatar1 from "../assets/waitlist/image (16).svg"
+import avatar2 from "../assets/waitlist/7 (1).svg"
+import avatar3 from "../assets/waitlist/2 (5).svg"
+import avatar4 from "../assets/waitlist/3 (5).svg"
+import avatar5 from "../assets/waitlist/5 (3).svg"
+
+
 
 type Challenge =
   | "Missed calls after hours"
@@ -20,13 +27,13 @@ const CHALLENGES: Challenge[] = [
 ];
 
 const AVATARS = [
-  { id: 1, src: "https://i.pravatar.cc/64?img=12" },
-  { id: 2, src: "https://i.pravatar.cc/64?img=13" },
-  { id: 3, src: "https://i.pravatar.cc/64?img=14" },
-  { id: 4, initials: "E" },
-  { id: 5, src: "https://i.pravatar.cc/64?img=15" },
-  { id: 6, initials: "W" },
-  { id: 7, src: "https://i.pravatar.cc/64?img=16" },
+  { id: 1, src: avatar1},
+  { id: 2, src: avatar3},
+  { id: 3, src: avatar4 },
+  { id: 4, initials: "E" , bg : "#5B0AFF"},
+  { id: 5, src: avatar5 },
+  { id: 6, initials: "W" , bg : "#171F2A"},
+  { id: 7, src: avatar2 },
 ];
 
 const PERKS = [
@@ -56,6 +63,8 @@ const ROLE_OPTIONS = [
   "Office Administrator",
   "Clinical Director",
   "IT/Systems Manager",
+  "Hospital Administrator",
+  "Other"
 ];
 
 const SPECIALTY_OPTIONS = [
@@ -87,6 +96,8 @@ type DropdownProps = {
   onChange: (value: string) => void;
 };
 
+
+
 const Dropdown = ({ id, placeholder, options, value, onChange }: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -112,51 +123,52 @@ const Dropdown = ({ id, placeholder, options, value, onChange }: DropdownProps) 
         onClick={() => setOpen((prev) => !prev)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className={`flex w-full items-center justify-between rounded-xl border bg-white px-4 py-3 text-left outline-none transition-colors ${
+        className={`flex w-full items-center justify-between text-[14px] rounded-lg border bg-white px-4 py-2.5 text-left outline-none transition-colors ${
           open
-            ? "border-violet-500 ring-2 ring-violet-500"
-            : "border-gray-200 hover:border-gray-300"
-        } ${value ? "text-gray-900" : "text-gray-400"}`}
+            ? "border-violet-500 focus:border-[#5B0AFF]"
+            : "border-[#94A3B8]"
+        } ${value ? "text-[#1F2937]" : "text-[#9498B8]"}`}
       >
         <span>{value || placeholder}</span>
         {open ? (
-          <ChevronUp className="h-5 w-5 shrink-0 text-gray-400" />
+          <ChevronUp className="h-4 w-4 shrink-0 text-[#9498B8]" />
         ) : (
-          <ChevronDown className="h-5 w-5 shrink-0 text-gray-400" />
+          <ChevronDown className="h-4 w-4 shrink-0 text-[#9498B8]" />
         )}
       </button>
 
       {open && (
-        <div
-          role="listbox"
-          className="absolute z-10 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white py-2 shadow-xl"
-        >
-          <div className="px-4 py-2.5 text-gray-400">{placeholder}</div>
-          {options.map((option) => {
-            const selected = option === value;
-            return (
-              <button
-                key={option}
-                type="button"
-                role="option"
-                aria-selected={selected}
-                onClick={() => {
-                  onChange(option);
-                  setOpen(false);
-                }}
-                className={`flex w-full items-center justify-between border-t border-gray-100 px-4 py-2.5 text-left transition-colors first:border-t-0 ${
-                  selected
-                    ? "bg-violet-50 font-medium text-violet-600"
-                    : "text-gray-700 hover:bg-gray-50"
-                }`}
-              >
-                {option}
-                {selected && <Check className="h-4 w-4 text-violet-600" />}
-              </button>
-            );
-          })}
-        </div>
-      )}
+  <div
+    role="listbox"
+    className="absolute z-10 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl"
+  >
+    <div className="dropdown-scrollbar max-h-60 overflow-y-auto py-2">
+      <div className="px-4 py-2.5 text-[#9498B8]">{placeholder}</div>
+      {options.map((option) => {
+        const selected = option === value;
+        return (
+          <button
+            key={option}
+            type="button"
+            role="option"
+            aria-selected={selected}
+            onClick={() => {
+              onChange(option);
+              setOpen(false);
+            }}
+            className={`flex w-full items-center justify-between border-t border-gray-100 px-4 py-2.5 text-left transition-colors first:border-t-0 cursor-pointer text-[14px] ${
+              selected
+                ? "bg-[#F3EDFF] font-medium text-[#5B0AFF]"
+                : "text-[#1F2937] hover:bg-[#F3EDFF] hover:text-[#5B0AFF]"
+            }`}
+          >
+            {option}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+)}
     </div>
   );
 };
@@ -200,8 +212,11 @@ const Waitlist = () => {
     });
   };
 
+  
+
   return (
-    <div className="min-h-screen bg-white font-manrope">
+    
+    <div className="min-h-screen bg-white font-manrope max-sm:pb-10">
       {/* Top nav */}
       <header className="fixed flex h-20 items-center justify-between border-b border-gray-200 px-6 sm:px-10 top-0 w-full z-50 bg-white">
         {/* Hamburger — mobile only */}
@@ -242,7 +257,7 @@ const Waitlist = () => {
 
           {/* Menu panel */}
           <div className="relative bg-white shadow-lg">
-            <div className="relative flex h-20 items-center justify-between border-b border-gray-200 px-6">
+            <div className="relative flex h-20 items-center justify-between border-b border-[#E5E7F7] px-6">
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
@@ -252,8 +267,7 @@ const Waitlist = () => {
                 <X className="h-6 w-6" />
               </button>
               <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2">
-                <span className="inline-block h-7 w-7 rounded-full bg-linear-to-br from-violet-500 to-indigo-600" />
-                <span className="text-xl font-bold text-gray-900">Sernio</span>
+              {Icons.waitlistLogo}
               </div>
             </div>
 
@@ -261,14 +275,14 @@ const Waitlist = () => {
               <a
                 href="/"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-gray-100 px-6 py-6 text-lg text-gray-900"
+                className="border-b border-[#E5E7F7] px-6 py-6 text-lg text-gray-900"
               >
                 Home
               </a>
               <a
                 href="#"
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-gray-100 px-6 py-6 text-lg text-gray-900"
+                className="border-b border-[#E5E7F7] px-6 py-6 text-lg text-gray-900"
               >
                 Contact Us
               </a>
@@ -279,85 +293,102 @@ const Waitlist = () => {
 
       {/* Hides the webkit/firefox scrollbar on the right column's scroll
           container while keeping it scrollable. */}
-      <style>{`
+      {/* <style>{`
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
+      `}</style> */}
+
+<style>{`
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .dropdown-scrollbar::-webkit-scrollbar {
+    width: 1px;
+  }
+  .dropdown-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dropdown-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #F3EDFF;
+    border-radius: 9999px;
+  }
+  .dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #E5D9FF;
+  }
+  .dropdown-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #EFEFEF transparent;
+    
+  }
+`}</style>
 
       {/* Content */}
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 pt-20 lg:h-[calc(100vh-5rem)] lg:grid-cols-2 lg:divide-x lg:divide-gray-200">     
-           {/* Left column */}
-     
-      <div className="hidden px-6 lg:sticky lg:top-0 lg:flex lg:h-[calc(100vh-5rem)] lg:self-start lg:flex-col lg:justify-center lg:overflow-hidden ">         
-        
-         <span className="text-[#171F2A] rounded-full border border-[#5B0AFF] w-34.75 h-8.75 items-center flex justify-center px-4 py-1.5 text-sm font-medium ">
-            Early access
-          </span>
+      {/* Left column */}
+<div className="hidden px-6 lg:sticky lg:top-0 lg:flex lg:h-[calc(100vh-5rem)] lg:self-start lg:flex-col lg:justify-start lg:pt-14 lg:overflow-hidden">
 
-          <h1 className="mt-6 text-[34px] font-cal-sans leading-tight text-[#171F2A] sm:text-[36px] w-110">
-            Be the first practice{" "}
-            <span className="text-[#5B0AFF]">Sernio</span> goes live with.
-          </h1>
+<span className="text-[#171F2A] text-[12px] rounded-full border border-[#5B0AFF] font-manrope w-29 h-7 items-center flex justify-center  text-sm font-medium">
+  Early access
+</span>
 
-          <ul className="mt-10 space-y-8">
-            {PERKS.map((perk) => (
-                <div>
-              <li key={perk.title} className="flex gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded bg-[#5B0AFF]">
-                  <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
-                </span>
-                <div>
-                  <p className="font-semibold text-[16px] text-[#171F2A]">{perk.title}</p>
-                 
-                </div>
-              </li>
-               <p className="mt-1 text-[14px] text-[#6B7280]">{perk.description}</p>
-               </div>
-            ))}
-          </ul>
+<h1 className="mt-2 text-[34px] font-cal-sans font-normal leading-tight text-[#171F2A] sm:text-[35px] w-110">
+  Be the first practice{" "}
+  <span className="text-[#5B0AFF]">Sernio</span> goes live with.
+</h1>
+
+<ul className="mt-10 space-y-8">
+  {PERKS.map((perk) => (
+    <div key={perk.title}>
+      <li className="flex gap-3">
+        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded bg-[#5B0AFF]">
+          <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
+        </span>
+        <div>
+          <p className="font-semibold font-manrope text-[16px] text-[#171F2A]">{perk.title}</p>
         </div>
-
+      </li>
+      <p className="mt-1 text-[14px] font-manrope text-[#6B7280] w-120">{perk.description}</p>
+    </div>
+  ))}
+</ul>
+</div>
         {/* Right column */}
   
-       <div className="hide-scrollbar px-6 sm:px-10 lg:overflow-y-auto">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+       <div className="hide-scrollbar px-6 sm:px-10 max-sm:mt-5 lg:px-20 lg:overflow-y-auto lg:pt-14 lg:pb-14">
+          <h2 className="text-3xl font-normal font-cal-sans text-[#171F2A] sm:text-4xl">
             Reserve your spot
           </h2>
-          <p className="mt-3 max-w-md text-gray-500">
+          <p className="mt-1 leading-6 max-w-md text-[#6B7280] text-[14px] font-manrope font-normal">
             Takes under 2 minutes. Your answers help us match you to the right
             cohort and configure Sernio for your specialty before day one.
           </p>
 
           {/* Avatar stack */}
-          <div className="mt-6 flex -space-x-3">
+          <div className="mt-6 flex -space-x-1">
             {AVATARS.map((avatar) => (
               <span
                 key={avatar.id}
-                className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-gray-900 text-sm font-semibold text-white"
+                className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full text-sm font-semibold text-white "
+                style={!avatar.src && avatar.bg ? { backgroundColor: avatar.bg } : undefined}
               >
                 {avatar.src ? (
-
-                  <img
-                    src={avatar.src}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
+                  <img src={avatar.src} alt="" className="h-full w-full object-cover" />
                 ) : (
                   avatar.initials
                 )}
               </span>
             ))}
-          </div>
+         </div>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label
                   htmlFor="fullName"
-                  className="mb-2 block text-sm font-semibold text-gray-900"
+                  className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
                 >
-                  Full name<span className="text-violet-600">*</span>
+                  Full name<span className="text-[#1F2937]">*</span>
                 </label>
                 <input
                   id="fullName"
@@ -366,16 +397,16 @@ const Waitlist = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Ex. Amara Johnson"
-                  className="w-full rounded-xl border border-violet-400 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none ring-violet-500 focus:border-violet-500 focus:ring-2"
+                  className="w-full rounded-lg border border-[#94A3B8] text-[14px] px-4 py-2.5 placeholder-[#9498B8] caret-[#5B0AFF] text-[#1F2937] outline-none  focus:border-[#5B0AFF] "
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="role"
-                  className="mb-2 block text-sm font-semibold text-gray-900"
+                  className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
                 >
-                  Your role<span className="text-violet-600">*</span>
+                  Your role<span className="text-[#1F2937]">*</span>
                 </label>
                 <Dropdown
                   id="role"
@@ -390,9 +421,9 @@ const Waitlist = () => {
             <div>
               <label
                 htmlFor="workEmail"
-                className="mb-2 block text-sm font-semibold text-gray-900"
+                className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
               >
-                Work email<span className="text-violet-600">*</span>
+                Work email<span className="text-[#1F2937]">*</span>
               </label>
               <input
                 id="workEmail"
@@ -401,8 +432,8 @@ const Waitlist = () => {
                 value={workEmail}
                 onChange={(e) => setWorkEmail(e.target.value)}
                 placeholder="Ex. you@yourpractice.com"
-                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500"
-              />
+                className="w-full rounded-lg border border-[#94A3B8] text-[14px] px-4 py-2.5 placeholder-[#9498B8] caret-[#5B0AFF] text-[#1F2937] outline-none  focus:border-[#5B0AFF] "
+                />
               <p className="mt-2 text-sm text-gray-500">
                 Use your practice email — we&apos;ll send confirmation and
                 updates here.
@@ -412,9 +443,9 @@ const Waitlist = () => {
             <div>
               <label
                 htmlFor="practiceName"
-                className="mb-2 block text-sm font-semibold text-gray-900"
+                className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
               >
-                Practice / hospital name<span className="text-violet-600">*</span>
+                Practice / hospital name<span className="text-[#1F2937]">*</span>
               </label>
               <input
                 id="practiceName"
@@ -423,17 +454,17 @@ const Waitlist = () => {
                 value={practiceName}
                 onChange={(e) => setPracticeName(e.target.value)}
                 placeholder="Ex. Westbrook Dental Care"
-                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500"
-              />
+                className="w-full rounded-lg border border-[#94A3B8] text-[14px] px-4 py-2.5 placeholder-[#9498B8] caret-[#5B0AFF] text-[#1F2937] outline-none  focus:border-[#5B0AFF] "
+                />
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label
                   htmlFor="specialty"
-                  className="mb-2 block text-sm font-semibold text-gray-900"
+                  className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
                 >
-                  Specialty<span className="text-violet-600">*</span>
+                  Specialty<span className="text-[#1F2937]">*</span>
                 </label>
                 <Dropdown
                   id="specialty"
@@ -447,9 +478,9 @@ const Waitlist = () => {
               <div>
                 <label
                   htmlFor="practiceSize"
-                  className="mb-2 block text-sm font-semibold text-gray-900"
+                  className="mb-2 block text-sm font-semibold font-manrope text-[#1F2937]"
                 >
-                  Practice size<span className="text-violet-600">*</span>
+                  Practice size<span className="text-[#1F2937]">*</span>
                 </label>
                 <Dropdown
                   id="practiceSize"
@@ -462,11 +493,11 @@ const Waitlist = () => {
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-sm font-semibold font-manrope text-[#1F2937]">
                 Biggest phone challenge right now
-                <span className="text-violet-600">*</span>
+                <span className="text-[#1F2937]">*</span>
               </p>
-              <p className="mt-1 text-sm text-gray-500">Select all that apply.</p>
+              <p className="mt-1 font-manrope font-normal text-sm text-[#606671]">Select all that apply.</p>
 
               <div className="mt-4 flex flex-wrap gap-3">
                 {CHALLENGES.map((challenge) => {
@@ -477,10 +508,10 @@ const Waitlist = () => {
                       type="button"
                       onClick={() => toggleChallenge(challenge)}
                       aria-pressed={selected}
-                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                      className={`rounded-full cursor-pointer px-4 py-2 text-[13px] font-normal font-manrope transition-colors ${
                         selected
-                          ? "border-violet-600 bg-violet-50 text-violet-700"
-                          : "border-gray-200 bg-gray-50 text-gray-700 hover:border-gray-300"
+                          ? " bg-[#F3EDFF] text-[#5B0AFF]"
+                          : "bg-[#F7F7F8] text-[#606671] hover:border-gray-300"
                       }`}
                     >
                       {challenge}
@@ -492,7 +523,7 @@ const Waitlist = () => {
 
             <button
               type="submit"
-              className="w-full rounded-xl bg-violet-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 sm:w-auto"
+              className="w-full rounded-lg bg-violet-600 px-6 py-2.5 text-base font-medium text-[#F5F3FF] transition-colors hover:bg-violet-700 focus:outline-none cursor-pointer text-[14px] focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 "
             >
               Reserve my spot
             </button>
