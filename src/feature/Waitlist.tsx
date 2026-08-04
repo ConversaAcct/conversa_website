@@ -68,19 +68,25 @@ const ROLE_OPTIONS = [
 ];
 
 const SPECIALTY_OPTIONS = [
+  "General Practice",
   "Dental",
   "Dermatology",
   "Pediatrics",
-  "Primary Care",
-  "Physical Therapy",
+  "Mental Health",
+  "Dermatology",
+  "OB/GYN",
+  "Orthopedics",
+  "Pharmacy",
+  "Other/Multi-specialty"
 ];
 
 const PRACTICE_SIZE_OPTIONS = [
   "Practitioners",
-  "1–5 practitioners",
-  "6–20 practitioners",
-  "21–50 practitioners",
-  "50+ practitioners",
+  "1-5 practitioners",
+  "6-15 practitioners",
+  "16-50 practitioners",
+  "51-100 Practitioners",
+  "100+ Practitioners"
 ];
 
 /**
@@ -173,6 +179,10 @@ const Dropdown = ({ id, placeholder, options, value, onChange }: DropdownProps) 
   );
 };
 
+
+
+
+
 const Waitlist = () => {
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState("");
@@ -182,6 +192,9 @@ const Waitlist = () => {
   const [practiceSize, setPracticeSize] = useState("");
   const [selectedChallenges, setSelectedChallenges] = useState<Challenge[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -198,9 +211,26 @@ const Waitlist = () => {
     );
   };
 
+  // Validate email
+const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(workEmail);
+
+// Check whether the form is complete
+const isFormComplete =
+  fullName.trim() !== "" &&
+  role.trim() !== "" &&
+  isValidEmail &&
+  practiceName.trim() !== "" &&
+  specialty.trim() !== "" &&
+  practiceSize.trim() !== "" &&
+  selectedChallenges.length > 0;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Wire up submission logic here.
+  
+    setSubmitted(true);
+  
+    if (!isFormComplete) return;
+  
     console.log({
       fullName,
       role,
@@ -224,7 +254,7 @@ const Waitlist = () => {
           type="button"
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
-          className="text-gray-900 sm:hidden"
+          className="text-black sm:hidden"
         >
           <Menu className="h-6 w-6" />
         </button>
@@ -355,7 +385,7 @@ const Waitlist = () => {
 </div>
         {/* Right column */}
   
-       <div className="hide-scrollbar px-6 sm:px-10 max-sm:mt-5 lg:px-20 lg:overflow-y-auto lg:pt-14 lg:pb-14">
+       <div className="hide-scrollbar px-6 sm:px-10 max-sm:mt-5 lg:px-20 lg:overflow-y-auto md:pt-14 lg:pb-14">
           <h2 className="text-3xl font-normal font-cal-sans text-[#171F2A] sm:text-4xl">
             Reserve your spot
           </h2>
@@ -425,6 +455,7 @@ const Waitlist = () => {
               >
                 Work email<span className="text-[#1F2937]">*</span>
               </label>
+
               <input
                 id="workEmail"
                 type="email"
@@ -432,11 +463,29 @@ const Waitlist = () => {
                 value={workEmail}
                 onChange={(e) => setWorkEmail(e.target.value)}
                 placeholder="Ex. you@yourpractice.com"
-                className="w-full rounded-lg border border-[#94A3B8] text-[14px] px-4 py-2.5 placeholder-[#9498B8] caret-[#5B0AFF] text-[#1F2937] outline-none  focus:border-[#5B0AFF] "
-                />
-              <p className="mt-2 text-sm text-gray-500">
-                Use your practice email — we&apos;ll send confirmation and
-                updates here.
+                className={`w-full rounded-lg border px-4 py-2.5 text-[14px] outline-none transition-colors
+                  ${
+                    workEmail.length === 0
+                      ? "border-[#94A3B8]"
+                      : isValidEmail
+                      ? "border-[#5B0AFF]"
+                      : "border-red-500"
+                  }
+                  placeholder-[#9498B8]
+                  caret-[#5B0AFF]
+                  text-[#1F2937]
+                  focus:border-[#5B0AFF]
+                `}
+              />
+
+              {submitted && workEmail && !isValidEmail && (
+                <p className="mt-2 text-sm text-red-500">
+                  Please enter a valid work email.
+                </p>
+              )}
+
+              <p className="mt-2 text-sm text-[#606671] font-manrope">
+                Use your practice email — we'll send confirmation and updates here.
               </p>
             </div>
 
@@ -522,12 +571,21 @@ const Waitlist = () => {
             </div>
 
             <button
-              type="submit"
-              className="w-full rounded-lg bg-violet-600 px-6 py-2.5 text-base font-medium text-[#F5F3FF] transition-colors hover:bg-violet-700 focus:outline-none cursor-pointer text-[14px] focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 "
-            >
-              Reserve my spot
-            </button>
+                type="submit"
+                disabled={!isFormComplete}
+                className={`w-full rounded-lg px-6 py-2.5 text-[14px] font-medium text-white transition-all duration-200 focus:outline-none
+                  ${
+                    isFormComplete
+                      ? "bg-[#5B0AFF] hover:bg-[#4D08D9] cursor-pointer"
+                      : "bg-[#9B6AFF] opacity-70 cursor-not-allowed"
+                  }
+                `}
+              >
+                Reserve my spot
+              </button>
           </form>
+
+          <p className="text-[#606671] mt-10 text-sm font-manrope font-normal text-center lg:px-15">No payment. No commitment. We'll reach out personally when your cohort is ready.</p>
         </div>
       </div>
     </div>
