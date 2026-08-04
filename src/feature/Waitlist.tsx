@@ -6,6 +6,7 @@ import avatar2 from "../assets/waitlist/7 (1).svg"
 import avatar3 from "../assets/waitlist/2 (5).svg"
 import avatar4 from "../assets/waitlist/3 (5).svg"
 import avatar5 from "../assets/waitlist/5 (3).svg"
+import axios from "axios";
 
 
 
@@ -85,10 +86,9 @@ const SPECIALTY_OPTIONS = [
 ];
 
 const PRACTICE_SIZE_OPTIONS = [
-  "Practitioners",
-  "1-5 practitioners",
-  "6-15 practitioners",
-  "16-50 practitioners",
+  "1-5 Practitioners",
+  "6-15 Practitioners",
+  "16-50 Practitioners",
   "51-100 Practitioners",
   "100+ Practitioners"
 ];
@@ -197,7 +197,9 @@ const Waitlist = () => {
   const [selectedChallenges, setSelectedChallenges] = useState<Challenge[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
 
   useEffect(() => {
@@ -215,10 +217,10 @@ const Waitlist = () => {
     );
   };
 
-  // Validate email
+
 const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(workEmail);
 
-// Check whether the form is complete
+
 const isFormComplete =
   fullName.trim() !== "" &&
   role.trim() !== "" &&
@@ -228,24 +230,64 @@ const isFormComplete =
   practiceSize.trim() !== "" &&
   selectedChallenges.length > 0;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Submitting...");
   
     setSubmitted(true);
   
     if (!isFormComplete) return;
   
-    console.log({
-      fullName,
+    setLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+    const payload = {
+      name: fullName,
       role,
-      workEmail,
-      practiceName,
+      email_address: workEmail,
+      hospital_name: practiceName,
       specialty,
-      practiceSize,
-      selectedChallenges,
-    });
-  };
+      number_of_practitioners: practiceSize,
+      challenge: selectedChallenges,
+    };
+  
+    try {
+      const response = await axios.post(
+        "https://lowcost-be.onrender.com/v1/api/waitlist",
+        payload
+      );
+  
 
+      setSuccessMessage(
+        response.data.message ??
+          "You've successfully joined the waitlist!"
+      );
+  
+      // Clear the form
+      setFullName("");
+      setRole("");
+      setWorkEmail("");
+      setPracticeName("");
+      setSpecialty("");
+      setPracticeSize("");
+      setSelectedChallenges([]);
+      setSubmitted(false);
+  
+    }catch (error: unknown) {
+        if (axios.isAxiosError(error)) {
+          setErrorMessage(
+            error.response?.data?.message ??
+            "Something went wrong."
+          );
+        } else {
+          setErrorMessage(
+            "Unable to connect to the server. Please try again."
+          );
+        }
+      } finally {
+    setLoading(false);
+  }
+  };
   
 
   return (
@@ -575,18 +617,29 @@ const isFormComplete =
             </div>
 
             <button
-                type="submit"
-                disabled={!isFormComplete}
-                className={`w-full rounded-lg px-6 py-2.5 text-[14px] font-medium text-white transition-all duration-200 focus:outline-none
-                  ${
-                    isFormComplete
-                      ? "bg-[#5B0AFF] hover:bg-[#4D08D9] cursor-pointer"
-                      : "bg-[#9B6AFF] opacity-70 cursor-not-allowed"
-                  }
-                `}
-              >
-                Reserve my spot
-              </button>
+              type="submit"
+              disabled={!isFormComplete || loading}
+              className={`w-full rounded-lg px-6 py-2.5 text-[14px] font-medium text-white transition-all duration-200
+                ${
+                  isFormComplete && !loading
+                    ? "bg-[#5B0AFF] hover:bg-[#4D08D9] cursor-pointer"
+                    : "bg-[#9B6AFF] opacity-70 cursor-not-allowed"
+                }`}
+            >
+              {loading ? "Reserving..." : "Reserve my spot"}
+          </button>
+
+           {successMessage && (
+              <p className="mt-4 text-center text-green-600 text-[12px] font-medium">
+                {successMessage}
+              </p>
+            )}
+
+            {errorMessage && (
+              <p className="mt-4 text-center text-red-500 text-[12px] font-medium">
+                {errorMessage}
+              </p>
+            )}
           </form>
 
           <p className="text-[#606671] mt-10 text-sm font-manrope font-normal text-center lg:px-15">No payment. No commitment. We'll reach out personally when your cohort is ready.</p>
