@@ -260,7 +260,7 @@ const isFormComplete =
 
       setSuccessMessage(
         response.data.message ??
-          "You've successfully joined the waitlist!"
+          "You've successfully joined the waitlist! A confirmation email containing your details has also been sent to your inbox."
       );
   
       // Clear the form

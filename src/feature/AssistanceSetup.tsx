@@ -1,3 +1,4 @@
+import FifthPage from "../component/assistant-setup/FifthPage";
 import FourthPage from "../component/assistant-setup/FourthPage";
 import HeroPage from "../component/assistant-setup/HeroPage";
 import LastSection from "../component/assistant-setup/LastSection";
@@ -11,7 +12,7 @@ const AssistanceSetup = () => {
             <SecondPage/>
             <ThirdPage/>
             <FourthPage/>
-
+            <FifthPage/>
             <LastSection/>
 
         </div>

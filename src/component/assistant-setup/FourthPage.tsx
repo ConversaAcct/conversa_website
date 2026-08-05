@@ -4,7 +4,7 @@ import arrow from "../../assets/assistant-setup/secondpage/Arrow (5).svg"
 
 const FourthPage = () => {
     return (
-        <div className="flex lg:flex-row flex-col lg:justify-between lg:px-30 md:px-20 py-10  ">
+        <div className="flex lg:flex-row flex-col lg:justify-between lg:px-30 md:px-20 py-10 lg:mb-16 mb-10"  data-navbar-theme="white">
 
             
 
