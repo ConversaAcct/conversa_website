@@ -21,11 +21,11 @@ const HeroPage = () => {
                 </div>
                 <div className="flex justify-center items-center max-md:px-20 flex-col lg:-mt-20">
                      <div className="flex justify-center items-center"><img src={tag1}/></div>
-                    <div className=" font-normal text-[32px] lg:text-[55px] font-cal-sans text-[#171F2A] leading-tight ">
+                    <div className=" font-normal text-[32px] lg:text-[50px] font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>Takes just three steps.</h1>
                          <h1>Go live the same day.</h1>
                     </div>
-                    <p className="text-[#171F2A] font-manrope text-[14px] w-90 text-center ">No flow-builders. No prompt engineering. No blank canvas. Pick your specialty template and Sernio already knows your patients' most common questions.</p>
+                    <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5 w-90 text-center ">No flow-builders. No prompt engineering. No blank canvas. Pick your specialty template and Sernio already knows your patients' most common questions.</p>
                     <div className="flex flex-row items-center gap-3 py-6">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
