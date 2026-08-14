@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState ,type ChangeEvent } from "react";
 import { ChevronRight, ChevronDown, ChevronUp, Check, Menu, X } from "lucide-react";
 import Icons from "../assets/Icons";
 import avatar1 from "../assets/waitlist/image (16).svg"
@@ -507,7 +507,7 @@ const Waitlist = () => {
     window.location.href = "/";
   };
 
-  const changeValue = (e) => {
+  const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
 
     const { name, value } = e.target
 
