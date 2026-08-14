@@ -7,35 +7,30 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
-    question: "Will patients know they're talking to an AI?",
+    question: " What happens if it's a real emergency?",
     answer:
-      "Yes. Every call opens with a clear, plain-language disclosure before Sernio helps with anything.",
+      "Sernio is trained to detect emergency language and immediately transfers the call to your on-call staff or the instructions you set, with no menu and no delay.",
   },
   {
-    question: "What happens if it's a real emergency?",
+    question: " Does it replace my front desk?",
     answer:
-      "Sernio recognizes emergency language immediately and routes the caller to 911 or your on-call line, no menus, no delay.",
+      "No. Sernio handles overflow, after-hours calls, and routine requests so your team can stay focused on the patient in front of them.",
   },
   {
-    question: "Does it replace my front desk?",
+    question: " Does it work with my EHR?",
     answer:
-      "No. It catches the calls your team can't get to, so your staff can focus on patients in the room, not patients on hold.",
-  },
-  {
-    question: "Does it work with my EHR?",
-    answer:
-      "Sernio connects to the EHR and scheduling tools your practice already uses, so bookings and updates sync automatically.",
+      "Sernio connects to Epic, Athenahealth, Oracle Health, DrChrono, Kareo, ModMed, and SimplePractice, with more integrations added regularly.",
   },
   {
     question: "Is Sernio HIPAA compliant?",
     answer:
-      "Yes. Every call is encrypted end-to-end and handled under a signed BAA, with full audit logs available on request.",
+      "Sernio is built on a HIPAA-ready architecture with a Business Associate Agreement available on request. Ask your Sernio contact for current certification documentation.",
   },
   {
-    question: "What if Sernio doesn't know the answer?",
+    question: "How long does setup take?",
     answer:
-      "It says so, takes a message, and hands the caller to your team, instead of guessing.",
-  },
+      "Most practices are live in under a day using a specialty template, then refine call handling rules and the knowledge base over the following week.",
+  }
 ];
 
 // Card layout constants (desktop): w-70 = 280px, gap-5 = 20px
