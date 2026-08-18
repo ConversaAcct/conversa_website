@@ -16,10 +16,10 @@ const HeroPage = () => {
 
         <div className="lg:flex-row flex-col flex lg:gap-20">
 
-                <div className="lg:block hidden">
+                <div className="xl:block hidden">
                     <img src={pix1}/>
                 </div>
-                <div className="flex justify-center items-center max-md:px-20 flex-col lg:-mt-20">
+                <div className="flex justify-center items-center max-md:px-20 flex-col xl:-mt-20 lg:mt-16">
                      <div className="flex justify-center items-center"><img src={tag1}/></div>
                     <div className=" font-normal text-[32px] lg:text-[50px] font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>Takes just three steps.</h1>
@@ -32,7 +32,7 @@ const HeroPage = () => {
                         <div><img src={tag4}/></div>
                     </div>
                 </div>
-                <div className="lg:block hidden">
+                <div className="xl:block hidden">
                     <img src={pix2}/>
                 </div>
 

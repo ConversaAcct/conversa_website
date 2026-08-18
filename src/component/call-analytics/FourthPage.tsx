@@ -20,15 +20,15 @@ const FourthPage = () => {
 
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-6 lg:px-26 px-10 py-5 justify-items-center md:justify-items-stretch" data-navbar-theme="white">
-                    <img src={card1}/>
-                    <img src={card2}/>
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:mt-14  lg:px-36 px-10 py-5  justify-items-center md:justify-items-stretch" data-navbar-theme="white">
+                    <img src={card1} className="lg:ml-2"/>
+                    <img src={card2} className="lg:-ml-3"/>
                    
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-6 lg:px-26 px-10 justify-items-center md:justify-items-stretch" data-navbar-theme="white">
-            <img src={card3}/>
-            <img src={card4}/>
+            <div className="grid grid-cols-1 md:grid-cols-2   lg:px-36 px-10 justify-items-center md:justify-items-stretch" data-navbar-theme="white">
+            <img src={card3}  className="lg:ml-2"/>
+            <img src={card4}  className="lg:-ml-3"/>
                    
             </div>
 

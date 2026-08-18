@@ -52,7 +52,7 @@ const featureItems: MenuItem[] = [
         iconBg: "",
         title: "Call Handling Rules",
         description: "Emergency routing, spam blocking, VIP logic",
-        link : "#"
+        link : "/call-handling-rules"
     },
     {
         icon: Icons.AppointmentWorkflowsIcon,
