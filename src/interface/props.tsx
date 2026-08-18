@@ -30,3 +30,22 @@ export type MenuItem = {
   description: string;
   link : string;
 };
+
+
+export type CountryDropdownProps = {
+  id: string;
+  placeholder: string;
+  options: string[];
+  value: string;
+  name: string;
+  onChange: (value: string) => void;
+};
+
+export type DropdownProps = {
+  id: string;
+  placeholder: string;
+  options: string[];
+  value: string;
+  name : string;
+  onChange: (value: string) => void;
+};
