@@ -14,7 +14,7 @@ const FifthPage = () => {
                 </div>
 
                 <h1 className="md:text-center font-normal text-[#FFFFFF] md:text-[45px] text-[30px] md:max-w-154 font-cal-sans md:mt-4 md:leading-13">
-                   Your patients hear a person,not a robot.
+                   Your patients hear a person, not a robot.
                 </h1> 
 
                 <p className="text-[#F3EDFF] text-[14px] font-manrope font-medium mt-5 lg:w-150 lg:text-center">Each voice is designed for medical practice conversations — calm, clear, and professional. Not a generic call-centre voice.</p>

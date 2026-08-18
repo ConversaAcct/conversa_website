@@ -36,7 +36,7 @@ const featureItems: MenuItem[] = [
         iconBg: "",
         title: "Call Analytics",
         description: "Every call, outcome, and booking in real time",
-        link : "#"
+        link : "/call-analytics"
     },
     {
         icon: Icons.AssistantSetupIcon,
