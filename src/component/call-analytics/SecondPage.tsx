@@ -1,28 +1,25 @@
+import image1 from "../../assets/call-analytics/secondpage/1 (19).svg";
+import image2 from "../../assets/call-analytics/secondpage/2 (16).svg";
+import image3 from "../../assets/call-analytics/secondpage/3 (13).svg";
+import image4 from "../../assets/call-analytics/secondpage/4 (4).svg";
+
 const SecondPage = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-20 px-10 bg-[#FFFEFA]">
+        <div className="md:grid  hidden md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-20 px-10 bg-[#FFFEFA]">
             <div>
-                <svg width="350" height="250" viewBox="0 0 350 250" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <rect x="0.5" y="0.5" width="349" height="249" rx="9.5" fill="white" stroke="#E2DCED"/>
-                </svg>
+                <img src={image1}/>
             </div>
 
             <div>
-                <svg width="350" height="250" viewBox="0 0 350 250" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <rect x="0.5" y="0.5" width="349" height="249" rx="9.5" fill="white" stroke="#E2DCED"/>
-                </svg>
+                <img src={image2}/>
             </div>
 
             <div>
-                <svg width="350" height="250" viewBox="0 0 350 250" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <rect x="0.5" y="0.5" width="349" height="249" rx="9.5" fill="white" stroke="#E2DCED"/>
-                </svg>
+                <img src={image3}/>
             </div>
 
             <div>
-                <svg width="350" height="250" viewBox="0 0 350 250" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <rect x="0.5" y="0.5" width="349" height="249" rx="9.5" fill="white" stroke="#E2DCED"/>
-                </svg>
+                <img src={image4}/>
             </div>
         </div>
     )

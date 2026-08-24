@@ -16,7 +16,7 @@ const LastSection = () => {
             <div className="flex flex-col md:items-center md:mt-30 ">
                
 
-                <h1 className="md:text-center font-normal text-[#171F2A] md:text-[40px] text-[29px]  font-cal-sans">
+                <h1 className="md:text-center font-normal text-[#171F2A] md:text-[40px] text-[34px]  font-cal-sans">
 
                 Stop guessing what happens on your calls.
                 </h1>
