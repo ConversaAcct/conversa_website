@@ -1,13 +1,15 @@
 import tag from "../../assets/assistant-setup/secondpage/Group (5).svg"
 import card from "../../assets/assistant-setup/secondpage/img (2).svg"
 import arrow from "../../assets/assistant-setup/secondpage/Arrow (5).svg"
+import cardMob from "../../assets/assistant-setup/thirdpage/img (1).svg"
 
 const ThirdPage = () => {
     return (
         <div className="flex lg:flex-row max-lg:flex-col-reverse lg:justify-between lg:px-24 md:px-20 py-10"  data-navbar-theme="white">
 
-            <div className="max-lg:mt-5 ">
-                  <img src={card}/>
+            <div className="max-lg:mt-5 max-md:px-5">
+                  <img src={card} className="max-sm:hidden"/>
+                  <img src={cardMob} className="max-sm:block hidden"/>
             </div>
 
             <div className="mt-10 max-sm:px-5  ">

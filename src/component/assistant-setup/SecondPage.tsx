@@ -1,5 +1,6 @@
 import tag from "../../assets/assistant-setup/secondpage/Group (4).svg"
 import card from "../../assets/assistant-setup/secondpage/img (6).png"
+import cardMob from "../../assets/assistant-setup/secondpage/img.svg"
 
 const SecondPage = () => {
     return (
@@ -11,7 +12,8 @@ const SecondPage = () => {
                  <p className="text-[#6B7280] text-[14px]  font-manrope font-medium mt-5 lg:w-110">Nine pre-built templates tuned to your specialty's vocabulary — the intake questions, escalation rules, and call logic are already configured. Dental patients ask different questions than OB/GYN patients. Sernio knows this.</p>
             </div>
             <div className="max-lg:mt-5 max-md:px-5">
-                  <img src={card} className=" md:w-150 md:h-110 w-140 h-90"/>
+                  <img src={card} className="max-sm:hidden md:w-150 md:h-110 w-140 h-90"/>
+                  <img src={cardMob} className="max-sm:block hidden"/>
             </div>
 
         </div>

@@ -1,6 +1,9 @@
 import card1 from "../../assets/assistant-setup/fifthpage/1 (10).svg"
 import card2 from "../../assets/assistant-setup/fifthpage/2 (8).svg"
 import card3 from "../../assets/assistant-setup/fifthpage/3 (7).svg"
+import cardMob from "../../assets/assistant-setup/fifthpage/1.svg"
+import cardMob2 from "../../assets/assistant-setup/fifthpage/2.svg"
+import cardMob3 from "../../assets/assistant-setup/fifthpage/3.svg"
 
 const FifthPage = () => {
     return(
@@ -19,11 +22,14 @@ const FifthPage = () => {
 
                 <p className="text-[#F3EDFF] text-[14px] font-manrope font-medium mt-5 lg:w-150 lg:text-center">Each voice is designed for medical practice conversations — calm, clear, and professional. Not a generic call-centre voice.</p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-3 px-5 md:mb-16 mt-10 lg:mt-20 md:mx-auto">
-    <img src={card1} />
-    <img src={card2} />
-    <img src={card3} className="md:col-span-2 lg:col-span-1 md:justify-self-center" />
-</div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-3 md:px-5 md:mb-16 mt-10 lg:mt-20 md:mx-auto">
+                        <img src={card1} className="max-sm:hidden"/>
+                        <img src={cardMob} className="max-sm:block hidden"/>
+                        <img src={card2}  className="max-sm:hidden"/>
+                        <img src={cardMob2} className="max-sm:block hidden"/>
+                        <img src={card3} className="md:col-span-2 lg:col-span-1 md:justify-self-center max-sm:hidden" />
+                        <img src={cardMob3} className="max-sm:block hidden"/>
+                </div>
             </div>
 
         </div>

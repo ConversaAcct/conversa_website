@@ -1,7 +1,7 @@
 import tag from "../../assets/assistant-setup/secondpage/Group (6).svg"
 import card from "../../assets/assistant-setup/secondpage/img (5).png"
 import arrow from "../../assets/assistant-setup/secondpage/Arrow (5).svg"
-
+import cardMob from "../../assets/assistant-setup/forthpage/img (2).svg"
 const FourthPage = () => {
     return (
         <div className="flex lg:flex-row flex-col lg:justify-between lg:px-30 md:px-20 py-10 lg:mb-16 mb-10"  data-navbar-theme="white">
@@ -61,7 +61,8 @@ const FourthPage = () => {
 
 
             <div className="max-lg:mt-5 max-md:px-5 ">
-                  <img src={card} className="md:w-150 md:h-110 w-150 h-90"/>
+                  <img src={card} className="md:w-150 md:h-110 w-150 h-90 max-sm:hidden"/>
+                  <img src={cardMob} className="max-sm:block hidden"/>
             </div>
           
 
