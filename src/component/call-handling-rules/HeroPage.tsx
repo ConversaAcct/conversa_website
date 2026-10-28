@@ -11,7 +11,7 @@ const HeroPage = () => {
     return (
         <div
             data-navbar-theme="white"
-            className="bg-cover bg-center bg-no-repeat w-full lg:min-h-screen lg:h-screen flex lg:flex-col lg:justify-center items-center  overflow-hidden pt-28 pb-10 xl:mt-14 lg:pt-0 lg:pb-0"
+            className="bg-cover bg-center bg-no-repeat w-full lg:min-h-screen lg:h-screen flex lg:flex-col lg:justify-center items-center  overflow-hidden pt-32 pb-10 xl:mt-14 lg:pt-0 lg:pb-0"
             style={{ backgroundImage: `url('/bg (3).png')` }}
         >
             <div className="flex flex-col w-full xl:w-auto  xl:flex-row xl:justify-center xl:items-center xl:-ml-30 xl:gap-20">
