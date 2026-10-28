@@ -11,9 +11,20 @@ const SecondPage = () => {
                  <h1 className="font-normal text-[32px] lg:text-[40px] lg:w-120 mt-3 font-cal-sans text-[#171F2A] leading-tight  ">Pick your specialty. Sernio speaks your language from day one.</h1>
                  <p className="text-[#6B7280] text-[14px]  font-manrope font-medium mt-5 lg:w-110">Nine pre-built templates tuned to your specialty's vocabulary — the intake questions, escalation rules, and call logic are already configured. Dental patients ask different questions than OB/GYN patients. Sernio knows this.</p>
             </div>
-            <div className="max-lg:mt-5 max-md:px-5">
-                  <img src={card} className="max-sm:hidden md:w-150 md:h-110 w-140 h-90"/>
-                  <img src={cardMob} className="max-sm:block hidden"/>
+            <div className="max-lg:mt-5 px-5 md:px-0">
+                {/* Desktop / tablet */}
+                <img
+                    src={card}
+                    alt="Specialty templates"
+                    className="hidden sm:block md:w-150 md:h-110 w-140 h-90"
+                />
+
+                {/* Mobile */}
+                <img
+                    src={cardMob}
+                    alt="Specialty templates"
+                    className="block sm:hidden w-full h-auto max-w-full mx-auto"
+                />
             </div>
 
         </div>
