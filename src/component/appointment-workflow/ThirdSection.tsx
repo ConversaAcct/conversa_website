@@ -110,7 +110,8 @@ const reminders: Reminder[] = [
 /* ---------- Cards ---------- */
 
 const BookingCard = () => (
-    <div className="w-full rounded-3xl border border-[#2B2A37] p-3 lg:p-5">
+    <div             data-navbar-theme="dark"
+    className="w-full rounded-3xl border border-[#2B2A37] p-3 lg:p-5">
         {/* Confirmed */}
         <div className="flex flex-col items-center rounded-2xl border border-[#232032] bg-[#191726] px-4 py-8 text-center lg:py-9">
                 <CheckIcon  />
@@ -146,7 +147,8 @@ const BookingCard = () => (
 );
 
 const RemindersCard = () => (
-    <div className="w-full rounded-3xl border border-[#2B2A37] bg-[#0E0D18] p-4 lg:p-8">
+    <div             data-navbar-theme="dark"
+    className="w-full rounded-3xl border border-[#2B2A37] bg-[#0E0D18] p-4 lg:p-8">
         <h4 className="mb-5 text-lg font-medium text-[#BEBFCB] lg:mb-6 lg:text-2xl">Today’s scheduled reminders</h4>
 
         <div className="space-y-3 lg:space-y-4">
@@ -177,10 +179,14 @@ const RemindersCard = () => (
                     <span className="absolute right-3 top-2 lg:hidden">
                         {r.status === "sent" ? (
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect opacity="0.1" width="20" height="20" rx="10" fill="#27FFA4"/>
-                            <path d="M5 10.2308L8.1336 13.6054C8.33142 13.8185 8.66858 13.8185 8.8664 13.6054L15 7" stroke-width="2" stroke-linecap="round" stroke="#27FFA4"/>
+                                <rect opacity="0.1" width="20" height="20" rx="10" fill="#27FFA4" />
+                                <path
+                                    d="M5 10.2308L8.1336 13.6054C8.33142 13.8185 8.66858 13.8185 8.8664 13.6054L15 7"
+                                    stroke="#27FFA4"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                />
                             </svg>
-                            
                         ) : (
                             <span className="mt-2 mr-1 block h-0.5 w-5 rounded bg-amber-400" />
                         )}

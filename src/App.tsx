@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import { Route } from "./route/Route";
+import ScrollToTop from "./component/resuable/ScrollToTop";
 
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
   return (
   
    <>
+    <ScrollToTop />
+
    {routing}
    </>
   )
