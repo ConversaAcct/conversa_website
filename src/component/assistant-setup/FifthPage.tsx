@@ -9,7 +9,7 @@ import Tag from "../resuable/Tag"
 const FifthPage = () => {
     return (
         <div
-            data-navbar-theme="white"
+            data-navbar-theme="dark"
             className="w-full flex flex-col px-5 md:px-0 md:justify-center bg-[#0E0D18] py-20"
         >
             <div className="flex flex-col md:items-center">
