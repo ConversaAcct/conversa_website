@@ -16,6 +16,7 @@ import carouselImg3 from "../assets/seventhsection/carousel/3 (3).svg"
 import carouselImg4 from "../assets/seventhsection/carousel/4 (1).svg"
 import carouselImg5 from "../assets/seventhsection/carousel/5 (1).svg"
 import carouselImg6 from "../assets/seventhsection/carousel/6.svg"
+import Tag from "./resuable/Tag";
 
 const carouselImages = [
     carouselImg1,
@@ -32,11 +33,6 @@ const trackImages = [...carouselImages, ...carouselImages];
 const SeventhSection = () => {
     const [isTouchPaused, setIsTouchPaused] = useState(false);
 
-    // Mobile browsers simulate :hover on tap and only clear it when the
-    // user taps elsewhere ("tap out"). To keep the existing hover-to-pause
-    // behavior intact for lg/desktop, the :hover rule below is scoped to
-    // pointer:fine + hover:hover devices only. Touch devices get a separate
-    // press/release-driven pause via the .is-touch-paused class instead.
     const pauseTouch = () => setIsTouchPaused(true);
     const resumeTouch = () => setIsTouchPaused(false);
 
@@ -70,10 +66,9 @@ const SeventhSection = () => {
             `}</style>
 
             <div className="flex flex-col md:items-center md:py-28 py-12">
-                <div className="border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1.5 lg:px-6 max-md:w-70  flex justify-center items-center  rounded-full text-[13px] ">
-                    <p>No flow-builder. No prompt engineering</p>
-                </div>
+             
 
+                <Tag>No flow-builder. No prompt engineering</Tag>
                 <h1 className="md:text-center font-normal text-[#FFFFFF] md:text-[45px] text-[30px] md:max-w-140 font-cal-sans md:mt-4 md:leading-13">
 
                 Sernio already speaks your <span className="text-[#D3C1F9]">specialty's language.</span>
@@ -110,9 +105,8 @@ const SeventhSection = () => {
 
 
             <div className="flex flex-col md:items-center py-12 ">
-                <div className="border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1.5 lg:px-6 max-md:w-70  flex justify-center items-center rounded-full text-[13px] ">
-                    <p>Built for healthcare, not retrofitted</p>
-                </div>
+            
+                <Tag>Built for healthcare, not retrofitted</Tag>
 
                 <h1 className="md:text-center font-normal text-[#FFFFFF] md:text-[45px] text-[30px] md:max-w-160 font-cal-sans md:mt-4 md:leading-13">
                 Trust isn't a feature here. It's the foundation.

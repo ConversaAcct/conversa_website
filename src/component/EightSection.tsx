@@ -1,4 +1,5 @@
 import IntegrationLogos from "./IntegrationLogos";
+import Tag from "./resuable/Tag";
 
 
 const EightSection = () => {
@@ -13,9 +14,8 @@ const EightSection = () => {
 > 
 
         <div className="flex flex-col md:items-center md:py-28 py-12">
-                        <div className="border font-medium border-[#5B0AFF] text-[#171F2A] py-1.5 lg:px-6 max-md:w-70  flex justify-center items-center rounded-full text-[13px] ">
-                            <p>Works with what you already run</p>
-                        </div>
+                     
+                        <Tag isDark>Works with what you already run</Tag>
 
                         <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] md:max-w-140 font-cal-sans md:mt-4 md:leading-13">
                             No rip-and-replace.

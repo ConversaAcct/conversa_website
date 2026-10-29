@@ -7,6 +7,7 @@ import mobCard1 from "../../assets/call-analytics/thirdpage/1 (21).svg"
 import mobCard2 from "../../assets/call-analytics/thirdpage/2 (18).svg"
 import mobCard3 from "../../assets/call-analytics/thirdpage/3 (15).svg"
 import mobCard4 from "../../assets/call-analytics/thirdpage/4 (6).svg"
+import Tag from "../resuable/Tag"
 
 const ThirdPage = () => {
     return(
@@ -15,9 +16,9 @@ const ThirdPage = () => {
          className="w-full bg-[#0E0D18] max-sm:py-10 flex flex-col max-md:px-5 md:justify-center">
 
             <div className="flex flex-col md:items-center md:mt-20 ">
-            <div className="bg-[#0E0D18] border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1 w-fit flex justify-center items-center px-3 lg:px-4 rounded-full text-[13px]">
-                  <p>Performance breakdown</p>
-                </div>
+      
+
+                <Tag>Performance breakdown</Tag>
 
                 <h1 className="md:text-center font-normal text-white md:text-[45px] text-[30px] md:max-w-160  font-cal-sans">
                     See every dimension of your call performance in one place.

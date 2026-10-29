@@ -9,6 +9,7 @@ import cardMob from "../../assets/call-handling-rules/firstSection/1 (1).svg"
 import cardMob2 from "../../assets/call-handling-rules/firstSection/2 (1).svg"
 import cardMob3 from "../../assets/call-handling-rules/firstSection/3 (1).svg"
 import cardMob4 from "../../assets/call-handling-rules/firstSection/4.svg"
+import Tag from "../resuable/Tag"
 
 const FirstSection = () => {
     return (
@@ -17,9 +18,8 @@ const FirstSection = () => {
             className="w-full bg-[#FDFBFF] flex flex-col px-5 md:px-0 md:justify-center md:pb-26 pb-10"
         >
             <div className="flex flex-col md:items-center md:mt-20 mt-10">
-                <div className="border font-medium border-[#5B0AFF] text-[#171F2A] py-1 w-fit flex justify-center items-center px-3 lg:px-4 rounded-full text-[13px]">
-                    <p>Rule types</p>
-                </div>
+            
+                <Tag isDark>Rule types</Tag>
 
                 <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] md:max-w-160 font-cal-sans">
                     Every edge case, handled automatically.

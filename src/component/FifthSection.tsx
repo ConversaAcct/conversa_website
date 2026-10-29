@@ -1,6 +1,7 @@
 import Icons from "../assets/Icons";
 import homepagePicture from "../assets/FourthSection/Chrome.svg"
 import homepageMobPicture from "../assets/FourthSection/1 (1).svg"
+import Tag from "./resuable/Tag";
 
 const FifthSection = () => {
     return (
@@ -10,9 +11,9 @@ const FifthSection = () => {
          className="w-full bg-[#0E0D18]   flex flex-col max-md:px-5 md:justify-center">
 
             <div className="flex flex-col md:items-center md:mt-20 mt-10 ">
-                <div className="bg-[#0E0D18] border font-medium border-[#5B0AFF] text-[#FFFFFF] py-1  flex justify-center items-center px-7 max-w-80 rounded-full text-[13px] ">
-                    <p>No flow-builder. No prompt engineering</p>
-                </div>
+              
+                <Tag>No flow-builder. No prompt engineering</Tag>  
+
 
                 <h1 className="md:text-center font-normal text-white md:text-[45px] text-[30px] md:max-w-240 font-cal-sans">
              

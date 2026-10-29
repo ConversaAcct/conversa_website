@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import Tag from "./resuable/Tag";
 
 interface FaqItem {
   question: string;
@@ -83,9 +84,8 @@ const TenthSection = () => {
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8 mb-8 md:mb-12">
           <div>
-            <span className="inline-block font-manrope rounded-full border border-[#5B0AFF] px-4 py-1.5 text-[13px] text-[#171F2A] mb-4 md:mb-5">
-              Questions, answered plainly
-            </span>
+
+            <Tag isDark> Questions, answered plainly</Tag>
             <h2 className="text-[26px] md:text-[40px] leading-[1.2] md:leading-[1.15] font-cal-sans font-normal text-[#171F2A] max-w-120">
               Everything your team usually asks first.
             </h2>

@@ -9,6 +9,7 @@ import avatar5 from "../assets/waitlist/5 (3).svg"
 import axios from "axios";
 import CountryDropdown from "../component/CountryDropdown";
 import Dropdown from "../component/Dropdown";
+import Tag from "../component/resuable/Tag";
 
 
 
@@ -375,11 +376,10 @@ const Waitlist = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 pt-20 lg:h-[calc(100vh-5rem)] lg:grid-cols-2 lg:divide-x lg:divide-gray-200">
         {/* Left column */}
         <div className="hidden px-6 lg:sticky lg:top-0 lg:flex lg:h-[calc(100vh-5rem)] lg:self-start lg:flex-col lg:justify-start lg:pt-14 lg:overflow-hidden">
+          
+          <Tag isDark>  Early access</Tag>
 
-          <span className="text-[#171F2A] text-[12px] rounded-full border border-[#5B0AFF] font-manrope w-29 h-7 items-center flex justify-center  text-sm font-medium">
-            Early access
-          </span>
-
+          
           <h1 className="mt-2 text-[34px] font-cal-sans font-normal leading-tight text-[#171F2A] sm:text-[35px] w-110">
             Be the first practice{" "}
             <span className="text-[#5B0AFF]">Sernio</span> goes live with.

@@ -1,6 +1,7 @@
 
 import robot from "../assets/FourthSection/Mask group (5).svg"
 import phone from "../assets/FourthSection/Mask group (7).svg"
+import Tag from "./resuable/Tag"
 
 const FourthSection = () => {
     return(
@@ -9,9 +10,8 @@ const FourthSection = () => {
          className="w-full mb-20 flex flex-col max-md:px-5 md:justify-center">
 
             <div className="flex flex-col md:items-center">
-                <div className="bg-[#FFFFFF] border font-medium border-[#5B0AFF] text-[#171F2A] py-2  flex justify-center items-center w-30 rounded-full text-[13px] ">
-                    <p>How it works</p>
-                </div>
+                
+                <Tag isDark>How it works</Tag>  
 
                 <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] md:max-w-130 font-cal-sans md:mt-4 md:leading-13">
                   Answer. Understand. Act. 

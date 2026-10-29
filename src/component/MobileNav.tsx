@@ -57,7 +57,7 @@ const featureItems: MenuItem[] = [
         iconBg: "",
         title: "Appointment Workflows",
         description: "Automated booking, reminders, and follow-ups",
-        link : "#"
+        link : "/appointment-workflow"
     },
 ];
 

@@ -7,6 +7,7 @@ import mobcard1 from "../../assets/call-analytics/fourthpage/1 (20).svg";
 import mobcard2 from "../../assets/call-analytics/fourthpage/2 (17).svg";
 import mobcard3 from "../../assets/call-analytics/fourthpage/3 (14).svg";
 import mobcard4 from "../../assets/call-analytics/fourthpage/4 (5).svg";
+import Tag from "../resuable/Tag";
 
 const FourthPage = () => {
     return(
@@ -15,9 +16,9 @@ const FourthPage = () => {
          className="w-full bg-[#FDFBFF]   flex flex-col max-md:px-5 md:justify-center md:pb-26 pb-10">
 
             <div className="flex flex-col md:items-center md:mt-20 mt-10">
-            <div className=" border font-medium border-[#5B0AFF] text-[#171F2A] py-1 w-fit flex justify-center items-center px-3 lg:px-4 rounded-full text-[13px]">
-                  <p>What you can track</p>
-                </div>
+       
+
+                <Tag isDark>What you can track</Tag>
 
                 <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] md:max-w-160  font-cal-sans">
                 Analytics built for the way clinics actually work.

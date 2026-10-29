@@ -4,6 +4,7 @@ import card3 from "../../assets/assistant-setup/fifthpage/3 (7).svg"
 import cardMob from "../../assets/assistant-setup/fifthpage/1.svg"
 import cardMob2 from "../../assets/assistant-setup/fifthpage/2.svg"
 import cardMob3 from "../../assets/assistant-setup/fifthpage/3.svg"
+import Tag from "../resuable/Tag"
 
 const FifthPage = () => {
     return (
@@ -12,9 +13,8 @@ const FifthPage = () => {
             className="w-full flex flex-col px-5 md:px-0 md:justify-center bg-[#0E0D18] py-20"
         >
             <div className="flex flex-col md:items-center">
-                <div className="bg-transparent border font-medium border-[#5B0AFF] text-[#FFFFFF] py-2 flex justify-center items-center w-20 rounded-full text-[13px]">
-                    <p>Voices</p>
-                </div>
+
+                <Tag>Voices</Tag>
 
                 <h1 className="md:text-center font-normal text-[#FFFFFF] md:text-[45px] text-[30px] md:max-w-154 font-cal-sans mt-3 md:mt-4 md:leading-13">
                     Your patients hear a person, not a robot.

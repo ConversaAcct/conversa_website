@@ -23,7 +23,7 @@ const LastSection = () => {
 
                 <p className="text-[#6B7280] text-[16px] md:text-center md:w-100  mt-2 md:mb-10 mb-5">Join the waitlist and get early access to Sernio's full analytics dashboard.</p>
 
-                <div className="flex items-center justify-center">
+                <div className="flex md:items-center md:justify-center">
 
                     <Link to={"/waitlist"}>
                     
