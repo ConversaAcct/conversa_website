@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import Tag from "../resuable/Tag";
+import oracleImage from "../../assets/appointment-workflow/icon.svg"
 
 /* ---------- Icons ---------- */
 
@@ -8,41 +10,47 @@ const ArrowIcon = () => (
     </svg>
 );
 
-const CheckIcon = ({ className = "" }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 12.5l4.5 4.5L19 7.5" />
+const CheckIcon = () => (
+    <svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="33.4296" cy="33.4296" r="33.4296" fill="#1D1B2E"/>
+    <circle cx="33.4297" cy="33.4297" r="27.3515" fill="#5B0AFF"/>
+    <path d="M21.2734 34.1894L29.6308 41.7871L44.8261 25.832" stroke-width="2" stroke="white"/>
     </svg>
+    
 );
 
 const UserIcon = () => (
-    <svg className="h-5 w-5 text-violet-600 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
-    </svg>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+<path d="M20.5901 22C20.5901 18.13 16.7402 15 12.0002 15C7.26015 15 3.41016 18.13 3.41016 22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+</svg>
+
 );
 
-const CalendarIcon = ({ className = "h-5 w-5 lg:h-6 lg:w-6" }: { className?: string }) => (
-    <svg className={`${className} text-violet-600`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="5" width="18" height="16" rx="3" />
-        <path d="M8 3v4M16 3v4M3 10h18" />
-        <path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01" />
+const CalendarIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 2V5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M16 2V5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M3.5 9.09009H20.5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M15.6937 13.7002H15.7027" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M15.6937 16.7002H15.7027" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M11.9945 13.7002H12.0035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M11.9945 16.7002H12.0035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M8.29529 13.7002H8.30427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M8.29529 16.7002H8.30427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
     </svg>
+    
 );
 
 const PhoneIcon = () => (
-    <svg className="h-6 w-6 text-violet-600 lg:h-7 lg:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-        <path d="M15 3a6 6 0 0 1 6 6M15 6.5a2.5 2.5 0 0 1 2.5 2.5" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.1605 10.87C12.0605 10.86 11.9405 10.86 11.8305 10.87C9.45055 10.79 7.56055 8.84 7.56055 6.44C7.56055 3.99 9.54055 2 12.0005 2C14.4505 2 16.4405 3.99 16.4405 6.44C16.4305 8.84 14.5405 10.79 12.1605 10.87Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
+    <path d="M7.1607 14.56C4.7407 16.18 4.7407 18.82 7.1607 20.43C9.9107 22.27 14.4207 22.27 17.1707 20.43C19.5907 18.81 19.5907 16.17 17.1707 14.56C14.4307 12.73 9.9207 12.73 7.1607 14.56Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#5B0AFF"/>
     </svg>
+    
 );
 
-/* ---------- Small building blocks ---------- */
-
-const Tag = ({ children }: { children: ReactNode }) => (
-    <span className="inline-block rounded-full border border-[#5B0AFF] px-5 py-2 text-sm text-white lg:px-6 lg:text-base">
-        {children}
-    </span>
-);
 
 const FeatureList = ({ items }: { items: string[] }) => (
     <ul className="mt-8 space-y-4">
@@ -100,37 +108,36 @@ const reminders: Reminder[] = [
 /* ---------- Cards ---------- */
 
 const BookingCard = () => (
-    <div className="w-full rounded-3xl border border-white/15 p-3 lg:p-5">
+    <div className="w-full rounded-3xl border border-[#2B2A37] p-3 lg:p-5">
         {/* Confirmed */}
-        <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-[#1a1927] px-4 py-8 text-center lg:py-9">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-violet-700 shadow-[0_0_0_6px_rgba(109,40,217,0.18)] lg:h-16 lg:w-16">
-                <CheckIcon className="h-7 w-7 text-white" />
-            </div>
-            <h4 className="mt-5 text-xl font-semibold text-white lg:text-2xl">Appointment confirmed</h4>
-            <p className="mt-1 text-sm text-white/60 lg:text-base">SMS confirmation sent to patient</p>
+        <div className="flex flex-col items-center rounded-2xl border border-[#232032] bg-[#191726] px-4 py-8 text-center lg:py-9">
+                <CheckIcon  />
+        
+            <h4 className="mt-5 text-xl font-bold font-manrope text-white lg:text-2xl">Appointment confirmed</h4>
+            <p className="mt-1 text-sm font-manrope text-[#BEBFCB] lg:text-base">SMS confirmation sent to patient</p>
         </div>
 
         {/* Details */}
         <div className="mt-3 grid grid-cols-3 gap-2 lg:mt-4 lg:gap-4">
             {details.map((d) => (
-                <div key={d.sub} className="rounded-2xl border border-white/10 bg-[#1a1927] p-3 lg:p-4">
+                <div key={d.sub} className="rounded-2xl border border-[#232032] bg-[#1a1927] p-3 lg:p-4">
                     <div className="mb-4 lg:mb-5">{d.icon}</div>
-                    <p className="text-[13px] font-medium leading-tight text-white sm:text-sm lg:text-lg">{d.title}</p>
-                    <p className="mt-1 text-[13px] text-white/55 sm:text-sm lg:text-base">{d.sub}</p>
+                    <p className="text-[13px] font-medium font-manrope leading-tight text-white sm:text-sm lg:text-lg">{d.title}</p>
+                    <p className="mt-1 text-[13px] text-[#BEBFCB] font-manrope sm:text-sm lg:text-base">{d.sub}</p>
                 </div>
             ))}
         </div>
 
         {/* EHR sync */}
-        <div className="relative mt-3 flex items-center gap-4 rounded-2xl border border-white/10 bg-[#1a1927] p-2 pr-4 lg:mt-4 lg:gap-6">
-            <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-[#211f31] lg:h-18 lg:w-28">
+        <div className="relative mt-3 flex items-center gap-4 rounded-2xl border border-[#232032] bg-[#191726] p-2 pr-4 lg:mt-4 lg:gap-6">
+            <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-lg:h-18 lg:w-28">
                 {/* Replace with your EHR logo asset */}
-                <img src="/oracle-health.svg" alt="Oracle Health" className="h-8 w-auto lg:h-10" />
+                <img src={oracleImage} alt="Oracle Health" className="h-8 w-auto lg:h-10" />
             </div>
             <p className="flex-1 text-base font-medium text-white lg:text-xl">Synced to Oracle health EHR</p>
             <div className="absolute right-4 top-4 flex items-center gap-2 lg:static">
-                <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                <span className="hidden text-base text-emerald-400 lg:inline">Connected</span>
+                <span className="h-3 w-3 rounded-full bg-[#27FFA4]" />
+                <span className="hidden text-base text-[#27FFA4] lg:inline">Connected</span>
             </div>
         </div>
     </div>
@@ -167,7 +174,11 @@ const RemindersCard = () => (
                     {/* Mobile: compact icon */}
                     <span className="absolute right-3 top-2 lg:hidden">
                         {r.status === "sent" ? (
-                            <CheckIcon className="h-6 w-6 text-emerald-400" />
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.1" width="20" height="20" rx="10" fill="#27FFA4"/>
+                            <path d="M5 10.2308L8.1336 13.6054C8.33142 13.8185 8.66858 13.8185 8.8664 13.6054L15 7" stroke-width="2" stroke-linecap="round" stroke="#27FFA4"/>
+                            </svg>
+                            
                         ) : (
                             <span className="mt-2 mr-1 block h-0.5 w-5 rounded bg-amber-400" />
                         )}
@@ -183,7 +194,7 @@ const RemindersCard = () => (
 const ThirdSection = () => {
     return (
         <section
-            data-navbar-theme="white"
+            data-navbar-theme="dark"
             className="w-full overflow-hidden bg-[#0e0d19] px-5 py-16 sm:px-8 lg:px-[8%] lg:py-28"
         >
             <div className="mx-auto flex max-w-350 flex-col gap-20 lg:gap-36">
@@ -191,12 +202,20 @@ const ThirdSection = () => {
                 <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-24">
                     <div>
                         <Tag>Booking</Tag>
-                        <h2 className="mt-6 text-[32px] font-semibold leading-[1.1] tracking-tight text-white sm:text-4xl lg:mt-7 lg:text-[56px]">
-                            Books directly into your EHR.
+                        <h2 
+                     className=" font-normal text-[32px] md:text-[50px] max-sm:hidden font-cal-sans text-white leading-tight ">
+                    Books directly into your EHR.
                             <br />
                             No manual re-entry.
                         </h2>
-                        <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 lg:text-lg">
+
+                        <h2 
+                     className=" font-normal text-[32px]  hidden max-sm:block  font-cal-sans text-white leading-tight ">
+                    Books directly into your EHR.
+                            No manual re-entry.
+                        </h2>
+
+                        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#F3EDFF] lg:text-lg">
                             When Sernio books an appointment it writes directly to your scheduling system in real
                             time. Your calendar updates, the patient gets a confirmation, and nothing falls through
                             the cracks.

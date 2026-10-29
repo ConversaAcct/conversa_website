@@ -23,10 +23,16 @@ const HeroPage = () => {
 
 <div className="flex md:justify-center md:items-center max-md:px-5 flex-col xl:-mt-20 lg:mt-16">
                      <div className="flex md:justify-center md:items-center"><img src={tag1}/></div>
-                    <div className=" font-normal text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
+                    <div className=" font-normal  max-sm:hidden text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>From booking to follow-up.</h1>
                          <h1>Fully automated.</h1>
                     </div>
+
+                    <div className=" font-normal text-[32px] max-sm:block hidden md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
+                         <h1>From booking to follow-up. Fully automated.</h1>
+                         <h1></h1>
+                    </div>
+
                     <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5 w-90 md:text-center ">Sernio doesn't just answer the call — it books the appointment, sends the reminder, and follows up after the visit. Your front desk focuses on the patients in front of them.</p>
                     <div className="flex flex-row items-center gap-3 py-6">
                         <div><img src={tag2}/></div>

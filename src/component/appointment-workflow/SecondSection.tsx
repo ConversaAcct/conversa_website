@@ -8,12 +8,12 @@ const SecondSection = () => {
             data-navbar-theme="white"
             className="w-full bg-[#FDFBFF] flex flex-col px-5 md:px-0 md:justify-center md:pb-26 pb-10"
         >
-            <div className="flex flex-col md:items-center md:mt-20 mt-10">
+            <div className="flex flex-col md:items-center md:mt-20 max-sm:hidden mt-10">
             
                 <Tag isDark>The full patient journey</Tag>
                 
 
-                <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px] max-sm:hidden md:max-w-170 font-cal-sans">
+                <h1 className="md:text-center font-normal text-[#171F2A] md:text-[45px] text-[30px]  md:max-w-170 font-cal-sans">
                 Every appointment step handled — from first call to post-visit.
                 </h1>
 
