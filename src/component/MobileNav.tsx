@@ -81,7 +81,7 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "Security & Compliance",
         description: "HIPAA, BAA at onboarding, AES-256 encryption",
-        link : "#"
+        link : "/security-compliance"
     },
 ];
 

@@ -1,14 +1,11 @@
 import type { ReactNode } from "react";
 import Tag from "../resuable/Tag";
 import oracleImage from "../../assets/appointment-workflow/icon.svg"
+import FeatureList from "../resuable/FeatureList";
 
 /* ---------- Icons ---------- */
 
-const ArrowIcon = () => (
-    <svg className="mt-1 h-4 w-4 shrink-0 text-violet-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-);
+
 
 const CheckIcon = () => (
     <svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,16 +51,6 @@ const PhoneIcon = () => (
 
 
 
-const FeatureList = ({ items }: { items: string[] }) => (
-    <ul className="mt-8 space-y-4">
-        {items.map((item) => (
-        <li key={item} className="flex items-start gap-3 text-base text-[#F3EDFF] font-manrope lg:text-lg">
-                <ArrowIcon />
-                <span>{item}</span>
-            </li>
-        ))}
-    </ul>
-);
 
 const IconBox = ({ children }: { children: ReactNode }) => (
     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#211f31] lg:h-16 lg:w-16">
@@ -230,7 +217,7 @@ const ThirdSection = () => {
                         </p>
                         {/* Feature list hidden on mobile, as in the mobile design */}
                         <div className="hidden lg:block">
-                            <FeatureList items={bookingFeatures} />
+                            <FeatureList items={bookingFeatures} isDark/>
                         </div>
                     </div>
 
@@ -251,7 +238,7 @@ const ThirdSection = () => {
                             morning of. If a patient doesn’t show, Sernio follows up the same day and offers to
                             rebook.
                         </p>
-                        <FeatureList items={reminderFeatures} />
+                        <FeatureList items={reminderFeatures} isDark/>
                     </div>
 
                     <div className="lg:order-1">

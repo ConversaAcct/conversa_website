@@ -49,3 +49,13 @@ export type DropdownProps = {
   name : string;
   onChange: (value: string) => void;
 };
+
+export type FeatureProps = {
+  children: ReactNode;
+  isDark?: boolean;
+};
+
+export type FeatureListProps = {
+  items: string[];
+  isDark?: boolean;
+};

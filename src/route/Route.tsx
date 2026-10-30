@@ -5,6 +5,7 @@ import CallHandlingRules from "../feature/CallHandlingRules";
 import Homepage from "../feature/Homepage";
 import Waitlist from "../feature/Waitlist";
 import AppointmentWorkflow from "../feature/AppointmentWorkflow";
+import SecurityCompliance from "../feature/SecurityCompliance";
 
 export const Route = [
     {
@@ -29,6 +30,10 @@ export const Route = [
             {
                 path : "/appointment-workflow",
                 element : <AppointmentWorkflow/>
+            },
+            {
+                path : "/security-compliance",
+                element : <SecurityCompliance/>
             }
         ]},
 
