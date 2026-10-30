@@ -13,7 +13,7 @@ const auditFeatures = [
 
 const FourthSection = () => {
     return(
-        <div className="mx-auto flex max-w-350 flex-col gap-20 lg:gap-36 py-5 lg:py-10 xl:py-20"    data-navbar-theme="white">
+        <div className="mx-auto flex max-w-350 flex-col gap-20 lg:gap-36 py-5 lg:py-10 xl:py-28"    data-navbar-theme="white">
         {/* ===== Booking ===== */}
         <div className="grid items-center gap-10 max-lg:px-5 lg:grid-cols-2 lg:gap-24">
             <div>
