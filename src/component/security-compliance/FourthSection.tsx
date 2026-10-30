@@ -19,14 +19,14 @@ const FourthSection = () => {
             <div>
                 <Tag isDark>Audit logs</Tag>
                 <h2 
-             className=" font-normal text-[32px] md:text-[50px] max-sm:hidden font-cal-sans text-[#171F2A] leading-tight ">
+             className=" font-normal  text-[50px] max-sm:hidden font-cal-sans text-[#171F2A] leading-tight ">
                  Every action, logged.
 
                     <br />
                     Every access, timestamped.
                 </h2>
 
-                <h2 
+                <h2 className="font-normal text-[32px] md:text-[50px] max-sm:block hidden font-cal-sans text-[#171F2A] leading-tight" 
                     >
                           Every action, logged.
                           Every access, timestamped.
