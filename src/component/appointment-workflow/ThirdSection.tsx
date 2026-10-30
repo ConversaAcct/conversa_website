@@ -241,7 +241,7 @@ const ThirdSection = () => {
                 <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-24">
                     <div className="lg:order-2">
                         <Tag>Reminders &amp; follow-ups</Tag>
-                        <h2 className="mt-6 text-[32px] font-semibold font-cal-sans leading-[1.1] tracking-tight text-white sm:text-4xl lg:mt-7 lg:text-[56px]">
+                        <h2 className="mt-6 text-[32px] font-normal font-cal-sans leading-[1.1] tracking-tight text-white sm:text-4xl lg:mt-7 lg:text-[56px]">
                             Fewer no-shows.
                             <br />
                             More completed care.
