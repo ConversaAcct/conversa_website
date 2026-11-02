@@ -1,13 +1,17 @@
 import type { ReactNode } from "react";
 import FeatureList from "../resuable/FeatureList";
 import Tag from "../resuable/Tag";
+import answerImg from "../../assets/how-it-works/3 (7).svg"
+import understandImg from "../../assets/how-it-works/3 (8).svg"
+import actImg from "../../assets/how-it-works/3 (9).svg"
+import ehrLogo from "../../assets/how-it-works/icon (2).svg"
 
 /* Swap these for your real assets */
 const IMAGES = {
-    answer: "src/assets/how-it-works/3 (7).svg",
-    understand: "src/assets/how-it-works/3 (8).svg",
-    act: "src/assets/how-it-works/3 (9).svg",
-    ehrLogo: "src/assets/how-it-works/icon (2).svg",
+    answer: answerImg,
+    understand: understandImg,
+    act: actImg,
+    ehrLogo: ehrLogo,
 };
 
 const chatMessages = [
