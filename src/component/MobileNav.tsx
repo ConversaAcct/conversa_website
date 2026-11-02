@@ -67,7 +67,7 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "How it works",
         description: "The full call lifecycle, from ring to result",
-        link : "#"
+        link : "/how-it-works"
     },
     {
         icon: Icons.RoiCalculatorIcon,

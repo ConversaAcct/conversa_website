@@ -6,6 +6,7 @@ import Homepage from "../feature/Homepage";
 import Waitlist from "../feature/Waitlist";
 import AppointmentWorkflow from "../feature/AppointmentWorkflow";
 import SecurityCompliance from "../feature/SecurityCompliance";
+import HowItWorks from "../feature/HowItWorks";
 
 export const Route = [
     {
@@ -34,6 +35,10 @@ export const Route = [
             {
                 path : "/security-compliance",
                 element : <SecurityCompliance/>
+            },
+            {
+                path : "/how-it-works",
+                element : <HowItWorks/>
             }
         ]},
 

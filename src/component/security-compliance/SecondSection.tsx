@@ -1,5 +1,4 @@
 import card1 from "../../assets/security-compliance/icon (1).svg"
-// Add the remaining icons the same way (adjust file names to match your assets folder)
 import card2 from "../../assets/security-compliance/icon (1).svg"
 import card3 from "../../assets/security-compliance/check.svg"
 import card4 from "../../assets/security-compliance/people.svg"

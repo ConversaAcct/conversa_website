@@ -30,10 +30,10 @@ const HeroPage = () => {
 
                     <div className=" font-normal text-[32px] max-sm:block hidden md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>From booking to follow-up. Fully automated.</h1>
-                         <h1></h1>
+                      
                     </div>
 
-                    <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5 w-90 md:text-center ">Sernio doesn't just answer the call — it books the appointment, sends the reminder, and follows up after the visit. Your front desk focuses on the patients in front of them.</p>
+                    <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5  md:mt-5 w-90 md:text-center ">Sernio doesn't just answer the call — it books the appointment, sends the reminder, and follows up after the visit. Your front desk focuses on the patients in front of them.</p>
                     <div className="flex flex-row items-center gap-3 py-6">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
