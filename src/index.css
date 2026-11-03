@@ -2,12 +2,17 @@
 @import "tailwindcss";
 
 @theme {
-    --font-manrope: "Manrope", sans-serif;
-    --font-cal-sans: "Cal Sans", sans-serif;
-  }
+  --font-manrope: "Manrope", sans-serif;
+  --font-cal-sans: "Cal Sans", sans-serif;
 
+  --animate-marquee: marquee 14s linear infinite;
 
-  body {
-    font-family: 'Manrope', sans-serif;
-    
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}

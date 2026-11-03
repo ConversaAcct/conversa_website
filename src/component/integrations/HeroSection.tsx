@@ -1,8 +1,15 @@
-import tag1 from "../../assets/how-it-works/Group (7).svg";
-import tag2 from "../../assets/how-it-works/1 (5).svg";
-import tag3 from "../../assets/how-it-works/2 (5).svg"
-import tag4 from "../../assets/how-it-works/4 (2).svg"
-import tag5 from "../../assets/how-it-works/3 (5).svg"
+import tag2 from "../../assets/integrations/1 (7).svg";
+import tag3 from "../../assets/integrations/2 (7).svg"
+import tag4 from "../../assets/integrations/4 (3).svg"
+import tag5 from "../../assets/integrations/3 (10).svg"
+import logo1 from "../../assets/integrations/1 (8).svg"
+import logo2 from "../../assets/integrations/2 (8).svg"
+import logo3 from "../../assets/integrations/3 (11).svg"
+import logo4 from "../../assets/integrations/4 (4).svg"
+import logo5 from "../../assets/integrations/5.svg"
+import logo6 from "../../assets/integrations/6.svg"
+
+const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 const HeroSection = () => {
     return (
@@ -13,20 +20,40 @@ const HeroSection = () => {
         >
     
 
-           <div className="flex md:justify-center md:items-center max-sm:px-5 flex-col xl:-mt-20 lg:mt-16">
-                     <div className="flex md:justify-center md:items-center"><img src={tag1}/></div>
-                    <div className=" font-normal  max-sm:hidden text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
-                         <h1>A patient calls. Sernio answers.</h1>
-                         <h1>The right thing happens.</h1>
+           <div className="flex md:justify-center md:items-center max-sm:px-5 flex-col xl:-mt-10 lg:mt-16">
+                    <div className=" font-normal  text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
+                         <h1>Your tools stay.</h1>
+                         <h1>Sernio just plugs in.</h1>
                     </div>
 
-                    <div className=" font-normal text-[32px] max-sm:block hidden md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
-                         <h1> patient calls. Sernio answers.The right thing happens.</h1>
-                      
+
+                    <p className="text-[#171F2A] font-manrope md:mt-5 text-[14px] max-sm:py-5 md:w-120 md:text-center ">No rip-and-replace. Call data flows in from your EHR and scheduling tools, and real actions flow back out — booked appointments, updated records, alerted staff.</p>
+
+                    {/* Mobile: auto-scrolling marquee, exactly 3 logos visible at a time */}
+                    <div className="md:hidden overflow-hidden w-[calc(100vw-2.5rem)] py-6">
+                        <div className="flex w-max animate-marquee">
+                            {[...logos, ...logos].map((logo, i) => (
+                                <div
+                                    key={i}
+                                    className="w-[calc((100vw-2.5rem)/3)] flex items-center justify-center px-2 shrink-0"
+                                >
+                                    <img src={logo} alt="" className="max-w-full h-auto object-contain" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <p className="text-[#171F2A] font-manrope md:mt-5 text-[14px] max-sm:py-5 md:w-120 md:text-center ">From the first ring to the confirmed appointment — here's exactly what Sernio does, and how it does it, every single call.</p>
-                    <div className="flex flex-row max-sm:hidden items-center gap-3 py-6">
+                    {/* Desktop / tablet: original static row */}
+                    <div className="hidden md:flex flex-row items-center lg:gap-10 gap-3 md:py-30">
+                        <div><img src={logo1}/></div>
+                        <div><img src={logo2}/></div>
+                        <div><img src={logo3}/></div>
+                        <div><img src={logo4}/></div>
+                        <div><img src={logo5}/></div>
+                        <div><img src={logo6}/></div>
+                    </div>
+
+                    <div className="flex flex-row max-sm:hidden items-center gap-3 ">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
                         <div><img src={tag4}/></div>
