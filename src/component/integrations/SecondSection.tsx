@@ -249,7 +249,7 @@ const SecondSection = () => {
                             type="button"
                             onClick={() => setShowAll((prev) => !prev)}
                             aria-expanded={showAll}
-                            className="mt-3 w-fit text-left text-[#5B0AFF] text-[20px] font-medium underline underline-offset-4 cursor-pointer bg-transparent border-none p-0"
+                            className="mt-3 w-fit text-left text-[#5B0AFF] text-[14px] font-medium underline underline-offset-4 cursor-pointer bg-transparent border-none p-0"
                         >
                             {showAll ? "Show less" : "See All"}
                         </button>
