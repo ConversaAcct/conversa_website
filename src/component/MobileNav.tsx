@@ -1,9 +1,7 @@
-
-
 import { useState, useEffect } from "react";
 import Icons from "../assets/Icons";
 import { useNavbarTheme } from "./useNavbarTheme";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import type { MenuItem } from "../interface/props";
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
@@ -24,11 +22,6 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
         />
     </svg>
 );
-
-
-
-
-
 
 const featureItems: MenuItem[] = [
     {
@@ -74,7 +67,7 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "ROI Calculator",
         description: "See what missed calls are costing your practice",
-        link : "#"
+        link : "/#calculator"
     },
     {
         icon: Icons.SecurityComplianceIcon,
@@ -84,9 +77,6 @@ const resourceItems: MenuItem[] = [
         link : "/security-compliance"
     },
 ];
-
-
-
 
 const MobileMenuSection = ({
   heading,
@@ -131,10 +121,18 @@ const MobileMenuSection = ({
     </div>
   </div>
 );
+
 const MobileNavBar = () => {
     const isDark = useNavbarTheme();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [productOpen, setProductOpen] = useState(false);
+
+    // close everything on any navigation (links, back/forward, redirects, hash changes)
+    useEffect(() => {
+        setIsOpen(false);
+        setProductOpen(false);
+    }, [location.key]);
 
     useEffect(() => {
         if (isOpen) {
@@ -148,6 +146,11 @@ const MobileNavBar = () => {
             document.body.style.overflow = "";
         };
     }, [isOpen]);
+
+    const closeMenu = () => {
+        setIsOpen(false);
+        setProductOpen(false);
+    };
 
     const toggleMenu = () => {
         setIsOpen((prev) => {
@@ -184,8 +187,9 @@ const MobileNavBar = () => {
 
             {/* top row: logo + hamburger/close toggle */}
             <div className="relative z-10 flex flex-row justify-between items-center py-2 px-4 text-[14px]">
-               <Link to={"/"}>  <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
-               </Link>
+                <Link to={"/"} onClick={closeMenu}>
+                    <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
+                </Link>
 
                 <button
                     type="button"
@@ -238,16 +242,16 @@ const MobileNavBar = () => {
                                 <div className="overflow-hidden">
                                     <div className="flex flex-row gap-4 pl-4 bg-[#0E0D18] py-2 rounded-[10px]">
                                         <div className="flex flex-col gap-7 flex-1">
-                                        <MobileMenuSection
-                                            heading="Features"
-                                            items={featureItems}
-                                            onItemClick={() => setIsOpen(false)}
+                                            <MobileMenuSection
+                                                heading="Features"
+                                                items={featureItems}
+                                                onItemClick={closeMenu}
                                             />
 
                                             <MobileMenuSection
-                                            heading="Resources"
-                                            items={resourceItems}
-                                            onItemClick={() => setIsOpen(false)}
+                                                heading="Resources"
+                                                items={resourceItems}
+                                                onItemClick={closeMenu}
                                             />
                                         </div>
                                     </div>
@@ -256,20 +260,24 @@ const MobileNavBar = () => {
                         </div>
 
                         <span className="cursor-pointer">Specialties</span>
-                        <span className="cursor-pointer">Integrations</span>
+                        <Link to={"/integrations"} onClick={closeMenu}>
+                            <span className="cursor-pointer">Integrations</span>
+                        </Link>
                         <span className="cursor-pointer">FAQs</span>
 
                         <div className="flex flex-col items-start gap-4 pt-2">
                             {/* <span className="cursor-pointer font-bold">Sign Up</span> */}
-                           
-                            <Link to={"/waitlist"} className="w-full h-10 rounded-lg text-[13px] text-[#F5F3FF] cursor-pointer justify-center items-center flex"  style={{ backgroundColor :  isDark ? "#7B3FFF" : "#5B0AFF"}} >
-                                <button type="submit" 
-                                     >
-                                       
-                                       Join the Waitlist
-                                    
-                                    </button>
-                                    </Link> 
+
+                            <Link
+                                to={"/waitlist"}
+                                onClick={closeMenu}
+                                className="w-full h-10 rounded-lg text-[13px] text-[#F5F3FF] cursor-pointer justify-center items-center flex"
+                                style={{ backgroundColor: isDark ? "#7B3FFF" : "#5B0AFF" }}
+                            >
+                                <button type="submit">
+                                    Join the Waitlist
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

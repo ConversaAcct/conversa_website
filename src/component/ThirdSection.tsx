@@ -10,7 +10,7 @@ const ThirdSection = () => {
     return(
         <div
         data-navbar-theme="dark"
-         className="w-full bg-[#0E0D18]  mb-10 md:mb-20 flex flex-col max-md:px-5 md:justify-center">
+         className="w-full bg-[#0E0D18]  mb-10 md:mb-20 flex flex-col max-md:px-5 md:justify-center lg:scroll-mt-24" id="calculator">
 
             <div className="flex flex-col md:items-center md:mt-20 mt-10">
            
@@ -26,9 +26,9 @@ const ThirdSection = () => {
                 <p className="text-[#F3EDFF] text-[14px] md:text-center max-w-190 leading-7 md:mt-5 mt-2">Most practices don't lose patients to bad care. They lose them to a phone line that rings out during lunch, a hold queue at 8:05am, or a voicemail nobody returns until Thursday. Every one of those calls was a booking, a refill, or a question someone else answered first.</p>
             </div>
 
-            <div className="flex justify-center max-sm:px-0 px-4 lg:px-0 items-center max-md:mt-10 mt-15">
+            <div className="flex justify-center max-sm:px-0 px-4 lg:px-0 items-center max-md:mt-10 mt-15" >
 
-            <div className="w-full md:w-223 h-auto md:h-116.75 border border-[#5B0AFF] rounded-tl-3xl rounded-tr-3xl border-b md:border-b-0 flex flex-col md:flex-row">
+            <div className="w-full md:w-223 h-auto md:h-116.75 border border-[#5B0AFF] rounded-tl-3xl rounded-tr-3xl border-b md:border-b-0 flex flex-col md:flex-row" >
                       <MissedCallsCalculator
                         onValuesChange={({ missedCalls, visitValue }) => {
                             setMissedCalls(missedCalls);

@@ -1,6 +1,19 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icons from "../assets/Icons";
 
+const baseSpecialties = ["General practice", "Dental", "OB/GYN", "Mental health"];
+const extraSpecialties = [
+    "Optometry Practice",
+    "Pediatrics",
+    "Dermatology",
+    "Orthopedics",
+    "Pharmacy",
+];
+
 const Footer = () => {
+    const [showMore, setShowMore] = useState(false);
+
     return(
         <div 
             className="bg-cover bg-center bg-no-repeat min-h-120 w-full"
@@ -23,18 +36,19 @@ const Footer = () => {
                         </div>
                     </div>
 
-                  <div className="grid lg:grid-cols-4 md:gap-10 min-[460px]:grid-cols-2 min-[434px]:gap-7 max-[340px]:gap-7  min-[700px]:grid-cols-4 min-[600px]:grid-cols-3 md:grid-cols-3  max-[460px]:gap-10    grid-cols-2  max-[460px]:space-y-2">
+                  <div className="grid items-start lg:grid-cols-4 md:gap-10 min-[460px]:grid-cols-2 min-[434px]:gap-7 max-[340px]:gap-7  min-[700px]:grid-cols-4 min-[600px]:grid-cols-3 md:grid-cols-3  max-[460px]:gap-10    grid-cols-2  max-[460px]:space-y-2">
 
 
                   <div className="flex-1 text-[15px] max-[460px]:text-[13px] ">
                         <span className="text-[#9C73F3]">Product</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light ">
-                            <span>Call analytics</span>
-                            <span>My assistants</span>
-                            <span>Call handling rules</span>
-                            <span>Integrations</span>
-                            <span>Appointment workflows</span>
+                           <Link to={"/call-analytics"}> <span>Call analytics</span></Link>
+                            <Link to={"/assistance-setup"}><span>My assistants</span></Link>
+                            <Link to={"/call-handling-rules"}><span>Call handling rules</span> </Link>
+                            <Link to={"/integrations"}><span>Integrations</span></Link>
+                            <Link to={"/appointment-workflow"}> <span>Appointment workflows</span></Link>
+                           
                         </div>
                     </div>
 
@@ -42,11 +56,28 @@ const Footer = () => {
                         <span className="text-[#9C73F3]">Specialties</span>
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light">
-                            <span>General practice</span>
-                            <span>Dental</span>
-                            <span>OB/GYN</span>
-                            <span>Mental health</span>
-                            <span className="text-[#9C73F3] flex flex-row lg:gap-2 items-center">Show more {Icons.arrowDownIcon}</span>
+                            {baseSpecialties.map((item) => (
+                                <span key={item}>{item}</span>
+                            ))}
+
+                            {showMore &&
+                                extraSpecialties.map((item) => (
+                                    <span key={item}>{item}</span>
+                                ))}
+
+                            <button
+                                type="button"
+                                onClick={() => setShowMore((prev) => !prev)}
+                                aria-expanded={showMore}
+                                className="text-[#9C73F3] flex flex-row lg:gap-2 gap-1 items-center cursor-pointer bg-transparent border-none p-0 font-light text-left"
+                            >
+                                {showMore ? "Show less" : "Show more"}
+                                <span
+                                    className={`inline-flex transition-transform duration-300 ease-out ${showMore ? "rotate-180" : "rotate-0"}`}
+                                >
+                                    {Icons.arrowDownIcon}
+                                </span>
+                            </button>
                         </div>
                     </div>
 
@@ -55,7 +86,7 @@ const Footer = () => {
 
                         <div className="text-[#FFFFFF] flex flex-col mt-4 gap-2 font-light">
                             <span>About</span>
-                            <span>Security</span>
+                            <Link to={"/security-compliance"}><span>Security</span></Link>
                             <span>Request BAA</span>
                         </div>
                     </div>

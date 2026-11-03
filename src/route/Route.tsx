@@ -7,6 +7,7 @@ import Waitlist from "../feature/Waitlist";
 import AppointmentWorkflow from "../feature/AppointmentWorkflow";
 import SecurityCompliance from "../feature/SecurityCompliance";
 import HowItWorks from "../feature/HowItWorks";
+import Integrations from "../feature/Integrations";
 
 export const Route = [
     {
@@ -39,6 +40,9 @@ export const Route = [
             {
                 path : "/how-it-works",
                 element : <HowItWorks/>
+            },{
+                path : "/integrations",
+                element : <Integrations/>
             }
         ]},
 

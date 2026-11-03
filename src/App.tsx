@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import { Route } from "./route/Route";
-import ScrollToTop from "./component/resuable/ScrollToTop";
+import ScrollToHash from "./component/resuable/ScrollToHash";
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
   
    <>
-    <ScrollToTop />
+   <ScrollToHash/>
 
    {routing}
    </>

@@ -4,7 +4,7 @@ import FilledButton from "./FilledButton";
 import MobileNavBar from "./MobileNav";
 import { useNavbarTheme } from "./useNavbarTheme";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import type { MenuItem } from "../interface/props";
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
@@ -25,8 +25,6 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
         />
     </svg>
 );
-
-
 
 const featureItems: MenuItem[] = [
     {
@@ -72,7 +70,7 @@ const resourceItems: MenuItem[] = [
         iconBg: "",
         title: "ROI Calculator",
         description: "See what missed calls are costing your practice",
-        link : "#"
+        link : "/#calculator"
     },
     {
         icon: Icons.SecurityComplianceIcon,
@@ -82,7 +80,6 @@ const resourceItems: MenuItem[] = [
         link : "/security-compliance"
     },
 ];
-
 
 const MenuColumn = ({
   heading,
@@ -128,8 +125,14 @@ const MenuColumn = ({
 
 const NavBar = () => {
     const isDark = useNavbarTheme();
+    const location = useLocation();
     const [productOpen, setProductOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // close the mega-menu on any navigation (links, back/forward, redirects, hash changes)
+    useEffect(() => {
+        setProductOpen(false);
+    }, [location.key]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -183,9 +186,8 @@ const NavBar = () => {
                         />
 
                         <div className="relative z-10">
-                       
-                            <Link to={"/"}>  
-                            <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
+                            <Link to={"/"}>
+                                <div> {isDark ? Icons.logoWhite : Icons.logo}</div>
                             </Link>
                         </div>
 
@@ -200,7 +202,10 @@ const NavBar = () => {
                                 <ChevronIcon open={productOpen} />
                             </button>
                             <span className="cursor-pointer">Specialties</span>
-                            <span className="cursor-pointer">Integrations</span>
+                            <Link to={"/integrations"}>
+                                <span className="cursor-pointer">Integrations</span>
+                            </Link>
+
                             <span className="cursor-pointer">FAQs</span>
                         </div>
 
@@ -231,17 +236,17 @@ const NavBar = () => {
                                 }}
                             />
                             <div className="relative z-10 flex flex-row gap-14">
-                                 <MenuColumn
+                                <MenuColumn
                                     heading="Features"
                                     items={featureItems}
                                     onItemClick={() => setProductOpen(false)}
-                                    />
+                                />
                                 <div className="w-px bg-[#232331] self-stretch" />
-                                   <MenuColumn
+                                <MenuColumn
                                     heading="Resources"
                                     items={resourceItems}
                                     onItemClick={() => setProductOpen(false)}
-                                    />
+                                />
                             </div>
                         </div>
                     </div>
