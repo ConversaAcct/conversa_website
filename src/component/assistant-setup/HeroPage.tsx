@@ -26,7 +26,7 @@ const HeroPage = () => {
                          <h1>Go live the same day.</h1>
                     </div>
                     <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5 w-90 md:text-center ">No flow-builders. No prompt engineering. No blank canvas. Pick your specialty template and Sernio already knows your patients' most common questions.</p>
-                    <div className="flex flex-row items-center gap-3 py-6">
+                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2  lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
                         <div><img src={tag4}/></div>

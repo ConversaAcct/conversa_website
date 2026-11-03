@@ -26,7 +26,15 @@ const HeroPage = () => {
                     </div>
 
                     <p className="text-[#171F2A] font-manrope md:mt-5 text-[14px] max-sm:py-5 md:w-120 md:text-center ">From the first ring to the confirmed appointment — here's exactly what Sernio does, and how it does it, every single call.</p>
-                    <div className="flex flex-row items-center gap-3 py-6">
+                    <div className="flex flex-row max-sm:hidden items-center gap-3 py-6">
+                        <div><img src={tag2}/></div>
+                        <div><img src={tag3}/></div>
+                        <div><img src={tag4}/></div>
+                        <div><img src={tag5}/></div>
+
+                    </div>
+
+                    <div className=" grid-cols-2 max-sm:grid hidden items-center gap-3 py-6">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
                         <div><img src={tag4}/></div>

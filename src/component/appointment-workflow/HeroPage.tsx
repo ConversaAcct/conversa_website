@@ -34,7 +34,7 @@ const HeroPage = () => {
                     </div>
 
                     <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5  md:mt-5 w-90 md:text-center ">Sernio doesn't just answer the call — it books the appointment, sends the reminder, and follows up after the visit. Your front desk focuses on the patients in front of them.</p>
-                    <div className="flex flex-row items-center gap-3 py-6">
+                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2  lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
                         <div><img src={tag2}/></div>
                         <div><img src={tag3}/></div>
                         <div><img src={tag4}/></div>

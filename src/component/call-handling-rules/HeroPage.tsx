@@ -31,7 +31,7 @@ const HeroPage = () => {
                     <p className="text-[#171F2A] font-manrope text-[14px] w-full max-w-125 mx-auto md:text-center lg:text-left px-5 lg:px-0 py-5 lg:py-0">
                     Set rules once. Sernio handles the edge cases automatically — emergency escalation, spam blocking, VIP routing, after-hours handoff. All measurable, all adjustable.                    </p>
 
-                    <div className="flex flex-row items-center max-sm:px-5 justify-center gap-3 py-6">
+                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
                         <div>
                             <img src={tag2} alt="" />
                         </div>
