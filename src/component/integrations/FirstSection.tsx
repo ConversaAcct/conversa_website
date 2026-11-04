@@ -1,0 +1,424 @@
+import React from "react";
+import Tag from "../resuable/Tag";
+import logo1 from "../../assets/integrations/1 (8).svg"
+import logo2 from "../../assets/integrations/2 (8).svg"
+import logo3 from "../../assets/integrations/3 (11).svg"
+import calendarImage from "../../assets/integrations/first-section/calendar.svg"
+import recordImage from "../../assets/integrations/first-section/document-text.svg"
+import bellImage from "../../assets/integrations/first-section/notification-bing.svg"
+import sernioLogo from "../../assets/integrations/first-section/icon (4).svg"
+import sernioImg from "../../assets/integrations/first-section/Sernio.svg"
+
+const AthenaLogo = () => (
+  <div className="flex flex-col items-center leading-none">
+  <img src={logo1}/>
+  </div>
+);
+
+const OracleLogo = () => (
+<img src={logo2}/>
+);
+
+const ModMedLogo = () => (
+<img src={logo3}/>
+);
+
+
+const CalendarIcon = () => (
+<img src={calendarImage}/>
+);
+
+const RecordIcon = () => (
+<img src={recordImage}/>
+);
+
+const BellIcon = () => (
+<img src={bellImage} />
+);
+
+
+const SernioMark = () => (
+  <img src={sernioLogo}/>
+);
+
+/* ------------------------------------------------------------------ */
+/* Data                                                                */
+/* ------------------------------------------------------------------ */
+
+type Item = { label: string; node: React.ReactNode };
+
+const INPUTS: Item[][] = [
+  [
+    { label: "Athena Health", node: <AthenaLogo /> },
+
+  ],
+  [
+    { label: "Oracle Health", node: <OracleLogo /> },
+ 
+  ],
+  [
+    { label: "ModMed", node: <ModMedLogo /> },
+ 
+  ],
+];
+
+const OUTPUTS: Item[][] = [
+  [
+    { label: "Appointment booked", node: <CalendarIcon /> },
+  
+  ],
+  [
+    { label: "Record updated", node: <RecordIcon /> },
+   
+  ],
+  [
+    { label: "Staff alerted", node: <BellIcon /> },
+ 
+  ],
+];
+
+/* ------------------------------------------------------------------ */
+/* Tiles                                                               */
+/* ------------------------------------------------------------------ */
+
+const Tile = ({ item, compact }: { item: Item; compact?: boolean }) => (
+  <div
+    className={`flex items-center justify-center rounded-2xl border border-[#e3e3ea] bg-white shadow-[0_1px_2px_rgba(20,20,40,0.04)] ${
+      compact ? "h-21 w-21" : "h-26 w-26"
+    }`}
+  >
+    <div className={compact ? "scale-[0.8]" : ""}>{item.node}</div>
+  </div>
+);
+
+/* float = label is absolutely placed under the tile, so it doesn't change the
+   tile's height (keeps the connector lines aligned to tile centres) */
+const Labeled = ({
+  item,
+  compact,
+  float,
+}: {
+  item: Item;
+  compact?: boolean;
+  float?: boolean;
+}) => (
+  <div className={float ? "relative" : "flex flex-col items-center gap-2"}>
+    <Tile item={item} compact={compact} />
+    <span
+      className={`text-center text-[13px] leading-tight text-[#6B7280] font-medium font-manrope md:text-[15px] ${
+        float ? "absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap" : ""
+      }`}
+    >
+      {item.label}
+    </span>
+  </div>
+);
+
+/* ------------------------------------------------------------------ */
+/* Connectors: dashed brackets with pills + a fan of curves into the   */
+/* logo square                                                         */
+/* ------------------------------------------------------------------ */
+
+const FAN_OFFSETS = [-64, -32, 0, 32, 64];
+
+/* Mobile: vertical. Brackets sit under the 3 visible marquee columns
+   (centres at 1/6, 1/2, 5/6 of the width). flip = mirrored for the bottom. */
+const MobileConnector = ({ id, flip }: { id: string; flip?: boolean }) => (
+  <svg
+    viewBox="0 0 360 170"
+    fill="none"
+    className={`block w-full ${flip ? "-scale-y-100" : ""}`}
+    aria-hidden
+  >
+    <defs>
+      <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0" y1="90" x2="0" y2="170">
+        <stop stopColor="#cfcce6" />
+        <stop offset="1" stopColor="#cfcce6" stopOpacity="0.15" />
+      </linearGradient>
+    </defs>
+
+    <g stroke="#d9d9e3" strokeDasharray="4 4">
+      <path d="M60 0V28a12 12 0 0 0 12 12H288a12 12 0 0 0 12-12V0" />
+      <path d="M180 0V90" />
+      <path d="M0 90H360" opacity="0.6" />
+    </g>
+
+    {/* pills sitting on the lines */}
+    <g fill="#fff" stroke="#d9d9e3">
+      <rect x="84" y="34" width="36" height="12" rx="6" />
+      <rect x="240" y="34" width="36" height="12" rx="6" />
+      <rect x="162" y="84" width="36" height="12" rx="6" />
+    </g>
+
+    {/* fan into the logo square */}
+    <g stroke={`url(#${id})`} strokeWidth="1">
+      {FAN_OFFSETS.map((o) => (
+        <path key={o} d={`M180 90C180 122 ${180 + o * 0.6} 138 ${180 + o} 170`} />
+      ))}
+    </g>
+  </svg>
+);
+
+/* Desktop: horizontal. Tiles are 104px high, 70px apart, so the tile
+   centres sit at y = 52 / 226 / 400 inside a 452px-high column. */
+const DesktopConnector = ({ id, mirror }: { id: string; mirror?: boolean }) => (
+  <div className={`relative h-113 flex-1 ${mirror ? "-scale-x-100" : ""}`}>
+    {/* tile -> spine brackets (rounded corners) */}
+    <div className="absolute left-0 top-13 h-43.5 w-12 rounded-tr-2xl border-r border-t border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 top-56.5 h-43.5 w-12 rounded-br-2xl border-b border-r border-dashed border-[#d9d9e3]" />
+
+    {/* pills on the spine */}
+    <div className="absolute left-10.5 top-31.25 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute left-10.5 top-74.75 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+
+    {/* middle tile -> hub */}
+    <div className="absolute left-0 right-30 top-56.5 border-t border-dashed border-[#d9d9e3]" />
+
+    {/* hub rail + pill */}
+    <div className="absolute bottom-10 right-30 top-10 border-l border-dashed border-[#d9d9e3] opacity-70" />
+    <div className="absolute right-28.5 top-52.75 h-7.5 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+
+    {/* fan into the logo square */}
+    <svg
+      viewBox="0 0 120 452"
+      fill="none"
+      className="absolute right-0 top-0 h-113 w-30"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="120" y2="0">
+          <stop stopColor="#cfcce6" />
+          <stop offset="1" stopColor="#cfcce6" stopOpacity="0.2" />
+        </linearGradient>
+      </defs>
+      <g stroke={`url(#${id})`} strokeWidth="1">
+        {FAN_OFFSETS.map((o) => (
+          <path key={o} d={`M0 226C42 226 78 ${226 + o} 120 ${226 + o}`} />
+        ))}
+      </g>
+    </svg>
+  </div>
+);
+
+/* Mobile: auto-scrolling marquee, exactly 3 tiles visible at a time.
+   The list is doubled and the track moves -50%, so the loop is seamless. */
+const uniq = (rows: Item[][]) =>
+  rows.flat().filter((it, i, a) => a.findIndex((x) => x.label === it.label) === i);
+
+const Marquee = ({ items }: { items: Item[]; }) => {
+ 
+  return (
+    <div className="w-full overflow-hidden py-1">
+      <div
+        className={` flex w-max `}
+     
+      >
+        {items.map((it, i) => (
+          <div
+            key={i}
+            className="flex w-[calc(min(100vw-3rem,420px)/3)] shrink-0 justify-center px-1.5"
+          >
+            <Labeled item={it} compact />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/* Sky-cloud logo square                                               */
+/* Coloured clouds drift in from the top right, cross the square       */
+/* diagonally and leave at the bottom left, each at its own pace.      */
+/* ------------------------------------------------------------------ */
+
+const CLOUDS = [
+  { color: "#ff8ac4", top: "-6%", w: "78%", h: "40%", dur: 24, delay: 0 },
+  { color: "#ffc76b", top: "18%", w: "70%", h: "36%", dur: 30, delay: -9 },
+  { color: "#7dffc4", top: "40%", w: "82%", h: "42%", dur: 27, delay: -16 },
+  { color: "#6bb8ff", top: "58%", w: "72%", h: "38%", dur: 33, delay: -5 },
+  { color: "#b78bff", top: "28%", w: "88%", h: "44%", dur: 36, delay: -22 },
+  { color: "#ff9a8a", top: "70%", w: "66%", h: "34%", dur: 29, delay: -13 },
+];
+
+const Orb = ({ size }: { size: string }) => (
+  <div className={`relative ${size} shrink-0`}>
+    {/* soft haze around the square */}
+    <div className="sernio-breathe absolute inset-[-20%]">
+      <div className="absolute inset-0 rounded-[40%] bg-[radial-gradient(circle_at_30%_30%,#ffb3dc_0%,transparent_55%),radial-gradient(circle_at_75%_35%,#a9d4ff_0%,transparent_55%),radial-gradient(circle_at_50%_80%,#c4b0ff_0%,transparent_60%)] opacity-50 blur-3xl" />
+    </div>
+
+    {/* the rounded square = the "sky" */}
+    <div className="absolute inset-0 overflow-hidden rounded-[26%] bg-linear-to-br from-[#c4bcff] via-[#d6d0ff] to-[#bfe0ff] shadow-[0_20px_60px_-20px_rgba(91,33,245,0.45)]">
+      {CLOUDS.map((c, i) => (
+        <div
+          key={i}
+          className="sernio-cloud"
+          style={
+            {
+              "--c": c.color,
+              "--d": `${c.dur}s`,
+              "--delay": `${c.delay}s`,
+              top: c.top,
+              width: c.w,
+              height: c.h,
+            } as React.CSSProperties
+          }
+        />
+      ))}
+      {/* light sheen so the clouds stay soft and the logo stays readable */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.22),transparent_65%)]" />
+    </div>
+
+    {/* logo */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+      <SernioMark  />
+      <img src={sernioImg}/>
+    </div>
+  </div>
+);
+
+/* ------------------------------------------------------------------ */
+/* Section                                                             */
+/* ------------------------------------------------------------------ */
+
+const FirstSection = () => {
+  return (
+    <section className="w-full bg-white px-6 py-16 font-sans text-[#171a2b] md:px-12 md:py-24" data-navbar-theme="white"
+    >
+      <style>{`
+        /* ---- clouds drifting in from the top right ---- */
+        .sernio-cloud {
+          position: absolute;
+          left: 40%;
+          opacity: 0;
+          filter: blur(14px);
+          background:
+            radial-gradient(ellipse 36% 52% at 22% 66%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 34% 68% at 46% 40%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 36% 54% at 72% 62%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 48% 38% at 50% 80%, var(--c) 50%, transparent 100%);
+          animation: sernio-drift var(--d) linear infinite;
+          animation-delay: var(--delay);
+          will-change: transform, opacity;
+        }
+        @keyframes sernio-drift {
+          0%   { transform: translate(150%, -90%) scale(.9);  opacity: 0; }
+          12%  { opacity: .9; }
+          50%  { transform: translate(-50%, 20%)  scale(1.08); }
+          88%  { opacity: .9; }
+          100% { transform: translate(-250%, 130%) scale(.95); opacity: 0; }
+        }
+
+        @keyframes sernio-breathe {
+          0%,100% { transform: scale(.96); opacity: .7; }
+          50%     { transform: scale(1.06); opacity: 1; }
+        }
+        .sernio-breathe { animation: sernio-breathe 7s ease-in-out infinite; }
+
+        @keyframes sernio-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .sernio-marquee { animation: sernio-marquee 27s linear infinite; }
+        .sernio-marquee-rev { animation-direction: reverse; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .sernio-cloud, .sernio-breathe, .sernio-marquee { animation: none; }
+          .sernio-cloud { opacity: .6; }
+        }
+      `}</style>
+
+      {/* ---------- header ---------- */}
+      <div className="mx-auto flex max-w-275 flex-col items-start md:items-center md:text-center">
+        <Tag isDark> How Sernio connects</Tag>
+        <h2 className="mt-6 max-w-190 text-[34px] font-normal font-cal-sans text-[#171F2A] leading-[1.1] tracking-tight md:mt-8 md:text-[50px]">
+          One connection. Everything 
+          <br/>
+          stays in sync.
+        </h2>
+        <p className="mt-5 max-w-160 text-[15px] leading-[1.75] text-[#6B7280] font-manrope font-medium md:mt-6 md:text-[17px] md:leading-[1.9]">
+          Sernio doesn’t replace your EHR or scheduling tool, it reads from it and
+          writes back to it, in real time, on every single call.
+        </p>
+      </div>
+
+      {/* ================= DESKTOP ================= */}
+      <div className="mx-auto mt-16 hidden max-w-300 lg:block">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center">
+          {/* left tiles */}
+          <div className="flex flex-col gap-17.5">
+            {INPUTS.map((items) => (
+              <Labeled key={items[0].label} item={items[0]} float />
+            ))}
+          </div>
+
+          {/* connectors + logo square */}
+          <div className="flex items-center justify-center">
+            <DesktopConnector id="fan-left" />
+            <Orb size="h-[300px] w-[300px]" />
+            <DesktopConnector id="fan-right" mirror />
+          </div>
+
+          {/* right tiles */}
+          <div className="flex flex-col gap-17.5">
+            {OUTPUTS.map((items) => (
+              <Labeled key={items[0].label} item={items[0]} float />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-14 flex items-start justify-between gap-10">
+          <div className="max-w-110">
+            <h3 className="text-[30px] font-bold tracking-tight">What flows in</h3>
+            <p className="mt-2 text-[18px] leading-[1.8] text-[#6b6b7b]">
+              Patient records, schedules, provider availability, read in real time,
+              never duplicated.
+            </p>
+          </div>
+          <div className="max-w-110 text-right">
+            <h3 className="text-[30px] font-bold tracking-tight">What flows out</h3>
+            <p className="mt-2 text-[18px] leading-[1.8] text-[#6b6b7b]">
+              Bookings, reminders, and staff alerts, written back automatically, no
+              manual entry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= MOBILE ================= */}
+      <div className="mx-auto mt-10 max-w-105 lg:hidden">
+        <h3 className="text-[26px] font-normal tracking-tight font-cal-sans text-[#171F2A]">What flows in</h3>
+        <p className="mt-1 text-[14px] leading-[1.6] text-[#6B7280] font-medium font-manrope">
+          Patient records, schedules, provider availability, read in real time,
+          never duplicated.
+        </p>
+
+        {/* top logos: auto-scrolling marquee, 3 visible at a time */}
+        <div className="mt-10">
+          <Marquee items={uniq(INPUTS)} />
+        </div>
+
+        {/* connector in */}
+        <MobileConnector id="fan-top" />
+
+        <div className="flex justify-center">
+          <Orb size="h-[190px] w-[190px]" />
+        </div>
+
+        {/* connector out */}
+        <MobileConnector id="fan-bottom" flip />
+
+        <Marquee items={uniq(OUTPUTS)}  />
+
+        <h3 className="mt-12 text-[26px] font-normal tracking-tight font-cal-sans text-[#171F2A]">What flows out</h3>
+        <p className="mt-1 text-[14px] leading-[1.6] text-[#6B7280] font-medium font-manrope">
+          Bookings, reminders, and staff alerts, written back automatically, no
+          manual entry.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default FirstSection;

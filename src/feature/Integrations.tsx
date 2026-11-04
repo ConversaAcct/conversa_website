@@ -1,3 +1,4 @@
+import FirstSection from "../component/integrations/FirstSection";
 import HeroSection from "../component/integrations/HeroSection";
 import LastSection from "../component/integrations/LastSection";
 import SecondSection from "../component/integrations/SecondSection";
@@ -7,6 +8,8 @@ const Integrations = () => {
     return(
         <div>
             <HeroSection/>
+
+            <FirstSection/>
 
             <SecondSection/>
 
