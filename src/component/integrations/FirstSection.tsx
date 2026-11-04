@@ -1,8 +1,8 @@
 import React from "react";
 import Tag from "../resuable/Tag";
-import logo1 from "../../assets/integrations/1 (8).svg"
-import logo2 from "../../assets/integrations/2 (8).svg"
-import logo3 from "../../assets/integrations/3 (11).svg"
+import logo1 from "../../assets/integrations/first-section/image (7).svg"
+import logo2 from "../../assets/integrations/first-section/image (8).svg"
+import logo3 from "../../assets/integrations/first-section/image (9).svg"
 import calendarImage from "../../assets/integrations/first-section/calendar.svg"
 import recordImage from "../../assets/integrations/first-section/document-text.svg"
 import bellImage from "../../assets/integrations/first-section/notification-bing.svg"
