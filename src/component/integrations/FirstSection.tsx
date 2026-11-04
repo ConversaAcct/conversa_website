@@ -332,9 +332,15 @@ const FirstSection = () => {
       {/* ---------- header ---------- */}
       <div className="mx-auto flex max-w-275 flex-col items-start md:items-center md:text-center">
         <Tag isDark> How Sernio connects</Tag>
-        <h2 className="mt-6 max-w-190 text-[34px] font-normal font-cal-sans text-[#171F2A] leading-[1.1] tracking-tight md:mt-8 md:text-[50px]">
+        <h2 className="mt-6 max-w-190 max-sm:hidden text-[34px] font-normal font-cal-sans text-[#171F2A] leading-[1.1] tracking-tight md:mt-8 md:text-[50px]">
           One connection. Everything 
           <br/>
+          stays in sync.
+        </h2>
+
+        <h2 className="mt-6 hidden max-sm:block max-w-190 text-[34px] font-normal font-cal-sans text-[#171F2A] leading-[1.1] tracking-tight md:mt-8 md:text-[50px]">
+          One connection. Everything 
+          
           stays in sync.
         </h2>
         <p className="mt-5 max-w-160 text-[15px] leading-[1.75] text-[#6B7280] font-manrope font-medium md:mt-6 md:text-[17px] md:leading-[1.9]">
