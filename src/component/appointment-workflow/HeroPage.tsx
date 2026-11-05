@@ -1,7 +1,7 @@
-import tag1 from "../../assets/appointment-workflow/Group (1).svg";
 import tag2 from "../../assets/appointment-workflow/1 (2).svg";
 import tag3 from "../../assets/appointment-workflow/2 (2).svg"
 import tag4 from "../../assets/appointment-workflow/3 (3).svg"
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
     return (
@@ -22,7 +22,9 @@ const HeroPage = () => {
             />
 
 <div className="flex md:justify-center md:items-center max-md:px-5 flex-col xl:-mt-20 lg:mt-16">
-                     <div className="flex md:justify-center md:items-center"><img src={tag1}/></div>
+                     <div className="flex md:justify-center md:items-center">
+                        <RainbowTag>Appointment Workflows</RainbowTag>
+                        </div>
                     <div className=" font-normal  max-sm:hidden text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>From booking to follow-up.</h1>
                          <h1>Fully automated.</h1>

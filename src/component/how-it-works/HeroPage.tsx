@@ -1,8 +1,8 @@
-import tag1 from "../../assets/how-it-works/Group (7).svg";
 import tag2 from "../../assets/how-it-works/1 (5).svg";
 import tag3 from "../../assets/how-it-works/2 (5).svg"
 import tag4 from "../../assets/how-it-works/4 (2).svg"
 import tag5 from "../../assets/how-it-works/3 (5).svg"
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
     return (
@@ -14,7 +14,9 @@ const HeroPage = () => {
     
 
            <div className="flex md:justify-center md:items-center max-sm:px-5 flex-col xl:-mt-20 lg:mt-16">
-                     <div className="flex md:justify-center md:items-center"><img src={tag1}/></div>
+                     <div className="flex md:justify-center md:items-center">
+                       <RainbowTag>How it works</RainbowTag>
+                        </div>
                     <div className=" font-normal  max-sm:hidden text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>A patient calls. Sernio answers.</h1>
                          <h1>The right thing happens.</h1>

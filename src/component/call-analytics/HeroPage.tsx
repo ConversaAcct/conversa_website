@@ -1,8 +1,8 @@
-import tag1 from "../../assets/call-analytics/Group (7).svg";
 import tag2 from "../../assets/call-analytics/1 (12).svg";
 import tag3 from "../../assets/call-analytics/2 (9).svg";
 import tag4 from "../../assets/call-analytics/3 (9).svg";
 import callImage from "../../assets/call-analytics/Image (17).svg";
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
     return (
@@ -18,8 +18,9 @@ const HeroPage = () => {
 
                     {/* Tag */}
                     <div className="md:flex md:items-center md:justify-center lg:justify-start px-5 lg:px-0">
-                        <img src={tag1} alt="" />
+                        <RainbowTag>Call Analytics</RainbowTag>
                     </div>
+                    
 
                     {/* Heading */}
                     <div className="font-normal text-[32px] md:text-[50px] font-cal-sans text-[#171F2A] leading-tight md:text-center lg:text-left px-5 lg:px-0">

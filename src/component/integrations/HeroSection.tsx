@@ -8,6 +8,7 @@ import logo3 from "../../assets/integrations/3 (11).svg"
 import logo4 from "../../assets/integrations/4 (4).svg"
 import logo5 from "../../assets/integrations/5.svg"
 import logo6 from "../../assets/integrations/6.svg"
+import RainbowTag from "../resuable/RainbowTag";
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
 
@@ -21,6 +22,10 @@ const HeroSection = () => {
     
 
            <div className="flex md:justify-center md:items-center max-sm:px-5 flex-col xl:-mt-10 lg:mt-16">
+           <div className="flex md:justify-center md:items-center">
+           <RainbowTag>Integrations</RainbowTag>
+            </div>
+
                     <div className=" font-normal  text-[32px] md:text-[50px] md:text-center font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>Your tools stay.</h1>
                          <h1>Sernio just plugs in.</h1>

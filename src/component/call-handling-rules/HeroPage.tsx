@@ -1,4 +1,3 @@
-import tag1 from "../../assets/call-handling-rules/Group (8).svg";
 import tag2 from "../../assets/call-handling-rules/1 (18).svg";
 import tag3 from "../../assets/call-handling-rules/2 (15).svg";
 import tag4 from "../../assets/call-handling-rules/3 (12).svg";
@@ -6,6 +5,7 @@ import callImage from "../../assets/call-handling-rules/Group (9).svg";
 import callImageMob from "../../assets/call-handling-rules/Group.svg"
 import modalImage from "../../assets/call-handling-rules/Modal.svg"
 import modalImage2 from "../../assets/call-handling-rules/hero/Modal.svg"
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
     return (
@@ -20,7 +20,7 @@ const HeroPage = () => {
                 <div className="flex flex-col w-full xl:w-auto xl:-mt-20 md:items-center xl:items-start lg:mt-20 ">
 
                     <div className="flex md:items-center max-sm:px-5 md:justify-center lg:justify-start">
-                        <img src={tag1} alt="" />
+                        <RainbowTag>Call Handling Rules</RainbowTag>
                     </div>
 
                     <div className="font-normal text-[32px] max-sm:px-5 md:text-[50px] font-cal-sans text-[#171F2A] leading-tight md:text-center lg:text-left">

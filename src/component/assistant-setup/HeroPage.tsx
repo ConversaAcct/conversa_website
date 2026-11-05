@@ -1,9 +1,9 @@
 import pix1 from "../../assets/assistant-setup/heropage/1 (8).svg"
 import pix2 from "../../assets/assistant-setup/heropage/2 (6).svg";
-import tag1 from "../../assets/assistant-setup/heropage/Group (3).svg"
 import tag2 from "../../assets/assistant-setup/heropage/1 (9).svg"
 import tag3 from "../../assets/assistant-setup/heropage/2 (7).svg"
 import tag4 from "../../assets/assistant-setup/heropage/3 (6).svg"
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
     return(
@@ -20,7 +20,10 @@ const HeroPage = () => {
                     <img src={pix1}/>
                 </div>
                 <div className="flex md:justify-center md:items-center max-md:px-5 flex-col xl:-mt-20 lg:mt-16">
-                     <div className="flex md:justify-center md:items-center"><img src={tag1}/></div>
+                     <div className="flex md:justify-center md:items-center">
+                        <RainbowTag>Assistant Setup</RainbowTag>
+                     
+                     </div>
                     <div className=" font-normal text-[32px] md:text-[50px] font-cal-sans text-[#171F2A] leading-tight ">
                          <h1>Takes just three steps.</h1>
                          <h1>Go live the same day.</h1>

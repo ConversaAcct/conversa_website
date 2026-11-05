@@ -1,6 +1,6 @@
-import Icons from "../assets/Icons";
 import FilledButton from "./FilledButton";
 import womanPix from "../assets/homepage/hero/img (4).png";
+import RainbowTag from "./resuable/RainbowTag";
 // import OutlinedButton from "./OutlinedButton";
 
 const Heropage = () => {
@@ -14,11 +14,8 @@ const Heropage = () => {
 
                 {/* LEFT: text content */}
                 <div className="flex flex-col items-start max-w-md shrink-0">
-                    <div className="gap-2 text-black font-medium text-[12px] bg-[#F5E8E3] px-4 py-1.5 rounded-full flex justify-center items-center mb-2">
-                        {Icons.barsIcon}
-                        <p>Voice AI for healthcare teams</p>
-                    </div>
-
+               
+                    <RainbowTag>Voice AI for healthcare teams</RainbowTag>
                     <h1 className="text-[32px] lg:text-[55px] font-cal-sans text-[#171F2A] leading-tight mb-2">
                         Every patient call, answered like you would.
                     </h1>

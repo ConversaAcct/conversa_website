@@ -1,9 +1,9 @@
-import tag1 from "../../assets/security-compliance/Group (5).svg";
 import tag2 from "../../assets/security-compliance/1 (3).svg";
 import tag3 from "../../assets/security-compliance/2 (4).svg";
 import tag4 from "../../assets/security-compliance/3 (4).svg";
 import tag5 from "../../assets/security-compliance/4 (1).svg"
 import callImage from "../../assets/security-compliance/Group (4).svg";
+import RainbowTag from "../resuable/RainbowTag";
 
 const HeroSection = () => {
     return (
@@ -19,7 +19,7 @@ const HeroSection = () => {
 
                     {/* Tag */}
                     <div className="md:flex md:items-center md:justify-center lg:justify-start px-5 lg:px-0">
-                        <img src={tag1} alt="" />
+                        <RainbowTag>Security & Compliance</RainbowTag>
                     </div>
 
                     {/* Heading */}
