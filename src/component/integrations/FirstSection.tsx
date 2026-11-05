@@ -81,13 +81,15 @@ const OUTPUTS: Item[][] = [
 /* Tiles                                                               */
 /* ------------------------------------------------------------------ */
 
+/* Desktop tile = 64px (h-16 w-16), logo inside scaled to 70%.
+   compact (mobile) is unchanged. */
 const Tile = ({ item, compact }: { item: Item; compact?: boolean }) => (
   <div
     className={`flex items-center justify-center rounded-2xl border border-[#e3e3ea] bg-white shadow-[0_1px_2px_rgba(20,20,40,0.04)] ${
-      compact ? "h-21 w-21" : "h-20 w-20"
+      compact ? "h-21 w-21" : "h-16 w-16"
     }`}
   >
-    <div className={compact ? "scale-[0.8]" : ""}>{item.node}</div>
+    <div className={compact ? "scale-[0.8]" : "scale-[0.7]"}>{item.node}</div>
   </div>
 );
 
@@ -161,30 +163,30 @@ const MobileConnector = ({ id, flip }: { id: string; flip?: boolean }) => (
   </svg>
 );
 
-/* Desktop: horizontal. Tiles are 80px high, 80px apart, so the tile
-   centres sit at y = 40 / 200 / 360 inside a 400px-high column. */
+/* Desktop: horizontal. Tiles are 64px high, 96px apart, so the tile
+   centres sit at y = 32 / 192 / 352 inside a 384px-high column. */
 const DesktopConnector = ({ id, mirror }: { id: string; mirror?: boolean }) => (
-  <div className={`relative h-100 flex-1 ${mirror ? "-scale-x-100" : ""}`}>
+  <div className={`relative h-96 flex-1 ${mirror ? "-scale-x-100" : ""}`}>
     {/* tile -> spine brackets (rounded corners) */}
-    <div className="absolute left-0 top-10 h-40 w-12 rounded-tr-2xl border-r border-t border-dashed border-[#d9d9e3]" />
-    <div className="absolute left-0 top-50 h-40 w-12 rounded-br-2xl border-b border-r border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 top-8 h-40 w-12 rounded-tr-2xl border-r border-t border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 top-48 h-40 w-12 rounded-br-2xl border-b border-r border-dashed border-[#d9d9e3]" />
 
     {/* pills on the spine */}
-    <div className="absolute left-10.5 top-26.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
-    <div className="absolute left-10.5 top-66.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute left-10.5 top-24.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute left-10.5 top-64.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
 
     {/* middle tile -> hub */}
-    <div className="absolute left-0 right-30 top-50 border-t border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 right-30 top-48 border-t border-dashed border-[#d9d9e3]" />
 
     {/* hub rail + pill */}
     <div className="absolute bottom-10 right-30 top-10 border-l border-dashed border-[#d9d9e3] opacity-70" />
-    <div className="absolute right-28.5 top-46.25 h-7.5 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute right-28.5 top-44.25 h-7.5 w-3 rounded-full border border-[#d9d9e3] bg-white" />
 
     {/* fan into the logo square */}
     <svg
-      viewBox="0 0 120 400"
+      viewBox="0 0 120 384"
       fill="none"
-      className="absolute right-0 top-0 h-100 w-30"
+      className="absolute right-0 top-0 h-96 w-30"
       aria-hidden
     >
       <defs>
@@ -195,7 +197,7 @@ const DesktopConnector = ({ id, mirror }: { id: string; mirror?: boolean }) => (
       </defs>
       <g stroke={`url(#${id})`} strokeWidth="1">
         {DESKTOP_FAN_OFFSETS.map((o) => (
-          <path key={o} d={`M0 200C42 200 78 ${200 + o} 120 ${200 + o}`} />
+          <path key={o} d={`M0 192C42 192 78 ${192 + o} 120 ${192 + o}`} />
         ))}
       </g>
     </svg>
@@ -247,7 +249,8 @@ const Orb = ({ size, logoClass = "" }: { size: string; logoClass?: string }) => 
   <div className={`relative ${size} shrink-0`}>
     {/* soft haze around the square */}
     <div className="sernio-breathe absolute inset-[-22%]">
-      <div className="absolute inset-0 rounded-full shadow-[inset_0_0_45px_10px_rgba(150,130,255,0.10)]" />    </div>
+      <div className="absolute inset-0 rounded-full shadow-[inset_0_0_45px_10px_rgba(150,130,255,0.10)]" />
+    </div>
 
     {/* the rounded square = the "sky" */}
     <div className="absolute inset-0 overflow-hidden rounded-[26%] bg-linear-to-br from-[#7b6cf6] via-[#8576f7] to-[#6b84f5]">
@@ -368,28 +371,32 @@ const FirstSection = () => {
       </div>
 
       {/* ================= DESKTOP ================= */}
-      {/* max-w-265 (1060px) = width of the logo area; wider = more space between the side tiles and the middle logo */}
+      {/* max-w-265 (1060px) = outer width, used by the "What flows" text row.
+          The logo diagram sits in its own narrower box (max-w-190 = 760px):
+          smaller box = side tiles closer to the middle logo. */}
       <div className="mx-auto mt-16 hidden max-w-265 lg:block">
-        <div className="grid grid-cols-[auto_1fr_auto] items-center">
-          {/* left tiles */}
-          <div className="flex flex-col gap-20">
-            {INPUTS.map((items) => (
-              <Labeled key={items[0].label} item={items[0]} float />
-            ))}
-          </div>
+        <div className="mx-auto max-w-190">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center">
+            {/* left tiles */}
+            <div className="flex flex-col gap-24">
+              {INPUTS.map((items) => (
+                <Labeled key={items[0].label} item={items[0]} float />
+              ))}
+            </div>
 
-          {/* connectors + logo square */}
-          <div className="flex items-center justify-center">
-            <DesktopConnector id="fan-left" />
-            <Orb size="h-[140px] w-[140px]" logoClass="scale-55" />
-            <DesktopConnector id="fan-right" mirror />
-          </div>
+            {/* connectors + logo square */}
+            <div className="flex items-center justify-center">
+              <DesktopConnector id="fan-left" />
+              <Orb size="h-[140px] w-[140px]" logoClass="scale-55" />
+              <DesktopConnector id="fan-right" mirror />
+            </div>
 
-          {/* right tiles */}
-          <div className="flex flex-col gap-20">
-            {OUTPUTS.map((items) => (
-              <Labeled key={items[0].label} item={items[0]} float />
-            ))}
+            {/* right tiles */}
+            <div className="flex flex-col gap-24">
+              {OUTPUTS.map((items) => (
+                <Labeled key={items[0].label} item={items[0]} float />
+              ))}
+            </div>
           </div>
         </div>
 

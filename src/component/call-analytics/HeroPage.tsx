@@ -1,7 +1,7 @@
 import tag2 from "../../assets/call-analytics/1 (12).svg";
 import tag3 from "../../assets/call-analytics/2 (9).svg";
 import tag4 from "../../assets/call-analytics/3 (9).svg";
-import callImage from "../../assets/call-analytics/Image (17).svg";
+import callImage from "../../assets/call-analytics/Chrome (1).svg";
 import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
