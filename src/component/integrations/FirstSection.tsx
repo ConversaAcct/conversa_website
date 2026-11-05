@@ -84,7 +84,7 @@ const OUTPUTS: Item[][] = [
 const Tile = ({ item, compact }: { item: Item; compact?: boolean }) => (
   <div
     className={`flex items-center justify-center rounded-2xl border border-[#e3e3ea] bg-white shadow-[0_1px_2px_rgba(20,20,40,0.04)] ${
-      compact ? "h-21 w-21" : "h-26 w-26"
+      compact ? "h-21 w-21" : "h-20 w-20"
     }`}
   >
     <div className={compact ? "scale-[0.8]" : ""}>{item.node}</div>
@@ -120,69 +120,71 @@ const Labeled = ({
 /* ------------------------------------------------------------------ */
 
 const FAN_OFFSETS = [-64, -32, 0, 32, 64];
+/* Desktop fan is shorter: change these to make the curves taller/shorter */
+const DESKTOP_FAN_OFFSETS = [-40, -20, 0, 20, 40];
 
 /* Mobile: vertical. Brackets sit under the 3 visible marquee columns
    (centres at 1/6, 1/2, 5/6 of the width). flip = mirrored for the bottom. */
 const MobileConnector = ({ id, flip }: { id: string; flip?: boolean }) => (
   <svg
-    viewBox="0 0 360 170"
+    viewBox="0 0 360 110"
     fill="none"
     className={`block w-full ${flip ? "-scale-y-100" : ""}`}
     aria-hidden
   >
     <defs>
-      <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0" y1="90" x2="0" y2="170">
+      <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0" y1="60" x2="0" y2="110">
         <stop stopColor="#cfcce6" />
         <stop offset="1" stopColor="#cfcce6" stopOpacity="0.15" />
       </linearGradient>
     </defs>
 
     <g stroke="#d9d9e3" strokeDasharray="4 4">
-      <path d="M60 0V28a12 12 0 0 0 12 12H288a12 12 0 0 0 12-12V0" />
-      <path d="M180 0V90" />
-      <path d="M0 90H360" opacity="0.6" />
+      <path d="M60 0V16a12 12 0 0 0 12 12H288a12 12 0 0 0 12-12V0" />
+      <path d="M180 0V60" />
+      <path d="M0 60H360" opacity="0.6" />
     </g>
 
     {/* pills sitting on the lines */}
     <g fill="#fff" stroke="#d9d9e3">
-      <rect x="84" y="34" width="36" height="12" rx="6" />
-      <rect x="240" y="34" width="36" height="12" rx="6" />
-      <rect x="162" y="84" width="36" height="12" rx="6" />
+      <rect x="84" y="22" width="36" height="12" rx="6" />
+      <rect x="240" y="22" width="36" height="12" rx="6" />
+      <rect x="162" y="54" width="36" height="12" rx="6" />
     </g>
 
     {/* fan into the logo square */}
     <g stroke={`url(#${id})`} strokeWidth="1">
       {FAN_OFFSETS.map((o) => (
-        <path key={o} d={`M180 90C180 122 ${180 + o * 0.6} 138 ${180 + o} 170`} />
+        <path key={o} d={`M180 60C180 80 ${180 + o * 0.6} 92 ${180 + o} 110`} />
       ))}
     </g>
   </svg>
 );
 
-/* Desktop: horizontal. Tiles are 104px high, 70px apart, so the tile
-   centres sit at y = 52 / 226 / 400 inside a 452px-high column. */
+/* Desktop: horizontal. Tiles are 80px high, 80px apart, so the tile
+   centres sit at y = 40 / 200 / 360 inside a 400px-high column. */
 const DesktopConnector = ({ id, mirror }: { id: string; mirror?: boolean }) => (
-  <div className={`relative h-113 flex-1 ${mirror ? "-scale-x-100" : ""}`}>
+  <div className={`relative h-100 flex-1 ${mirror ? "-scale-x-100" : ""}`}>
     {/* tile -> spine brackets (rounded corners) */}
-    <div className="absolute left-0 top-13 h-43.5 w-12 rounded-tr-2xl border-r border-t border-dashed border-[#d9d9e3]" />
-    <div className="absolute left-0 top-56.5 h-43.5 w-12 rounded-br-2xl border-b border-r border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 top-10 h-40 w-12 rounded-tr-2xl border-r border-t border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 top-50 h-40 w-12 rounded-br-2xl border-b border-r border-dashed border-[#d9d9e3]" />
 
     {/* pills on the spine */}
-    <div className="absolute left-10.5 top-31.25 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
-    <div className="absolute left-10.5 top-74.75 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute left-10.5 top-26.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute left-10.5 top-66.5 h-7 w-3 rounded-full border border-[#d9d9e3] bg-white" />
 
     {/* middle tile -> hub */}
-    <div className="absolute left-0 right-30 top-56.5 border-t border-dashed border-[#d9d9e3]" />
+    <div className="absolute left-0 right-30 top-50 border-t border-dashed border-[#d9d9e3]" />
 
     {/* hub rail + pill */}
     <div className="absolute bottom-10 right-30 top-10 border-l border-dashed border-[#d9d9e3] opacity-70" />
-    <div className="absolute right-28.5 top-52.75 h-7.5 w-3 rounded-full border border-[#d9d9e3] bg-white" />
+    <div className="absolute right-28.5 top-46.25 h-7.5 w-3 rounded-full border border-[#d9d9e3] bg-white" />
 
     {/* fan into the logo square */}
     <svg
-      viewBox="0 0 120 452"
+      viewBox="0 0 120 400"
       fill="none"
-      className="absolute right-0 top-0 h-113 w-30"
+      className="absolute right-0 top-0 h-100 w-30"
       aria-hidden
     >
       <defs>
@@ -192,8 +194,8 @@ const DesktopConnector = ({ id, mirror }: { id: string; mirror?: boolean }) => (
         </linearGradient>
       </defs>
       <g stroke={`url(#${id})`} strokeWidth="1">
-        {FAN_OFFSETS.map((o) => (
-          <path key={o} d={`M0 226C42 226 78 ${226 + o} 120 ${226 + o}`} />
+        {DESKTOP_FAN_OFFSETS.map((o) => (
+          <path key={o} d={`M0 200C42 200 78 ${200 + o} 120 ${200 + o}`} />
         ))}
       </g>
     </svg>
@@ -233,32 +235,32 @@ const Marquee = ({ items }: { items: Item[]; }) => {
 /* ------------------------------------------------------------------ */
 
 const CLOUDS = [
-  { color: "#ff8ac4", top: "-6%", w: "78%", h: "40%", dur: 24, delay: 0 },
-  { color: "#ffc76b", top: "18%", w: "70%", h: "36%", dur: 30, delay: -9 },
-  { color: "#7dffc4", top: "40%", w: "82%", h: "42%", dur: 27, delay: -16 },
-  { color: "#6bb8ff", top: "58%", w: "72%", h: "38%", dur: 33, delay: -5 },
-  { color: "#b78bff", top: "28%", w: "88%", h: "44%", dur: 36, delay: -22 },
-  { color: "#ff9a8a", top: "70%", w: "66%", h: "34%", dur: 29, delay: -13 },
+  { color: "#ff8ac4", top: "-6%", w: "78%", h: "40%", dur: 24, delay: 0, shape: 1, blur: 14 },
+  { color: "#ffd56b", top: "18%", w: "70%", h: "30%", dur: 30, delay: -9, shape: 2, blur: 16 },
+  { color: "#7dffc4", top: "40%", w: "82%", h: "46%", dur: 27, delay: -16, shape: 3, blur: 13 },
+  { color: "#6bb8ff", top: "58%", w: "72%", h: "34%", dur: 33, delay: -5, shape: 2, blur: 15 },
+  { color: "#d98bff", top: "28%", w: "88%", h: "48%", dur: 36, delay: -22, shape: 3, blur: 14 },
+  { color: "#ff7fb8", top: "70%", w: "66%", h: "32%", dur: 29, delay: -13, shape: 1, blur: 16 },
 ];
 
-const Orb = ({ size }: { size: string }) => (
+const Orb = ({ size, logoClass = "" }: { size: string; logoClass?: string }) => (
   <div className={`relative ${size} shrink-0`}>
     {/* soft haze around the square */}
-    <div className="sernio-breathe absolute inset-[-20%]">
-      <div className="absolute inset-0 rounded-[40%] bg-[radial-gradient(circle_at_30%_30%,#ffb3dc_0%,transparent_55%),radial-gradient(circle_at_75%_35%,#a9d4ff_0%,transparent_55%),radial-gradient(circle_at_50%_80%,#c4b0ff_0%,transparent_60%)] opacity-50 blur-3xl" />
-    </div>
+    <div className="sernio-breathe absolute inset-[-22%]">
+      <div className="absolute inset-0 rounded-full shadow-[inset_0_0_45px_10px_rgba(150,130,255,0.10)]" />    </div>
 
     {/* the rounded square = the "sky" */}
-    <div className="absolute inset-0 overflow-hidden rounded-[26%] bg-linear-to-br from-[#c4bcff] via-[#d6d0ff] to-[#bfe0ff] shadow-[0_20px_60px_-20px_rgba(91,33,245,0.45)]">
+    <div className="absolute inset-0 overflow-hidden rounded-[26%] bg-linear-to-br from-[#7b6cf6] via-[#8576f7] to-[#6b84f5]">
       {CLOUDS.map((c, i) => (
         <div
           key={i}
-          className="sernio-cloud"
+          className={`sernio-cloud sernio-cloud-${c.shape}`}
           style={
             {
               "--c": c.color,
               "--d": `${c.dur}s`,
               "--delay": `${c.delay}s`,
+              "--b": `${c.blur}px`,
               top: c.top,
               width: c.w,
               height: c.h,
@@ -267,11 +269,11 @@ const Orb = ({ size }: { size: string }) => (
         />
       ))}
       {/* light sheen so the clouds stay soft and the logo stays readable */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.22),transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_65%)]" />
     </div>
 
     {/* logo */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+    <div className={`absolute inset-0 flex flex-col items-center justify-center gap-1 ${logoClass}`}>
       <SernioMark  />
       <img src={sernioImg}/>
     </div>
@@ -284,7 +286,7 @@ const Orb = ({ size }: { size: string }) => (
 
 const FirstSection = () => {
   return (
-    <section className="w-full bg-white px-6 py-16 font-sans text-[#171a2b] md:px-12 md:py-24" data-navbar-theme="white"
+    <section className="w-full bg-white px-6 py-10 font-sans text-[#171a2b] md:px-12 md:py-24" data-navbar-theme="white"
     >
       <style>{`
         /* ---- clouds drifting in from the top right ---- */
@@ -292,7 +294,7 @@ const FirstSection = () => {
           position: absolute;
           left: 40%;
           opacity: 0;
-          filter: blur(14px);
+          filter: blur(var(--b, 9px));
           background:
             radial-gradient(ellipse 36% 52% at 22% 66%, var(--c) 55%, transparent 100%),
             radial-gradient(ellipse 34% 68% at 46% 40%, var(--c) 55%, transparent 100%),
@@ -301,6 +303,22 @@ const FirstSection = () => {
           animation: sernio-drift var(--d) linear infinite;
           animation-delay: var(--delay);
           will-change: transform, opacity;
+        }
+        /* different cloud shapes so they don't all look the same
+           (shape 1 = the base look above) */
+        .sernio-cloud-2 {
+          background:
+            radial-gradient(ellipse 50% 40% at 30% 55%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 30% 55% at 60% 35%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 40% 36% at 82% 60%, var(--c) 50%, transparent 100%);
+        }
+        .sernio-cloud-3 {
+          background:
+            radial-gradient(ellipse 28% 50% at 18% 60%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 32% 70% at 38% 38%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 30% 60% at 58% 50%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 34% 48% at 80% 66%, var(--c) 55%, transparent 100%),
+            radial-gradient(ellipse 60% 30% at 50% 82%, var(--c) 50%, transparent 100%);
         }
         @keyframes sernio-drift {
           0%   { transform: translate(150%, -90%) scale(.9);  opacity: 0; }
@@ -350,10 +368,11 @@ const FirstSection = () => {
       </div>
 
       {/* ================= DESKTOP ================= */}
-      <div className="mx-auto mt-16 hidden max-w-300 lg:block">
+      {/* max-w-265 (1060px) = width of the logo area; wider = more space between the side tiles and the middle logo */}
+      <div className="mx-auto mt-16 hidden max-w-265 lg:block">
         <div className="grid grid-cols-[auto_1fr_auto] items-center">
           {/* left tiles */}
-          <div className="flex flex-col gap-17.5">
+          <div className="flex flex-col gap-20">
             {INPUTS.map((items) => (
               <Labeled key={items[0].label} item={items[0]} float />
             ))}
@@ -362,27 +381,27 @@ const FirstSection = () => {
           {/* connectors + logo square */}
           <div className="flex items-center justify-center">
             <DesktopConnector id="fan-left" />
-            <Orb size="h-[300px] w-[300px]" />
+            <Orb size="h-[140px] w-[140px]" logoClass="scale-55" />
             <DesktopConnector id="fan-right" mirror />
           </div>
 
           {/* right tiles */}
-          <div className="flex flex-col gap-17.5">
+          <div className="flex flex-col gap-20">
             {OUTPUTS.map((items) => (
               <Labeled key={items[0].label} item={items[0]} float />
             ))}
           </div>
         </div>
 
-        <div className="mt-14 flex items-start justify-between gap-10">
-          <div className="max-w-110">
+        <div className="mt-28 flex items-start justify-between gap-10 lg:-mx-8 xl:-mx-24">
+          <div className="max-w-96">
             <h3 className="text-[30px] font-bold tracking-tight">What flows in</h3>
             <p className="mt-2 text-[18px] leading-[1.8] text-[#6b6b7b]">
               Patient records, schedules, provider availability, read in real time,
               never duplicated.
             </p>
           </div>
-          <div className="max-w-110 text-right">
+          <div className="max-w-96 text-right">
             <h3 className="text-[30px] font-bold tracking-tight">What flows out</h3>
             <p className="mt-2 text-[18px] leading-[1.8] text-[#6b6b7b]">
               Bookings, reminders, and staff alerts, written back automatically, no
@@ -409,7 +428,7 @@ const FirstSection = () => {
         <MobileConnector id="fan-top" />
 
         <div className="flex justify-center">
-          <Orb size="h-[190px] w-[190px]" />
+          <Orb size="h-[140px] w-[140px]" logoClass="scale-60" />
         </div>
 
         {/* connector out */}
