@@ -235,12 +235,12 @@ const Marquee = ({ items }: { items: Item[]; }) => {
 /* ------------------------------------------------------------------ */
 
 const CLOUDS = [
-  { color: "#ff8ac4", top: "-6%", w: "78%", h: "40%", dur: 24, delay: 0, shape: 1, blur: 14 },
-  { color: "#ffd56b", top: "18%", w: "70%", h: "30%", dur: 30, delay: -9, shape: 2, blur: 16 },
-  { color: "#7dffc4", top: "40%", w: "82%", h: "46%", dur: 27, delay: -16, shape: 3, blur: 13 },
-  { color: "#6bb8ff", top: "58%", w: "72%", h: "34%", dur: 33, delay: -5, shape: 2, blur: 15 },
-  { color: "#d98bff", top: "28%", w: "88%", h: "48%", dur: 36, delay: -22, shape: 3, blur: 14 },
-  { color: "#ff7fb8", top: "70%", w: "66%", h: "32%", dur: 29, delay: -13, shape: 1, blur: 16 },
+  { color: "#ff8ac4", top: "-6%", w: "78%", h: "40%", dur: 12, delay: 0, shape: 1, blur: 14 },
+  { color: "#ffd56b", top: "18%", w: "70%", h: "30%", dur: 15, delay: -5, shape: 2, blur: 16 },
+  { color: "#7dffc4", top: "40%", w: "82%", h: "46%", dur: 13, delay: -8, shape: 3, blur: 13 },
+  { color: "#6bb8ff", top: "58%", w: "72%", h: "34%", dur: 16, delay: -3, shape: 2, blur: 15 },
+  { color: "#d98bff", top: "28%", w: "88%", h: "48%", dur: 18, delay: -11, shape: 3, blur: 14 },
+  { color: "#ff7fb8", top: "70%", w: "66%", h: "32%", dur: 14, delay: -7, shape: 1, blur: 16 },
 ];
 
 const Orb = ({ size, logoClass = "" }: { size: string; logoClass?: string }) => (
@@ -286,7 +286,7 @@ const Orb = ({ size, logoClass = "" }: { size: string; logoClass?: string }) => 
 
 const FirstSection = () => {
   return (
-    <section className="w-full bg-white px-6 py-10 font-sans text-[#171a2b] md:px-12 md:py-24" data-navbar-theme="white"
+    <section className="w-full bg-white px-6 py-16 font-sans text-[#171a2b] md:px-12 md:py-24" data-navbar-theme="white"
     >
       <style>{`
         /* ---- clouds drifting in from the top right ---- */
