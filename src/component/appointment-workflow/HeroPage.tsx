@@ -1,6 +1,5 @@
-import tag2 from "../../assets/appointment-workflow/1 (2).svg";
-import tag3 from "../../assets/appointment-workflow/2 (2).svg"
-import tag4 from "../../assets/appointment-workflow/3 (3).svg"
+
+import ColorTag from "../resuable/ColorTag";
 import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
@@ -37,9 +36,34 @@ const HeroPage = () => {
 
                     <p className="text-[#171F2A] font-manrope text-[14px] max-sm:py-5  md:mt-5 w-90 md:text-center ">Sernio doesn't just answer the call — it books the appointment, sends the reminder, and follows up after the visit. Your front desk focuses on the patients in front of them.</p>
                     <div className="grid grid-cols-3 max-[500px]:grid-cols-2  lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
-                        <div><img src={tag2}/></div>
-                        <div><img src={tag3}/></div>
-                        <div><img src={tag4}/></div>
+                    <div>
+                            
+                            <ColorTag
+                                text="Books into your EHR"
+                                textColor="#008C3E"
+                                dotColor="#008C3E"
+                                bgColor="#EDFFF5"
+                                />
+                            
+                        </div>
+    
+                            <div className="max-sm:-ml-5">
+                            <ColorTag
+                                text="SMS & call reminders"
+                                textColor="#28007C"
+                                dotColor="#28007C"
+                                bgColor="#EAE0FF"
+                                />
+                            </div>
+    
+                            <div>
+                            <ColorTag
+                                text="No-show follow-up"
+                                textColor="#005D76"
+                                dotColor="#005D76"
+                                bgColor="#E3F9FF"
+                                />
+                            </div>
                     </div>
                 </div>
 

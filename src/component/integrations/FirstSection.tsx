@@ -94,27 +94,42 @@ const Tile = ({ item, compact }: { item: Item; compact?: boolean }) => (
 );
 
 /* float = label is absolutely placed under the tile, so it doesn't change the
-   tile's height (keeps the connector lines aligned to tile centres) */
+   tile's height (keeps the connector lines aligned to tile centres).
+   side = which side of the diagram the tile is on. The label is anchored to
+   the tile's outer edge so it grows AWAY from the connector lines:
+     "left"  tile (inputs)  -> label grows to the left
+     "right" tile (outputs) -> label grows to the right */
 const Labeled = ({
   item,
   compact,
   float,
+  side,
 }: {
   item: Item;
   compact?: boolean;
   float?: boolean;
-}) => (
-  <div className={float ? "relative" : "flex flex-col items-center gap-2"}>
-    <Tile item={item} compact={compact} />
-    <span
-      className={`text-center text-[13px] leading-tight text-[#6B7280] font-medium font-manrope md:text-[15px] ${
-        float ? "absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap" : ""
-      }`}
-    >
-      {item.label}
-    </span>
-  </div>
-);
+  side?: "left" | "right";
+}) => {
+  const floatPosition =
+    side === "left"
+      ? "absolute right-0 top-full mt-2 whitespace-nowrap text-right"
+      : side === "right"
+      ? "absolute left-0 top-full mt-2 whitespace-nowrap text-left"
+      : "absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap";
+
+  return (
+    <div className={float ? "relative" : "flex flex-col items-center gap-2"}>
+      <Tile item={item} compact={compact} />
+      <span
+        className={`text-center text-[13px] leading-tight text-[#6B7280] font-medium font-manrope md:text-[15px] ${
+          float ? floatPosition : ""
+        }`}
+      >
+        {item.label}
+      </span>
+    </div>
+  );
+};
 
 /* ------------------------------------------------------------------ */
 /* Connectors: dashed brackets with pills + a fan of curves into the   */
@@ -372,15 +387,17 @@ const FirstSection = () => {
 
       {/* ================= DESKTOP ================= */}
       {/* max-w-265 (1060px) = outer width, used by the "What flows" text row.
-          The logo diagram sits in its own narrower box (max-w-190 = 760px):
-          smaller box = side tiles closer to the middle logo. */}
+          The logo diagram sits in its own box (max-w-220 = 880px):
+          bigger box = side tiles further from the middle logo.
+          Tile labels are anchored to the tile's outer edge (side prop), so
+          they grow away from the connector lines. */}
       <div className="mx-auto mt-16 hidden max-w-265 lg:block">
-        <div className="mx-auto max-w-190">
+        <div className="mx-auto max-w-220">
           <div className="grid grid-cols-[auto_1fr_auto] items-center">
             {/* left tiles */}
             <div className="flex flex-col gap-24">
               {INPUTS.map((items) => (
-                <Labeled key={items[0].label} item={items[0]} float />
+                <Labeled key={items[0].label} item={items[0]} float side="left" />
               ))}
             </div>
 
@@ -394,7 +411,7 @@ const FirstSection = () => {
             {/* right tiles */}
             <div className="flex flex-col gap-24">
               {OUTPUTS.map((items) => (
-                <Labeled key={items[0].label} item={items[0]} float />
+                <Labeled key={items[0].label} item={items[0]} float side="right" />
               ))}
             </div>
           </div>

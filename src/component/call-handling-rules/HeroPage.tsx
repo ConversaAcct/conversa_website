@@ -1,10 +1,8 @@
-import tag2 from "../../assets/call-handling-rules/1 (18).svg";
-import tag3 from "../../assets/call-handling-rules/2 (15).svg";
-import tag4 from "../../assets/call-handling-rules/3 (12).svg";
 import callImage from "../../assets/call-handling-rules/Group (9).svg";
 import callImageMob from "../../assets/call-handling-rules/Group.svg"
 import modalImage from "../../assets/call-handling-rules/Modal.svg"
 import modalImage2 from "../../assets/call-handling-rules/hero/Modal.svg"
+import ColorTag from "../resuable/ColorTag";
 import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
@@ -28,20 +26,36 @@ const HeroPage = () => {
                         <h1>never misses a beat.</h1>
                     </div>
 
-                    <p className="text-[#171F2A] font-manrope text-[14px] w-full max-w-125 mx-auto md:text-center lg:text-left px-5 lg:px-0 py-5 lg:py-0">
+                    <p className="text-[#171F2A] font-manrope text-[14px] lg:text-[15px] w-full max-w-125  md:text-center lg:text-left px-5 lg:px-0 py-5 lg:py-2">
                     Set rules once. Sernio handles the edge cases automatically — emergency escalation, spam blocking, VIP routing, after-hours handoff. All measurable, all adjustable.                    </p>
 
                     <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
                         <div>
-                            <img src={tag2} alt="" />
+                            <ColorTag
+                            text="Emergency detection"
+                            textColor="#008C3E"
+                            dotColor="#008C3E"
+                            bgColor="#EDFFF5"
+                            />
+                        
+                        </div>
+
+                        <div className="min-w-0 max-sm:-ml-3">
+                        <ColorTag
+                            text="94% effectiveness"
+                            textColor="#28007C"
+                            dotColor="#28007C"
+                            bgColor="#EAE0FF"
+                            />
                         </div>
 
                         <div>
-                            <img src={tag3} alt="" />
-                        </div>
-
-                        <div>
-                            <img src={tag4} alt="" />
+                        <ColorTag
+                            text="12 active rules"
+                            textColor="#005D76"
+                            dotColor="#005D76"
+                            bgColor="#E3F9FF"
+                            />
                         </div>
                     </div>
                 </div>

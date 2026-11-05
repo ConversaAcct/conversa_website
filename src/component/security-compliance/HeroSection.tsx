@@ -1,8 +1,5 @@
-import tag2 from "../../assets/security-compliance/1 (3).svg";
-import tag3 from "../../assets/security-compliance/2 (4).svg";
-import tag4 from "../../assets/security-compliance/3 (4).svg";
-import tag5 from "../../assets/security-compliance/4 (1).svg"
 import callImage from "../../assets/security-compliance/Group (4).svg";
+import ColorTag from "../resuable/ColorTag";
 import RainbowTag from "../resuable/RainbowTag";
 
 const HeroSection = () => {
@@ -33,22 +30,44 @@ const HeroSection = () => {
                     Every call, transcript, and patient record is handled the way a covered entity needs it to be — by default, not as an add-on. HIPAA compliance isn't a tier upgrade at Sernio.                    </p>
 
                     {/* Tags */}
-                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
-                        <div>
-                            <img src={tag2} alt="" />
+                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center gap-y-3  gap-x-4 md:gap-y-3 md:gap-x-2  md:py-6 py-3">
+                            <div>
+                            <ColorTag
+                            text="HIPAA-ready architecture"
+                            textColor="#008C3E"
+                            dotColor="#008C3E"
+                            bgColor="#EDFFF5"
+                            />
+                        
                         </div>
 
                         <div>
-                            <img src={tag3} alt="" />
+                        <ColorTag
+                            text="BAA signed at onboarding"
+                            textColor="#28007C"
+                            dotColor="#28007C"
+                            bgColor="#EAE0FF"
+                            />
                         </div>
 
                         <div>
-                            <img src={tag4} alt="" />
+                        <ColorTag
+                            text="AES-256 encryption"
+                            textColor="#005D76"
+                            dotColor="#005D76"
+                            bgColor="#E3F9FF"
+                            />
                         </div>
 
                         <div>
-                            <img src={tag5} alt="" />
+                        <ColorTag
+                            text="SOC 2 — in progress"
+                            textColor="#6B7280"
+                            dotColor="#6B7280"
+                            bgColor="#F0F0F0"
+                            />
                         </div>
+
                     </div>
                 </div>
 

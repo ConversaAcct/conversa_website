@@ -1,7 +1,5 @@
-import tag2 from "../../assets/call-analytics/1 (12).svg";
-import tag3 from "../../assets/call-analytics/2 (9).svg";
-import tag4 from "../../assets/call-analytics/3 (9).svg";
 import callImage from "../../assets/call-analytics/Chrome (1).svg";
+import ColorTag from "../resuable/ColorTag";
 import RainbowTag from "../resuable/RainbowTag";
 
 const HeroPage = () => {
@@ -35,23 +33,38 @@ const HeroPage = () => {
                     </p>
 
                     {/* Tags */}
-                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center gap-3 md:py-6 py-3">
+                    <div className="grid grid-cols-3 max-[500px]:grid-cols-2 px-5 lg:px-0 items-center justify-center md:gap-x-3 md:gap-y-3 gap-x-2 gap-y-2 md:py-6 py-3">
                         <div>
-                            <img src={tag2} alt="" />
+                        <ColorTag
+                            text="Updates in real time"
+                            textColor="#008C3E"
+                            dotColor="#008C3E"
+                            bgColor="#EDFFF5"
+                            />
+                        </div>
+
+                        <div className="max-sm:-ml-4">
+                        <ColorTag
+                            text="14-day call history"
+                            textColor="#28007C"
+                            dotColor="#28007C"
+                            bgColor="#EAE0FF"
+                            />
                         </div>
 
                         <div>
-                            <img src={tag3} alt="" />
-                        </div>
-
-                        <div>
-                            <img src={tag4} alt="" />
+                        <ColorTag
+                            text="Exportable reports"
+                            textColor="#005D76"
+                            dotColor="#005D76"
+                            bgColor="#E3F9FF"
+                            />
                         </div>
                     </div>
                 </div>
 
                 {/* Right Image */}
-                <div>
+                <div className="max-sm:px-5">
                     <img
                         src={callImage}
                         alt=""

@@ -1,8 +1,6 @@
-import tag2 from "../../assets/how-it-works/1 (5).svg";
-import tag3 from "../../assets/how-it-works/2 (5).svg"
-import tag4 from "../../assets/how-it-works/4 (2).svg"
-import tag5 from "../../assets/how-it-works/3 (5).svg"
+
 import RainbowTag from "../resuable/RainbowTag";
+import ColorTag from "../resuable/ColorTag";
 
 const HeroPage = () => {
     return (
@@ -29,19 +27,71 @@ const HeroPage = () => {
 
                     <p className="text-[#171F2A] font-manrope md:mt-5 text-[14px] max-sm:py-5 md:w-120 md:text-center ">From the first ring to the confirmed appointment — here's exactly what Sernio does, and how it does it, every single call.</p>
                     <div className="flex flex-row max-sm:hidden items-center gap-3 py-6">
-                        <div><img src={tag2}/></div>
-                        <div><img src={tag3}/></div>
-                        <div><img src={tag4}/></div>
-                        <div><img src={tag5}/></div>
+                    <div>
+                            
+                            <ColorTag
+                                text="Answers in under 1 second"
+                                textColor="#008C3E"
+                                dotColor="#008C3E"
+                                bgColor="#EDFFF5"
+                                />
+                            
+                            </div>
+    
+                            <div>
+                            <ColorTag
+                                text="No hold music"
+                                textColor="#28007C"
+                                dotColor="#28007C"
+                                bgColor="#EAE0FF"
+                                />
+                            </div>
+
+                            <div>
+                            <ColorTag
+                                text="Works 24 | 7 | 365"
+                                textColor="#6B7280"
+                                dotColor="#6B7280"
+                                bgColor="#F0F0F0"
+                                />
+                            </div>
+    
+                            <div>
+                            <ColorTag
+                                text="HIPAA-ready"
+                                textColor="#005D76"
+                                dotColor="#005D76"
+                                bgColor="#E3F9FF"
+                                />
+                            </div>
 
                     </div>
 
-                    <div className=" grid-cols-2 max-sm:grid hidden items-center gap-3 py-6">
-                        <div><img src={tag2}/></div>
-                        <div><img src={tag3}/></div>
-                        <div><img src={tag4}/></div>
-                        <div><img src={tag5}/></div>
-
+                    <div className="max-sm:flex hidden flex-wrap items-center gap-x-2 gap-y-2 py-1">
+                        <ColorTag
+                            text="Answers in under 1 second"
+                            textColor="#008C3E"
+                            dotColor="#008C3E"
+                            bgColor="#EDFFF5"
+                        />
+                        <ColorTag
+                            text="No hold music"
+                            textColor="#28007C"
+                            dotColor="#28007C"
+                            bgColor="#EAE0FF"
+                        />
+                        <ColorTag
+                            text="Works 24 | 7 | 365"
+                            textColor="#6B7280"
+                            dotColor="#6B7280"
+                            bgColor="#F0F0F0"
+                        />
+                        <ColorTag
+                            text="HIPAA-ready"
+                            textColor="#005D76"
+                            dotColor="#005D76"
+                            bgColor="#E3F9FF"
+                        />
                     </div>
                 </div>
 

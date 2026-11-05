@@ -1,7 +1,3 @@
-import tag2 from "../../assets/integrations/1 (7).svg";
-import tag3 from "../../assets/integrations/2 (7).svg";
-import tag4 from "../../assets/integrations/4 (3).svg";
-import tag5 from "../../assets/integrations/3 (10).svg";
 import logo1 from "../../assets/integrations/1 (8).svg";
 import logo2 from "../../assets/integrations/2 (8).svg";
 import logo3 from "../../assets/integrations/3 (11).svg";
@@ -9,6 +5,7 @@ import logo4 from "../../assets/integrations/4 (4).svg";
 import logo5 from "../../assets/integrations/5.svg";
 import logo6 from "../../assets/integrations/6.svg";
 import RainbowTag from "../resuable/RainbowTag";
+import ColorTag from "../resuable/ColorTag";
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
 
@@ -57,19 +54,73 @@ const HeroSection = () => {
                     <div><img src={logo6} alt="" /></div>
                 </div>
 
-                <div className="flex flex-row max-sm:hidden items-center gap-3">
-                    <div><img src={tag2} alt="" /></div>
-                    <div><img src={tag3} alt="" /></div>
-                    <div><img src={tag4} alt="" /></div>
-                    <div><img src={tag5} alt="" /></div>
-                </div>
+                <div className="flex flex-row max-sm:hidden items-center gap-3 py-6">
+                    <div>
+                            
+                            <ColorTag
+                                text="Answers in under 1 second"
+                                textColor="#008C3E"
+                                dotColor="#008C3E"
+                                bgColor="#EDFFF5"
+                                />
+                            
+                            </div>
+    
+                            <div>
+                            <ColorTag
+                                text="No hold music"
+                                textColor="#28007C"
+                                dotColor="#28007C"
+                                bgColor="#EAE0FF"
+                                />
+                            </div>
 
-                <div className="grid-cols-2 max-sm:grid hidden items-center gap-3 py-6">
-                    <div><img src={tag2} alt="" /></div>
-                    <div><img src={tag3} alt="" /></div>
-                    <div><img src={tag4} alt="" /></div>
-                    <div><img src={tag5} alt="" /></div>
-                </div>
+                            <div>
+                            <ColorTag
+                                text="Works 24 | 7 | 365"
+                                textColor="#6B7280"
+                                dotColor="#6B7280"
+                                bgColor="#F0F0F0"
+                                />
+                            </div>
+    
+                            <div>
+                            <ColorTag
+                                text="HIPAA-ready"
+                                textColor="#005D76"
+                                dotColor="#005D76"
+                                bgColor="#E3F9FF"
+                                />
+                            </div>
+
+                    </div>
+
+                    <div className="max-sm:flex hidden flex-wrap items-center gap-x-2 gap-y-2 py-1">
+                        <ColorTag
+                            text="Answers in under 1 second"
+                            textColor="#008C3E"
+                            dotColor="#008C3E"
+                            bgColor="#EDFFF5"
+                        />
+                        <ColorTag
+                            text="No hold music"
+                            textColor="#28007C"
+                            dotColor="#28007C"
+                            bgColor="#EAE0FF"
+                        />
+                        <ColorTag
+                            text="Works 24 | 7 | 365"
+                            textColor="#6B7280"
+                            dotColor="#6B7280"
+                            bgColor="#F0F0F0"
+                        />
+                        <ColorTag
+                            text="HIPAA-ready"
+                            textColor="#005D76"
+                            dotColor="#005D76"
+                            bgColor="#E3F9FF"
+                        />
+                    </div>
             </div>
         </div>
     );
