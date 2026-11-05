@@ -253,7 +253,7 @@ const Orb = ({ size, logoClass = "" }: { size: string; logoClass?: string }) => 
     </div>
 
     {/* the rounded square = the "sky" */}
-    <div className="absolute inset-0 overflow-hidden rounded-[26%] bg-linear-to-br from-[#7b6cf6] via-[#8576f7] to-[#6b84f5]">
+    <div className="absolute inset-0 overflow-hidden rounded-[20%] bg-linear-to-br from-[#7b6cf6] via-[#8576f7] to-[#6b84f5]">
       {CLOUDS.map((c, i) => (
         <div
           key={i}
