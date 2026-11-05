@@ -6,7 +6,7 @@ const HeroPage = () => {
     return (
         <div
             data-navbar-theme="white"
-            className="bg-cover bg-center bg-no-repeat w-full min-h-screen lg:h-screen flex flex-col justify-center items-center px-0 lg:px-20 max-sm:pt-28 overflow-hidden md:pt-28 md:pb-10 xl:mt-14 lg:pt-0 lg:pb-0"
+            className="bg-cover bg-center bg-no-repeat w-full lg:min-h-screen lg:h-screen flex flex-col lg:justify-center lg:items-center overflow-hidden pt-32 pb-10  xl:mt-14 lg:pt-0 lg:pb-0"
             style={{ backgroundImage: `url('/bg (3).png')` }}
         >
             <div className="flex flex-col w-full xl:w-auto lg:gap-5 lg:flex-row lg:justify-center lg:items-center">
@@ -64,7 +64,7 @@ const HeroPage = () => {
                 </div>
 
                 {/* Right Image */}
-                <div className="max-sm:px-5">
+                <div className="max-sm:px-5 max-lg:flex max-lg:justify-center max-lg:items-center">
                     <img
                         src={callImage}
                         alt=""
