@@ -4,14 +4,12 @@ type RainbowTagProps = {
   children: React.ReactNode;
 };
 
-
 const SparkleIcon = () => (
-    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="3" width="2" height="6" rx="1" fill="white"/>
-    <rect x="4" width="2" height="12" rx="1" fill="white"/>
-    <rect y="3" width="2" height="6" rx="1" fill="white"/>
-    </svg>
-    
+  <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="3" width="2" height="6" rx="1" fill="white" />
+    <rect x="4" width="2" height="12" rx="1" fill="white" />
+    <rect y="3" width="2" height="6" rx="1" fill="white" />
+  </svg>
 );
 
 const RainbowTag = ({ children }: RainbowTagProps) => {
@@ -25,15 +23,18 @@ const RainbowTag = ({ children }: RainbowTagProps) => {
         .rainbow-tag {
           background-image: linear-gradient(
             90deg,
-            #ff5fa2,
-            #ff9a3c,
-            #2fd4a0,
-            #3b9bff,
-            #8b5cf6,
-            #ff5fa2
+            #7b6bff 0%,
+            #7b6bff 12%,
+            #ffe88f 30%,
+            #ffe88f 42%,
+            #ff1493 60%,
+            #ff1493 72%,
+            #7b6bff 90%,
+            #7b6bff 100%
           );
           background-size: 300% 100%;
-          animation: rainbow-tag-shift 6s linear infinite;
+          animation: rainbow-tag-shift 10s linear infinite;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
         @media (prefers-reduced-motion: reduce) {
           .rainbow-tag { animation: none; }
@@ -51,4 +52,3 @@ const RainbowTag = ({ children }: RainbowTagProps) => {
 };
 
 export default RainbowTag;
-

@@ -64,7 +64,7 @@ const HeroPage = () => {
                 </div>
 
                 {/* Right Image */}
-                <div className="max-sm:px-5 max-lg:flex max-lg:justify-center max-lg:items-center">
+                <div className="max-lg:px-5 max-lg:flex max-lg:justify-center max-lg:items-center">
                     <img
                         src={callImage}
                         alt=""

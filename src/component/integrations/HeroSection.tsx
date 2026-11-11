@@ -13,7 +13,7 @@ const HeroSection = () => {
     return (
         <div
             data-navbar-theme="white"
-            className="bg-cover bg-center bg-no-repeat w-full lg:min-h-screen flex lg:flex-col md:justify-center items-center overflow-hidden pt-32 pb-10 lg:pt-36 lg:pb-16"
+            className="bg-cover bg-center bg-no-repeat w-full lg:min-h-screen flex lg:flex-col md:justify-center items-center overflow-hidden pt-32 pb-10 md:pt-40 lg:pt-50 xl:pt-66 lg:pb-16"
             style={{ backgroundImage: `url('/bg (3).png')` }}
         >
             <div className="flex md:justify-center md:items-center max-sm:px-5 flex-col">

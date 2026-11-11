@@ -1,6 +1,6 @@
 import Icons from "../assets/Icons";
-import homepagePicture from "../assets/FourthSection/Chrome.svg"
-import homepageMobPicture from "../assets/FourthSection/1 (1).svg"
+import homepagePicture from "../assets/homepage/1 (10).svg"
+import homepageMobPicture from "../assets/homepage/Mask group.svg"
 import Tag from "./resuable/Tag";
 
 const FifthSection = () => {
