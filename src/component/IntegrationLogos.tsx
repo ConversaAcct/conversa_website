@@ -84,12 +84,12 @@ const cards: IntegrationCard[] = [
   },
 ];
 
-const DESKTOP_CARD_SIZE = "w-16 h-16 md:w-20 md:h-20";
+const DESKTOP_CARD_SIZE = "w-24 h-24 md:w-28 md:h-28";
 const ACTIVE_SCALE = 1.12;
 
 const MAX_ANGLE_DEG = 62;
 const RADIUS = 430;
-const CARD_BOTTOM_CLEARANCE = 72;
+const CARD_BOTTOM_CLEARANCE = 96;
 
 const stageHeight =
   RADIUS *
@@ -99,8 +99,31 @@ const stageHeight =
 const MD_BREAKPOINT = 768;
 const MOBILE_EDGE_GAP = 24;
 
-const WHEEL_STEP_THRESHOLD = 60;
-const WHEEL_STEP_COOLDOWN_MS = 220;
+// Page scroll (in px) needed to move the logos by one card.
+const SCROLL_PX_PER_STEP = 360;
+
+// After scrolling stops, wait this long then snap a logo to the centre.
+const SETTLE_DELAY_MS = 140;
+
+const TOTAL = cards.length;
+
+// Slots visible on each side of the centre card (3 for 7 cards).
+const VISIBLE_SIDE = (TOTAL - 1) / 2;
+
+// Angle between neighbouring cards on the arc.
+const ANGLE_STEP = MAX_ANGLE_DEG / VISIBLE_SIDE;
+
+// How fast the arc eases to its target (higher = snappier).
+const EASE_SPEED = 0.8;
+
+const DEFAULT_ID = "athena";
+
+const mod = (n: number, m: number) => ((n % m) + m) % m;
+
+// Wraps a slot into [-TOTAL / 2, TOTAL / 2) so a card that leaves one
+// end of the arc re-enters from the other end.
+const wrapSlot = (slot: number) =>
+  mod(slot + TOTAL / 2, TOTAL) - TOTAL / 2;
 
 const useIsMdUp = () => {
   const [isMdUp, setIsMdUp] = useState(false);
@@ -125,12 +148,26 @@ const useIsMdUp = () => {
 };
 
 const IntegrationLogos = () => {
-  const [active, setActive] = useState<string>("athena");
+  const [active, setActive] = useState<string>(DEFAULT_ID);
 
   const isMdUp = useIsMdUp();
 
   const activeCard =
     cards.find((card) => card.id === active) ?? cards[3];
+
+  const defaultIndex = cards.findIndex(
+    (card) => card.id === DEFAULT_ID
+  );
+
+  // Desktop carousel position, in card steps. It is a float while
+  // animating and always eases toward targetRef.
+  const [offset, setOffset] = useState<number>(defaultIndex);
+
+  const offsetRef = useRef<number>(defaultIndex);
+
+  const targetRef = useRef<number>(defaultIndex);
+
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -138,13 +175,7 @@ const IntegrationLogos = () => {
     Record<string, HTMLButtonElement | null>
   >({});
 
-  const stageRef = useRef<HTMLDivElement>(null);
-
   const activeRef = useRef(active);
-
-  const wheelAccumRef = useRef(0);
-
-  const lastStepAtRef = useRef(0);
 
   const rad = (deg: number) => (deg * Math.PI) / 180;
 
@@ -159,13 +190,13 @@ const IntegrationLogos = () => {
     const track = trackRef.current;
 
     if (el && track) {
-      const offset =
+      const offsetLeft =
         el.offsetLeft -
         track.clientWidth / 2 +
         el.clientWidth / 2;
 
       track.scrollTo({
-        left: offset,
+        left: offsetLeft,
         behavior: "auto",
       });
     }
@@ -235,117 +266,170 @@ const IntegrationLogos = () => {
     };
   }, [isMdUp]);
 
+  // Desktop: ease the arc toward its target and keep the label in
+  // sync with whichever logo is at the centre.
   useEffect(() => {
     if (!isMdUp) return;
 
-    const stage = stageRef.current;
-
-    if (!stage) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-
-      const delta =
-        Math.abs(e.deltaY) >= Math.abs(e.deltaX)
-          ? e.deltaY
-          : e.deltaX;
-
-      wheelAccumRef.current += delta;
-
-      const now = performance.now();
-
-      const cooledDown =
-        now - lastStepAtRef.current >
-        WHEEL_STEP_COOLDOWN_MS;
-
-      if (
-        Math.abs(wheelAccumRef.current) >=
-          WHEEL_STEP_THRESHOLD &&
-        cooledDown
-      ) {
-        const direction =
-          wheelAccumRef.current > 0 ? 1 : -1;
-
-        const currentIndex = cards.findIndex(
-          (card) => card.id === activeRef.current
-        );
-
-        const nextIndex = Math.min(
-          cards.length - 1,
-          Math.max(
-            0,
-            currentIndex + direction
-          )
-        );
-
-        if (nextIndex !== currentIndex) {
-          setActive(cards[nextIndex].id);
-        }
-
-        wheelAccumRef.current = 0;
-        lastStepAtRef.current = now;
-      }
-    };
-
-    stage.addEventListener(
-      "wheel",
-      handleWheel,
-      {
-        passive: false,
-      }
+    const startIndex = Math.max(
+      0,
+      cards.findIndex(
+        (card) => card.id === activeRef.current
+      )
     );
 
+    offsetRef.current = startIndex;
+    targetRef.current = startIndex;
+    setOffset(startIndex);
+
+    let raf = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+
+      const diff = targetRef.current - offsetRef.current;
+
+      if (Math.abs(diff) > 0.0005) {
+        const next =
+          Math.abs(diff) < 0.002
+            ? targetRef.current
+            : offsetRef.current +
+              diff * (1 - Math.exp(-dt * EASE_SPEED));
+
+        offsetRef.current = next;
+        setOffset(next);
+
+        const centerId =
+          cards[mod(Math.round(next), TOTAL)].id;
+
+        if (centerId !== activeRef.current) {
+          setActive(centerId);
+        }
+      }
+
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+
     return () => {
-      stage.removeEventListener(
-        "wheel",
-        handleWheel
-      );
+      cancelAnimationFrame(raf);
     };
   }, [isMdUp]);
+
+  // Desktop: the page scroll drives the arc while this section is on
+  // screen. Scrolling down moves the logos right, scrolling up moves
+  // them left, and a logo snaps to the centre once scrolling stops.
+  useEffect(() => {
+    if (!isMdUp) return;
+
+    const root = rootRef.current;
+
+    if (!root) return;
+
+    let lastY = window.scrollY;
+    let settleTimer = 0;
+
+    const handleScroll = () => {
+      const y = window.scrollY;
+      const dy = y - lastY;
+
+      lastY = y;
+
+      const rect = root.getBoundingClientRect();
+
+      const inView =
+        rect.bottom > 0 && rect.top < window.innerHeight;
+
+      if (!inView || dy === 0) return;
+
+      // Scroll down (dy > 0) -> offset decreases -> logos move right.
+      // Scroll up (dy < 0) -> offset increases -> logos move left.
+      targetRef.current -= dy / SCROLL_PX_PER_STEP;
+
+      window.clearTimeout(settleTimer);
+
+      settleTimer = window.setTimeout(() => {
+        targetRef.current = Math.round(targetRef.current);
+      }, SETTLE_DELAY_MS);
+    };
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+
+      window.clearTimeout(settleTimer);
+    };
+  }, [isMdUp]);
+
+  // Bring a clicked/focused logo to the centre by the shortest way round.
+  const goTo = (id: string) => {
+    const index = cards.findIndex(
+      (card) => card.id === id
+    );
+
+    if (index < 0) return;
+
+    const slot = wrapSlot(
+      index - Math.round(targetRef.current)
+    );
+
+    targetRef.current = Math.round(targetRef.current) + slot;
+  };
 
   const getDesktopPosition = (
     card: IntegrationCard
   ) => {
-    const activeIndex = cards.findIndex(
-      (item) => item.id === active
-    );
-
     const cardIndex = cards.findIndex(
       (item) => item.id === card.id
     );
 
-    const relativeIndex =
-      cardIndex - activeIndex;
+    // Signed distance from the centre, wrapped so cards loop around.
+    const slot = wrapSlot(cardIndex - offset);
 
-    const angleStep =
-      (MAX_ANGLE_DEG * 2) /
-      (cards.length - 1);
+    const angle = slot * ANGLE_STEP;
 
-    const angle =
-      relativeIndex * angleStep;
+    const x = RADIUS * Math.sin(rad(angle));
 
-    const clampedAngle = Math.max(
-      -MAX_ANGLE_DEG,
-      Math.min(MAX_ANGLE_DEG, angle)
+    const y = RADIUS * (1 - Math.cos(rad(angle)));
+
+    const distance = Math.abs(slot);
+
+    // Fully visible up to the last slot, then fades out over the
+    // final half step before wrapping to the other side.
+    const opacity = Math.max(
+      0,
+      Math.min(1, 1 - (distance - VISIBLE_SIDE) / 0.5)
     );
 
-    const x =
-      RADIUS *
-      Math.sin(rad(clampedAngle));
+    // Grows as the card approaches the centre.
+    const scale =
+      1 + (ACTIVE_SCALE - 1) * Math.max(0, 1 - distance);
 
-    const y =
-      RADIUS *
-      (1 - Math.cos(rad(clampedAngle)));
+    const zIndex = Math.round(
+      10 + Math.max(0, 1 - distance) * 10
+    );
 
     return {
       x,
       y,
-      angle: clampedAngle,
+      angle,
+      opacity,
+      scale,
+      zIndex,
     };
   };
 
   return (
-    <div className="relative w-full py-10 md:py-14">
+    <div
+      ref={rootRef}
+      className="relative w-full py-10 md:py-14"
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
@@ -357,7 +441,6 @@ const IntegrationLogos = () => {
 
       {isMdUp ? (
         <div
-          ref={stageRef}
           className="relative mx-auto"
           style={{
             height: stageHeight,
@@ -369,56 +452,42 @@ const IntegrationLogos = () => {
               x,
               y,
               angle,
+              opacity,
+              scale,
+              zIndex,
             } = getDesktopPosition(card);
-
-            const isActive = card.id === active;
-
-            const isEdge =
-              Math.abs(angle) === MAX_ANGLE_DEG;
 
             return (
               <button
                 key={card.id}
                 type="button"
-                onFocus={() =>
-                  setActive(card.id)
-                }
-                onClick={() =>
-                  setActive(card.id)
-                }
+                onFocus={() => goTo(card.id)}
+                onClick={() => goTo(card.id)}
                 style={{
                   left: "50%",
                   top: 0,
+                  opacity,
+                  zIndex,
+                  pointerEvents:
+                    opacity < 0.3 ? "none" : "auto",
+                  willChange: "transform, opacity",
                   transform: `
                     translate(
                       calc(-50% + ${x}px),
                       ${y}px
                     )
                     rotate(${angle}deg)
-                    scale(${isActive ? ACTIVE_SCALE : 1})
+                    scale(${scale})
                   `,
                 }}
                 className={`
                   ${DESKTOP_CARD_SIZE}
                   absolute
                   shrink-0
-                  transition-all
-                  duration-500
-                  ease-out
-                  ${
-                    isActive
-                      ? "z-20 opacity-100"
-                      : "z-10"
-                  }
-                  ${
-                    isEdge && !isActive
-                      ? "opacity-60"
-                      : ""
-                  }
                 `}
               >
                 <div
-                  className="w-full h-full transition-transform duration-500 ease-out"
+                  className="w-full h-full"
                   style={{
                     transform: `rotate(${-angle}deg)`,
                   }}
