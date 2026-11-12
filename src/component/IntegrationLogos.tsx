@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import athenaIcon from "../assets/eightsection/1 (6).svg";
-import mIcon from "../assets/eightsection/4 (2).svg";
-import drIcon from "../assets/eightsection/5 (2).svg";
-import googleIcon from "../assets/eightsection/3 (22).svg";
-import oracleIcon from "../assets/eightsection/2 (4).svg";
-import epicIcon from "../assets/eightsection/3 (4).svg";
-import driveIcon from "../assets/eightsection/2 (27).svg";
+import athenaIcon from "../assets/eightsection/image (10).svg";
+import mIcon from "../assets/eightsection/image (11).svg";
+import drIcon from "../assets/eightsection/image (12).svg";
+import googleIcon from "../assets/eightsection/image (13).svg";
+import oracleIcon from "../assets/eightsection/image (14).svg";
+import epicIcon from "../assets/eightsection/image (15).svg";
+import driveIcon from "../assets/eightsection/image (16).svg";
 
 import teamMobile from "../assets/integrated/image (7).svg";
 import epicMob from "../assets/integrated/image (8).svg";
@@ -84,12 +84,21 @@ const cards: IntegrationCard[] = [
   },
 ];
 
-const DESKTOP_CARD_SIZE = "w-24 h-24 md:w-28 md:h-28";
-const ACTIVE_SCALE = 1.12;
+// Desktop card (white background box) size.
+const DESKTOP_CARD_PX = 88;
+
+// Every logo inside the box has the same size.
+const DESKTOP_LOGO_PX = 40;
+
+// 1 = all cards stay equal in size (no growth at the centre).
+const ACTIVE_SCALE = 1;
 
 const MAX_ANGLE_DEG = 62;
 const RADIUS = 430;
-const CARD_BOTTOM_CLEARANCE = 96;
+
+// Grown with the card size so the label keeps the same gap below the
+// centre card as before.
+const CARD_BOTTOM_CLEARANCE = 72;
 
 const stageHeight =
   RADIUS *
@@ -407,7 +416,7 @@ const IntegrationLogos = () => {
       Math.min(1, 1 - (distance - VISIBLE_SIDE) / 0.5)
     );
 
-    // Grows as the card approaches the centre.
+    // Grows as the card approaches the centre (1 = no growth).
     const scale =
       1 + (ACTIVE_SCALE - 1) * Math.max(0, 1 - distance);
 
@@ -466,6 +475,8 @@ const IntegrationLogos = () => {
                 style={{
                   left: "50%",
                   top: 0,
+                  width: DESKTOP_CARD_PX,
+                  height: DESKTOP_CARD_PX,
                   opacity,
                   zIndex,
                   pointerEvents:
@@ -480,16 +491,24 @@ const IntegrationLogos = () => {
                     scale(${scale})
                   `,
                 }}
-                className={`
-                  ${DESKTOP_CARD_SIZE}
+                className="
                   absolute
                   shrink-0
-                `}
+                  flex
+                  items-center
+                  justify-center
+                  box-border
+                  bg-white
+                  border
+                  border-[#EBEAEE]
+                  rounded-[22px]
+                "
               >
                 <div
-                  className="w-full h-full"
+                  className="flex items-center justify-center"
                   style={{
-                    transform: `rotate(${-angle}deg)`,
+                    width: DESKTOP_LOGO_PX,
+                    height: DESKTOP_LOGO_PX,
                   }}
                 >
                   <img
