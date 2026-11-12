@@ -29,10 +29,30 @@ const Footer = () => {
 
                         <p className="text-[#ADA6BB] mt-5 text-[15px] font-light max-[460px]:text-[13px]">AI that answers, triages, and books patient calls; so your front desk never has to choose between the phone and the patient in front of them.</p>
                         <div className="flex flex-row items-center gap-5 mt-8">
-                            {Icons.linkedinIcon}
-                            {Icons.xIcon}
-                            {Icons.facebookIcon}
-                            {Icons.instagramIcon}
+                            <div className="hover:bg-[#5B0AFF] hover:border-none border border-[#333142] rounded-lg items-center flex justify-center cursor-pointer w-[52.5px] h-[52.5px] bg-[#0E0D18]">
+                                             <a href="https://www.linkedin.com/company/sernio-ai/" target="_blank">                                
+                                             
+                                             {Icons.linkedinWhiteIcon}
+
+                                          </a>
+    
+                                </div>
+
+                            <div className="hover:bg-[#5B0AFF] hover:border-none border border-[#333142] rounded-lg items-center flex justify-center cursor-pointer w-[52.5px] h-[52.5px] bg-[#0E0D18]">
+                                {Icons.xwhiteIcon}
+                            </div>
+
+                            <div className="hover:bg-[#5B0AFF] hover:border-none border border-[#333142] rounded-lg items-center flex justify-center cursor-pointer w-[52.5px] h-[52.5px] bg-[#0E0D18]">
+                                 {Icons.facebookWhiteIcon}
+                            </div>
+
+                            <div className="hover:bg-[#5B0AFF] hover:border-none border border-[#333142] rounded-lg items-center flex justify-center cursor-pointer w-[52.5px] h-[52.5px] bg-[#0E0D18]">
+                               {Icons.instagramWhiteIcon}
+                            </div>
+                         
+                            
+                        
+                            
                         </div>
                     </div>
 
