@@ -90,6 +90,13 @@ const DESKTOP_CARD_PX = 88;
 // Every logo inside the box has the same size.
 const DESKTOP_LOGO_PX = 40;
 
+// Logos that look small at the default size get a bit more room.
+const DESKTOP_LOGO_PX_OVERRIDES: Record<string, number> = {
+  epic: 52,
+  oura: 52,
+  athena: 52,
+};
+
 // 1 = all cards stay equal in size (no growth at the centre).
 const ACTIVE_SCALE = 1;
 
@@ -507,8 +514,12 @@ const IntegrationLogos = () => {
                 <div
                   className="flex items-center justify-center"
                   style={{
-                    width: DESKTOP_LOGO_PX,
-                    height: DESKTOP_LOGO_PX,
+                    width:
+                      DESKTOP_LOGO_PX_OVERRIDES[card.id] ??
+                      DESKTOP_LOGO_PX,
+                    height:
+                      DESKTOP_LOGO_PX_OVERRIDES[card.id] ??
+                      DESKTOP_LOGO_PX,
                   }}
                 >
                   <img
